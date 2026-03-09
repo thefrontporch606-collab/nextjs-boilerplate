@@ -1,19 +1,39 @@
 export default function Home() {
   return (
     <main>
-      <section className="hero">
-        <div className="hero-overlay">
-          <p className="eyebrow">Veterans Nonprofit</p>
-          <h1>The Front Porch</h1>
-          <p className="hero-text">
-            Supporting veterans and their families through outreach,
-            emergency relief, benefits guidance, employment support,
-            and community connection.
-          </p>
+      <section className="top-banner">
+        <div className="container banner-wrap">
+          <img
+            src="/banner.png"
+            alt="TFP Built From Chaos - For Veterans. By Veterans."
+            className="banner-image"
+          />
+        </div>
+      </section>
 
-          <div className="hero-buttons">
-            <a className="btn btn-primary" href="#donate">Donate Now</a>
-            <a className="btn btn-secondary" href="#help">Get Help</a>
+      <section className="hero">
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">Veterans Nonprofit</p>
+            <h1>The Front Porch</h1>
+            <p className="hero-text">
+              Supporting veterans and their families through outreach,
+              emergency relief, VA benefits guidance, employment support,
+              and strong community connection.
+            </p>
+
+            <div className="hero-buttons">
+              <a className="btn btn-primary" href="#donate">Donate Now</a>
+              <a className="btn btn-secondary" href="#help">Get Help</a>
+            </div>
+          </div>
+
+          <div className="hero-logo-card">
+            <img
+              src="/logo.jpeg"
+              alt="The Front Porch logo"
+              className="hero-logo"
+            />
           </div>
         </div>
       </section>
@@ -23,7 +43,8 @@ export default function Home() {
           <h2>Our Mission</h2>
           <p className="lead">
             The Front Porch exists to support veterans and their families by
-            providing resources, guidance, and a community where no one is left behind.
+            providing resources, guidance, emergency assistance, and a community
+            where no one is left behind.
           </p>
         </div>
       </section>
@@ -44,37 +65,40 @@ export default function Home() {
             <div className="card">
               <h3>Emergency Relief Support</h3>
               <p>
-                Immediate assistance during crisis situations when veterans and
-                families need help most.
+                Immediate assistance during crisis situations when veterans
+                and families need help most.
               </p>
             </div>
 
             <div className="card">
               <h3>VA Claims & Benefits Guidance</h3>
               <p>
-                Helping veterans understand and access the benefits they have earned.
+                Helping veterans understand and access the benefits
+                they have earned.
               </p>
             </div>
 
             <div className="card">
               <h3>Veteran Employment Support</h3>
               <p>
-                Career readiness, resume help, and job placement support for veterans.
+                Career readiness, resume support, and job placement help
+                for veterans.
               </p>
             </div>
 
             <div className="card">
               <h3>Community & Peer Support</h3>
               <p>
-                Building real relationships, shared experiences, and a place without judgment.
+                Building real connection, shared experiences, and
+                judgment-free support.
               </p>
             </div>
 
             <div className="card">
-              <h3>Family & Community Impact</h3>
+              <h3>Family & Community Outreach</h3>
               <p>
-                Serving veterans, their families, and the wider community through events
-                and outreach.
+                Serving veterans, their families, and the wider community
+                through outreach and events.
               </p>
             </div>
           </div>
@@ -86,8 +110,8 @@ export default function Home() {
           <div>
             <h2>Support Our Mission</h2>
             <p>
-              Your donation helps provide resources, outreach, emergency support,
-              and hope for veterans in need.
+              Your donation helps provide outreach, emergency support,
+              benefits guidance, and hope for veterans in need.
             </p>
           </div>
 
@@ -106,11 +130,11 @@ export default function Home() {
         <div className="container center">
           <h2>Need Help?</h2>
           <p className="lead">
-            Veterans who need assistance with housing, emergency relief,
-            benefits guidance, employment, or support services can reach out to us.
+            Veterans needing assistance with housing, emergency relief,
+            employment support, benefits guidance, or other services can contact us.
           </p>
           <a className="btn btn-primary" href="mailto:info@frontporch606.com">
-            Contact Us for Help
+            Request Assistance
           </a>
         </div>
       </section>
@@ -119,13 +143,14 @@ export default function Home() {
         <div className="container center">
           <h2>Get Involved</h2>
           <p className="lead">
-            Donate, volunteer, become a member, attend events, and help us make an impact.
+            Donate, volunteer, become a member, attend events, and help us make
+            a real impact for veterans and their families.
           </p>
 
           <div className="hero-buttons center-buttons">
-            <a className="btn btn-secondary" href="#">Become a Member</a>
-            <a className="btn btn-secondary" href="#">Upcoming Events</a>
-            <a className="btn btn-secondary" href="#">Shop Merch</a>
+            <a className="btn btn-secondary" href="#">Membership</a>
+            <a className="btn btn-secondary" href="#">Events</a>
+            <a className="btn btn-secondary" href="#">Shop</a>
           </div>
         </div>
       </section>
@@ -139,7 +164,7 @@ export default function Home() {
 
           <div>
             <p>Email: info@frontporch606.com</p>
-            <p>Serving veterans, families, and community.</p>
+            <p>For Veterans. By Veterans.</p>
           </div>
         </div>
       </footer>
