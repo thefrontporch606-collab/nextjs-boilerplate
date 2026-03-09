@@ -9,25 +9,30 @@ html {
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #18263a;
-  background: #ffffff;
+  background: #f3f3f3;
+  color: #163251;
 }
 
 a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 .container {
-  width: min(1100px, 92%);
+  width: min(1120px, 92%);
   margin: 0 auto;
 }
 
 .section {
-  padding: 70px 0;
+  padding: 72px 0;
 }
 
 .light {
-  background: #f5f7fb;
+  background: #ffffff;
 }
 
 .center {
@@ -37,32 +42,43 @@ a {
 .lead {
   max-width: 760px;
   margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #44546a;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #41556f;
+}
+
+.top-banner {
+  background: #f3f3f3;
+  padding: 28px 0 10px;
+}
+
+.banner-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.banner-image {
+  width: min(100%, 820px);
+  height: auto;
+  object-fit: contain;
 }
 
 .hero {
-  min-height: 78vh;
-  background:
-    linear-gradient(rgba(11, 31, 58, 0.72), rgba(11, 31, 58, 0.72)),
-    url("https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1400&q=80")
-      center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  color: white;
+  background: linear-gradient(180deg, #f3f3f3 0%, #ffffff 100%);
+  padding: 30px 0 60px;
 }
 
-.hero-overlay {
-  width: min(1100px, 92%);
-  margin: 0 auto;
-  padding: 80px 0;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
 }
 
 .eyebrow {
   display: inline-block;
-  background: #c53b32;
-  color: white;
+  background: #b0302c;
+  color: #ffffff;
   padding: 8px 14px;
   border-radius: 999px;
   font-weight: 700;
@@ -70,16 +86,17 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 8vw, 5rem);
+  font-size: clamp(2.7rem, 7vw, 5rem);
   line-height: 0.95;
-  margin: 0 0 18px;
+  margin: 0 0 16px;
+  color: #163251;
 }
 
 .hero-text {
-  max-width: 720px;
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.92);
+  max-width: 700px;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #41556f;
   margin-bottom: 28px;
 }
 
@@ -91,6 +108,19 @@ a {
 
 .center-buttons {
   justify-content: center;
+}
+
+.hero-logo-card {
+  background: #ffffff;
+  border: 1px solid #d7dde5;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(22, 50, 81, 0.08);
+}
+
+.hero-logo {
+  width: 100%;
+  border-radius: 12px;
 }
 
 .btn {
@@ -106,25 +136,25 @@ a {
 }
 
 .btn-primary {
-  background: #c53b32;
-  color: white;
+  background: #b0302c;
+  color: #ffffff;
 }
 
 .btn-secondary {
-  background: white;
-  color: #18263a;
-  border: 2px solid #d6deea;
+  background: #ffffff;
+  color: #163251;
+  border: 2px solid #d7dde5;
 }
 
 h2 {
   font-size: 2rem;
   margin: 0 0 18px;
-  color: #14233a;
+  color: #163251;
 }
 
 h3 {
   margin-top: 0;
-  color: #14233a;
+  color: #163251;
 }
 
 .card-grid {
@@ -135,28 +165,28 @@ h3 {
 }
 
 .card {
-  background: white;
+  background: #f8f9fb;
   border-radius: 16px;
   padding: 26px;
-  box-shadow: 0 10px 30px rgba(20, 35, 58, 0.08);
-  border: 1px solid #e8edf5;
+  border: 1px solid #dfe5ed;
+  box-shadow: 0 8px 24px rgba(22, 50, 81, 0.06);
 }
 
 .card p {
   margin-bottom: 0;
   line-height: 1.7;
-  color: #4f5f73;
+  color: #4b5d74;
 }
 
 .donate {
-  background: linear-gradient(135deg, #17325a, #254b82);
-  color: white;
+  background: linear-gradient(135deg, #163251, #274c79);
+  color: #ffffff;
 }
 
 .donate h2,
 .donate p,
 .donate .small {
-  color: white;
+  color: #ffffff;
 }
 
 .donate-box {
@@ -172,13 +202,13 @@ h3 {
 
 .small {
   font-size: 0.95rem;
-  opacity: 0.9;
+  opacity: 0.92;
   margin-top: 12px;
 }
 
 .footer {
-  background: #101b2c;
-  color: white;
+  background: #163251;
+  color: #ffffff;
   padding: 36px 0;
 }
 
@@ -190,40 +220,45 @@ h3 {
 
 .footer h3,
 .footer p {
-  color: white;
+  color: #ffffff;
   margin: 0 0 8px;
 }
 
-@media (max-width: 900px) {
-  .card-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
+@media (max-width: 950px) {
+  .hero-grid,
   .donate-box,
   .footer-inner {
+    grid-template-columns: 1fr;
     flex-direction: column;
     text-align: center;
   }
 
+  .hero-buttons,
   .donate-actions {
+    justify-content: center;
     text-align: center;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
   .section {
     padding: 54px 0;
   }
 
-  .hero {
-    min-height: 70vh;
+  .card-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-text {
-    font-size: 1.05rem;
+  .hero-text,
+  .lead {
+    font-size: 1rem;
+  }
+
+  .top-banner {
+    padding-top: 18px;
   }
 }
