@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 
 const paypal =
 "https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G";
@@ -19,8 +18,6 @@ white:"#FFFFFF"
 };
 
 export default function Home(){
-
-const [menu,setMenu] = useState(false)
 
 return(
 
@@ -196,20 +193,19 @@ fill={COLORS.white}
 <div>
 
 <strong style={{color:COLORS.white}}>
-The Front Porch
-</strong>{" "}
-is a nonprofit organization and your donation is a
-tax-deductible donation to the extent allowed by law.
+The Front Porch is a Nonprofit Organization and your donation is a tax-deductible donation.
+</strong>
 
 <br/>
 
-<strong style={{
+<span style={{
 color:COLORS.white,
-fontSize:"18px",
+fontSize:"20px",
+fontWeight:"bold",
 letterSpacing:"1px"
 }}>
 EIN: 39-4248466
-</strong>
+</span>
 
 </div>
 
