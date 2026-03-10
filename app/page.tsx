@@ -1,173 +1,399 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <main>
-      <section className="top-banner">
-        <div className="container banner-wrap">
-          <img
-            src="/banner.png"
-            alt="TFP Built From Chaos - For Veterans. By Veterans."
-            className="banner-image"
-          />
-        </div>
-      </section>
+    <main
+      style={{
+        backgroundColor: "#f4efe6",
+        color: "#1f3558",
+        minHeight: "100vh",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      {/* HERO */}
+      <section
+        style={{
+          position: "relative",
+          width: "100%",
+          minHeight: "520px",
+          overflow: "hidden",
+          backgroundColor: "#1f3558",
+        }}
+      >
+        <Image
+          src="/banner.PNG"
+          alt="The Front Porch banner"
+          fill
+          priority
+          style={{
+            objectFit: "cover",
+          }}
+        />
 
-      <section className="hero">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">Veterans Nonprofit</p>
-            <h1>The Front Porch</h1>
-            <p className="hero-text">
-              Supporting veterans and their families through outreach,
-              emergency relief, VA benefits guidance, employment support,
-              and strong community connection.
-            </p>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(10,18,30,0.25), rgba(10,18,30,0.72))",
+          }}
+        />
 
-            <div className="hero-buttons">
-              <a className="btn btn-primary" href="#donate">Donate Now</a>
-              <a className="btn btn-secondary" href="#help">Get Help</a>
-            </div>
-          </div>
-
-          <div className="hero-logo-card">
-            <img
-              src="/logo.jpeg"
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "60px 20px 100px",
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "rgba(255,255,255,0.95)",
+              borderRadius: "999px",
+              padding: "12px",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.28)",
+              marginBottom: "18px",
+            }}
+          >
+            <Image
+              src="/logo.JPG"
               alt="The Front Porch logo"
-              className="hero-logo"
+              width={120}
+              height={120}
+              priority
+              style={{
+                objectFit: "contain",
+                borderRadius: "999px",
+              }}
             />
           </div>
-        </div>
-      </section>
 
-      <section className="section">
-        <div className="container center">
-          <h2>Our Mission</h2>
-          <p className="lead">
-            The Front Porch exists to support veterans and their families by
-            providing resources, guidance, emergency assistance, and a community
-            where no one is left behind.
+          <div
+            style={{
+              backgroundColor: "#b44537",
+              color: "#ffffff",
+              padding: "10px 18px",
+              borderRadius: "999px",
+              fontWeight: 700,
+              fontSize: "14px",
+              letterSpacing: "0.4px",
+              marginBottom: "18px",
+            }}
+          >
+            Veterans Nonprofit
+          </div>
+
+          <h1
+            style={{
+              margin: 0,
+              color: "#ffffff",
+              fontSize: "clamp(2.5rem, 7vw, 5rem)",
+              fontWeight: 800,
+              lineHeight: 1.05,
+              textShadow: "0 4px 14px rgba(0,0,0,0.35)",
+            }}
+          >
+            The Front Porch
+          </h1>
+
+          <p
+            style={{
+              marginTop: "16px",
+              maxWidth: "900px",
+              color: "#f4efe6",
+              fontSize: "clamp(1rem, 2.2vw, 1.35rem)",
+              lineHeight: 1.7,
+              textShadow: "0 2px 8px rgba(0,0,0,0.28)",
+            }}
+          >
+            Built From Chaos — For Veterans. By Veterans.
           </p>
         </div>
       </section>
 
-      <section className="section light">
-        <div className="container">
-          <h2 className="center">What We Do</h2>
-
-          <div className="card-grid">
-            <div className="card">
-              <h3>Homeless Veteran Outreach</h3>
-              <p>
-                Connecting unhoused veterans with safety, housing resources,
-                and long-term support.
-              </p>
-            </div>
-
-            <div className="card">
-              <h3>Emergency Relief Support</h3>
-              <p>
-                Immediate assistance during crisis situations when veterans
-                and families need help most.
-              </p>
-            </div>
-
-            <div className="card">
-              <h3>VA Claims & Benefits Guidance</h3>
-              <p>
-                Helping veterans understand and access the benefits
-                they have earned.
-              </p>
-            </div>
-
-            <div className="card">
-              <h3>Veteran Employment Support</h3>
-              <p>
-                Career readiness, resume support, and job placement help
-                for veterans.
-              </p>
-            </div>
-
-            <div className="card">
-              <h3>Community & Peer Support</h3>
-              <p>
-                Building real connection, shared experiences, and
-                judgment-free support.
-              </p>
-            </div>
-
-            <div className="card">
-              <h3>Family & Community Outreach</h3>
-              <p>
-                Serving veterans, their families, and the wider community
-                through outreach and events.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="donate" className="section donate">
-        <div className="container donate-box">
-          <div>
-            <h2>Support Our Mission</h2>
-            <p>
-              Your donation helps provide outreach, emergency support,
-              benefits guidance, and hope for veterans in need.
-            </p>
+      {/* BIG DONATE SECTION */}
+      <section
+        style={{
+          maxWidth: "1150px",
+          margin: "-55px auto 0",
+          padding: "0 20px",
+          position: "relative",
+          zIndex: 3,
+        }}
+      >
+        <div
+          style={{
+            background:
+              "linear-gradient(135deg, #b44537 0%, #c25745 50%, #1f3558 100%)",
+            borderRadius: "24px",
+            padding: "34px 28px",
+            boxShadow: "0 18px 45px rgba(31,53,88,0.18)",
+            color: "#ffffff",
+            textAlign: "center",
+            border: "1px solid rgba(255,255,255,0.18)",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "0.95rem",
+              fontWeight: 700,
+              letterSpacing: "1px",
+              textTransform: "uppercase",
+              opacity: 0.95,
+              marginBottom: "10px",
+            }}
+          >
+            Support Our Mission
           </div>
 
-          <div className="donate-actions">
-            <a className="btn btn-primary" href="https://paypal.com" target="_blank">
-              Donate with PayPal
-            </a>
-            <p className="small">
-              One-time and recurring donations can be connected here.
-            </p>
-          </div>
-        </div>
-      </section>
+          <h2
+            style={{
+              margin: "0 0 14px 0",
+              fontSize: "clamp(2rem, 5vw, 3.3rem)",
+              lineHeight: 1.1,
+            }}
+          >
+            Help Us Stand With Veterans
+          </h2>
 
-      <section id="help" className="section">
-        <div className="container center">
-          <h2>Need Help?</h2>
-          <p className="lead">
-            Veterans needing assistance with housing, emergency relief,
-            employment support, benefits guidance, or other services can contact us.
+          <p
+            style={{
+              margin: "0 auto 26px",
+              maxWidth: "820px",
+              fontSize: "1.1rem",
+              lineHeight: 1.8,
+              color: "#f6eee5",
+            }}
+          >
+            Your donation helps The Front Porch provide outreach, emergency
+            relief, guidance, and real support for veterans and their families.
           </p>
-          <a className="btn btn-primary" href="mailto:info@frontporch606.com">
-            Request Assistance
+
+          <a
+            href="https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              backgroundColor: "#f4efe6",
+              color: "#1f3558",
+              textDecoration: "none",
+              padding: "20px 40px",
+              borderRadius: "16px",
+              fontWeight: 800,
+              fontSize: "1.2rem",
+              boxShadow: "0 10px 24px rgba(0,0,0,0.18)",
+              border: "3px solid rgba(255,255,255,0.35)",
+            }}
+          >
+            Donate Now
           </a>
         </div>
       </section>
 
-      <section className="section light">
-        <div className="container center">
-          <h2>Get Involved</h2>
-          <p className="lead">
-            Donate, volunteer, become a member, attend events, and help us make
-            a real impact for veterans and their families.
-          </p>
+      {/* INTRO */}
+      <section
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "60px 20px 30px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            marginBottom: "18px",
+            color: "#1f3558",
+          }}
+        >
+          Standing with veterans and their families
+        </h2>
 
-          <div className="hero-buttons center-buttons">
-            <a className="btn btn-secondary" href="#">Membership</a>
-            <a className="btn btn-secondary" href="#">Events</a>
-            <a className="btn btn-secondary" href="#">Shop</a>
-          </div>
+        <p
+          style={{
+            maxWidth: "900px",
+            margin: "0 auto",
+            fontSize: "1.15rem",
+            lineHeight: 1.85,
+            color: "#4b5e7b",
+          }}
+        >
+          The Front Porch supports veterans through outreach, emergency relief,
+          community connection, benefits guidance, employment support, and
+          practical help when life gets hard. We believe no veteran should have
+          to face hardship alone.
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "16px",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            marginTop: "34px",
+          }}
+        >
+          <a
+            href="https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: "#b44537",
+              color: "#ffffff",
+              padding: "16px 34px",
+              borderRadius: "14px",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "1.05rem",
+              boxShadow: "0 8px 20px rgba(180,69,55,0.22)",
+            }}
+          >
+            Donate Today
+          </a>
+
+          <a
+            href="/get-help"
+            style={{
+              backgroundColor: "#e2d8c8",
+              color: "#1f3558",
+              padding: "16px 34px",
+              borderRadius: "14px",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "1.05rem",
+              border: "2px solid #cdbca4",
+            }}
+          >
+            Get Help
+          </a>
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="container footer-inner">
-          <div>
-            <h3>The Front Porch</h3>
-            <p>Veterans Nonprofit</p>
-          </div>
+      {/* SERVICES */}
+      <section
+        style={{
+          maxWidth: "1150px",
+          margin: "0 auto",
+          padding: "30px 20px 75px",
+        }}
+      >
+        <h3
+          style={{
+            textAlign: "center",
+            fontSize: "2rem",
+            marginBottom: "28px",
+            color: "#1f3558",
+          }}
+        >
+          How We Help
+        </h3>
 
-          <div>
-            <p>Email: info@frontporch606.com</p>
-            <p>For Veterans. By Veterans.</p>
-          </div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: "22px",
+          }}
+        >
+          {[
+            {
+              title: "Emergency Relief",
+              text: "Support for urgent needs such as utilities, food, heat, and other immediate hardships.",
+            },
+            {
+              title: "Veteran Outreach",
+              text: "Connecting with veterans where they are and making sure they know support is available.",
+            },
+            {
+              title: "Benefits Guidance",
+              text: "Helping veterans understand available resources, options, and next steps.",
+            },
+            {
+              title: "Community Programs",
+              text: "Events and programs that bring veterans, families, and the community together.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              style={{
+                backgroundColor: "#fffaf2",
+                borderRadius: "18px",
+                padding: "28px 22px",
+                boxShadow: "0 10px 24px rgba(31,53,88,0.08)",
+                border: "1px solid #e2d7c6",
+              }}
+            >
+              <h4
+                style={{
+                  marginTop: 0,
+                  marginBottom: "12px",
+                  color: "#b44537",
+                  fontSize: "1.3rem",
+                }}
+              >
+                {item.title}
+              </h4>
+              <p
+                style={{
+                  margin: 0,
+                  color: "#4b5e7b",
+                  lineHeight: 1.7,
+                  fontSize: "1rem",
+                }}
+              >
+                {item.text}
+              </p>
+            </div>
+          ))}
         </div>
-      </footer>
+      </section>
+
+      {/* MISSION STRIP */}
+      <section
+        style={{
+          backgroundColor: "#1f3558",
+          color: "#f4efe6",
+          padding: "65px 20px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "950px",
+            margin: "0 auto",
+            textAlign: "center",
+          }}
+        >
+          <h3
+            style={{
+              fontSize: "2rem",
+              marginTop: 0,
+              marginBottom: "16px",
+            }}
+          >
+            Real support. Real people. Real community.
+          </h3>
+
+          <p
+            style={{
+              margin: 0,
+              lineHeight: 1.85,
+              fontSize: "1.1rem",
+              color: "#ddd2c0",
+            }}
+          >
+            The Front Porch exists to serve those who served. Whether it is a
+            family in crisis, a veteran needing direction, or a community ready
+            to stand behind its own, we are here to answer that call.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
