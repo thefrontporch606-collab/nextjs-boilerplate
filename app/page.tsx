@@ -34,7 +34,7 @@ color:COLORS.blue
 
 @keyframes pulse {
 0% {transform: scale(1);}
-50% {transform: scale(1.06);}
+50% {transform: scale(1.07);}
 100% {transform: scale(1);}
 }
 
@@ -117,34 +117,35 @@ CONTACT US
 {/* DONATE SECTION */}
 
 <section style={{
-maxWidth:"1300px",
-margin:"50px auto",
+maxWidth:"1400px",
+margin:"60px auto",
 padding:"0 20px"
 }}>
 
 <div style={{
 background:`linear-gradient(135deg, ${COLORS.red}, ${COLORS.blue})`,
-padding:"70px 40px",
-borderRadius:"28px",
+padding:"90px 60px",
+borderRadius:"32px",
 textAlign:"center",
 color:COLORS.white,
-boxShadow:"0 25px 60px rgba(0,0,0,.2)"
+boxShadow:"0 30px 70px rgba(0,0,0,.25)"
 }}>
 
 <h1 style={{
-fontSize:"clamp(2.2rem,5vw,3.8rem)",
-marginBottom:"20px"
+fontSize:"clamp(2.4rem,5vw,4rem)",
+marginBottom:"24px"
 }}>
 SUPPORT THE FRONT PORCH
 </h1>
 
 <p style={{
-maxWidth:"750px",
-margin:"0 auto 28px",
-lineHeight:"1.8"
+maxWidth:"760px",
+margin:"0 auto 34px",
+lineHeight:"1.8",
+fontSize:"18px"
 }}>
-Your donations help provide outreach, emergency relief, and
-real support to veterans and their families.
+Your donations help provide outreach, emergency relief,
+and real support to veterans and their families.
 </p>
 
 <a
@@ -153,10 +154,10 @@ target="_blank"
 style={{
 background:COLORS.white,
 color:COLORS.red,
-padding:"22px 48px",
-borderRadius:"18px",
+padding:"24px 52px",
+borderRadius:"20px",
 fontWeight:900,
-fontSize:"22px",
+fontSize:"24px",
 textDecoration:"none",
 display:"inline-block",
 animation:"pulse 2s infinite"
@@ -167,19 +168,52 @@ DONATE NOW
 
 </a>
 
-<p style={{
-marginTop:"24px",
-fontSize:"15px",
-lineHeight:"1.6",
-opacity:.95
+{/* TAX INFO */}
+
+<div style={{
+marginTop:"30px",
+display:"flex",
+alignItems:"center",
+justifyContent:"center",
+gap:"12px",
+maxWidth:"720px",
+marginLeft:"auto",
+marginRight:"auto",
+textAlign:"left",
+fontSize:"16px",
+lineHeight:"1.6"
 }}>
 
-🛡️ Donations made to <strong>The Front Porch</strong> may be tax-deductible.
-Please consult your tax advisor.
-<br/>
-<strong>EIN: 39-4248466</strong>
+<svg
+width="28"
+height="28"
+viewBox="0 0 24 24"
+fill={COLORS.white}
+>
+<path d="M12 2L4 5v6c0 5.25 3.5 9.75 8 11 4.5-1.25 8-5.75 8-11V5l-8-3z"/>
+</svg>
 
-</p>
+<div>
+
+<strong style={{color:COLORS.white}}>
+The Front Porch
+</strong>{" "}
+is a nonprofit organization and your donation is a
+tax-deductible donation to the extent allowed by law.
+
+<br/>
+
+<strong style={{
+color:COLORS.white,
+fontSize:"18px",
+letterSpacing:"1px"
+}}>
+EIN: 39-4248466
+</strong>
+
+</div>
+
+</div>
 
 </div>
 
