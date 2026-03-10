@@ -15,105 +15,47 @@ export default function Home() {
         style={{
           position: "relative",
           width: "100%",
-          minHeight: "520px",
-          overflow: "hidden",
-          backgroundColor: "#1f3558",
+          backgroundColor: "#ffffff",
+          paddingTop: "24px",
         }}
       >
-        <Image
-          src="/banner.PNG"
-          alt="The Front Porch banner"
-          fill
-          priority
-          style={{
-            objectFit: "cover",
-          }}
-        />
-
         <div
           style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(10,18,30,0.25), rgba(10,18,30,0.72))",
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "14px",
           }}
-        />
+        >
+          <Image
+            src="/logo.JPG"
+            alt="The Front Porch logo"
+            width={170}
+            height={170}
+            priority
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        </div>
 
         <div
           style={{
             position: "relative",
-            zIndex: 2,
-            maxWidth: "1200px",
+            width: "100%",
+            maxWidth: "1400px",
             margin: "0 auto",
-            padding: "60px 20px 100px",
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
           }}
         >
-          <div
+          <img
+            src="/banner.PNG"
+            alt="The Front Porch banner"
             style={{
-              backgroundColor: "rgba(255,255,255,0.95)",
-              borderRadius: "999px",
-              padding: "12px",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.28)",
-              marginBottom: "18px",
+              width: "100%",
+              height: "auto",
+              display: "block",
+              backgroundColor: "#ffffff",
             }}
-          >
-            <Image
-              src="/logo.JPG"
-              alt="The Front Porch logo"
-              width={120}
-              height={120}
-              priority
-              style={{
-                objectFit: "contain",
-                borderRadius: "999px",
-              }}
-            />
-          </div>
-
-          <div
-            style={{
-              backgroundColor: "#b44537",
-              color: "#ffffff",
-              padding: "10px 18px",
-              borderRadius: "999px",
-              fontWeight: 700,
-              fontSize: "14px",
-              letterSpacing: "0.4px",
-              marginBottom: "18px",
-            }}
-          >
-            Veterans Nonprofit
-          </div>
-
-          <h1
-            style={{
-              margin: 0,
-              color: "#ffffff",
-              fontSize: "clamp(2.5rem, 7vw, 5rem)",
-              fontWeight: 800,
-              lineHeight: 1.05,
-              textShadow: "0 4px 14px rgba(0,0,0,0.35)",
-            }}
-          >
-            The Front Porch
-          </h1>
-
-          <p
-            style={{
-              marginTop: "16px",
-              maxWidth: "900px",
-              color: "#f4efe6",
-              fontSize: "clamp(1rem, 2.2vw, 1.35rem)",
-              lineHeight: 1.7,
-              textShadow: "0 2px 8px rgba(0,0,0,0.28)",
-            }}
-          >
-            Built From Chaos — For Veterans. By Veterans.
-          </p>
+          />
         </div>
       </section>
 
@@ -121,16 +63,16 @@ export default function Home() {
       <section
         style={{
           maxWidth: "1150px",
-          margin: "-55px auto 0",
-          padding: "0 20px",
+          margin: "0 auto",
+          padding: "26px 20px 0",
           position: "relative",
-          zIndex: 3,
+          zIndex: 2,
         }}
       >
         <div
           style={{
             background:
-              "linear-gradient(135deg, #b44537 0%, #c25745 50%, #1f3558 100%)",
+              "linear-gradient(135deg, #b44537 0%, #c25745 55%, #1f3558 100%)",
             borderRadius: "24px",
             padding: "34px 28px",
             boxShadow: "0 18px 45px rgba(31,53,88,0.18)",
