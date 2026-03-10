@@ -30,6 +30,16 @@ fontFamily:"Arial, sans-serif",
 color:COLORS.blue
 }}>
 
+<style jsx global>{`
+
+@keyframes pulse {
+0% {transform: scale(1);}
+50% {transform: scale(1.06);}
+100% {transform: scale(1);}
+}
+
+`}</style>
+
 {/* HERO IMAGE */}
 
 <section style={{
@@ -70,15 +80,13 @@ borderTop:`4px solid ${COLORS.red}`,
 borderBottom:`4px solid ${COLORS.red}`
 }}>
 
-{/* DESKTOP NAV */}
-
 <div style={{
 display:"flex",
 justifyContent:"center",
 gap:"30px",
 padding:"18px",
 flexWrap:"wrap"
-}} className="desktopNav">
+}}>
 
 <a href="/" style={navLink}>HOME</a>
 
@@ -104,71 +112,19 @@ CONTACT US
 
 </div>
 
-{/* MOBILE NAV */}
-
-<div style={{
-display:"flex",
-justifyContent:"space-between",
-alignItems:"center",
-padding:"12px 18px"
-}} className="mobileNav">
-
-<div style={{
-color:COLORS.white,
-fontWeight:800,
-fontSize:"18px"
-}}>
-THE FRONT PORCH
-</div>
-
-<button
-onClick={()=>setMenu(!menu)}
-style={{
-background:"none",
-border:`2px solid ${COLORS.white}`,
-color:COLORS.white,
-borderRadius:"8px",
-width:"44px",
-height:"40px",
-fontSize:"20px"
-}}
->
-☰
-</button>
-
-</div>
-
-{menu && (
-
-<div style={{
-background:COLORS.blue,
-padding:"10px 20px"
-}}>
-
-<a href="/" style={mobileLink}>Home</a>
-<a href={paypal} style={mobileLink}>Donate To The Front Porch</a>
-<a href={shop} style={mobileLink}>TFP Shop</a>
-<a href="#services" style={mobileLink}>Services</a>
-<a href="#events" style={mobileLink}>Events</a>
-<a href="#contact" style={mobileLink}>Contact Us</a>
-
-</div>
-
-)}
-
 </nav>
 
 {/* DONATE SECTION */}
 
 <section style={{
-maxWidth:"1100px",
+maxWidth:"1300px",
 margin:"50px auto",
 padding:"0 20px"
 }}>
 
 <div style={{
 background:`linear-gradient(135deg, ${COLORS.red}, ${COLORS.blue})`,
-padding:"50px 25px",
+padding:"70px 40px",
 borderRadius:"28px",
 textAlign:"center",
 color:COLORS.white,
@@ -197,17 +153,33 @@ target="_blank"
 style={{
 background:COLORS.white,
 color:COLORS.red,
-padding:"20px 42px",
+padding:"22px 48px",
 borderRadius:"18px",
 fontWeight:900,
-fontSize:"20px",
-textDecoration:"none"
+fontSize:"22px",
+textDecoration:"none",
+display:"inline-block",
+animation:"pulse 2s infinite"
 }}
 >
 
 DONATE NOW
 
 </a>
+
+<p style={{
+marginTop:"24px",
+fontSize:"15px",
+lineHeight:"1.6",
+opacity:.95
+}}>
+
+🛡️ Donations made to <strong>The Front Porch</strong> may be tax-deductible.
+Please consult your tax advisor.
+<br/>
+<strong>EIN: 39-4248466</strong>
+
+</p>
 
 </div>
 
@@ -327,12 +299,4 @@ fontWeight:800,
 textDecoration:"none",
 fontSize:".9rem",
 letterSpacing:".4px"
-}
-
-const mobileLink={
-display:"block",
-padding:"12px 0",
-color:"#FFFFFF",
-textDecoration:"none",
-fontWeight:700
 }
