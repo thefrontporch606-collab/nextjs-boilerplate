@@ -228,16 +228,18 @@ export default function Home() {
 
               <br />
 
-              <strong
+              <span
+                x-apple-data-detectors="false"
                 style={{
                   color: "#FFFFFF",
                   fontSize: "20px",
                   fontWeight: 900,
                   letterSpacing: "1px",
+                  textDecoration: "none",
                 }}
               >
                 EIN: 39-4248466
-              </strong>
+              </span>
             </div>
           </div>
         </div>
@@ -254,7 +256,6 @@ export default function Home() {
       >
         <div
           style={{
-            position: "relative",
             width: "100%",
             borderRadius: "28px",
             overflow: "hidden",
@@ -263,12 +264,9 @@ export default function Home() {
             backgroundColor: COLORS.white,
           }}
         >
-          <Image
+          <img
             src="/carepackage.PNG"
-            alt="Send a care package to a deployed US soldier"
-            width={1024}
-            height={1536}
-            priority={false}
+            alt="Send a Care Package to a Deployed US Soldier"
             style={{
               width: "100%",
               height: "auto",
