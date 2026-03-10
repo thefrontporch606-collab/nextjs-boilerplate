@@ -1,239 +1,211 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
-const paypalLink =
-  "https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G";
+const paypal =
+"https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G";
 
-const shopLink = "https://the-front-porch-4771.myshopify.com";
+const shop =
+"https://the-front-porch-4771.myshopify.com";
 
-const facebookLink =
-  "https://www.facebook.com/share/1ALeuZKmMZ/?mibextid=wwXIfr";
+const facebook =
+"https://www.facebook.com/share/1ALeuZKmMZ/?mibextid=wwXIfr";
 
 const COLORS = {
-  red: "#B44537",
-  blue: "#1F3558",
-  white: "#FFFFFF",
+blue:"#1F3558",
+red:"#B44537",
+white:"#FFFFFF"
 };
 
-const navItems = [
-  { label: "HOME", mobileLabel: "Home", href: "/" },
+export default function Home(){
 
-  {
-    label: "DONATE TO THE FRONT PORCH",
-    mobileLabel: "Donate To The Front Porch",
-    href: paypalLink,
-    external: true,
-  },
+const [menu,setMenu] = useState(false)
 
-  {
-    label: "TFP SHOP",
-    mobileLabel: "TFP Shop",
-    href: shopLink,
-    external: true,
-  },
+return(
 
-  {
-    label: "SERVICES",
-    mobileLabel: "Services",
-    href: "/services",
-  },
-
-  {
-    label: "EVENTS",
-    mobileLabel: "Events",
-    href: "#events",
-  },
-
-  {
-    label: "CONTACT US",
-    mobileLabel: "Contact Us",
-    href: "#contact",
-  },
-];
-
-export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <main
-      style={{
-        backgroundColor: COLORS.white,
-        color: COLORS.blue,
-        minHeight: "100vh",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
+<main style={{
+background:COLORS.white,
+fontFamily:"Arial, sans-serif",
+color:COLORS.blue
+}}>
 
 {/* HERO IMAGE */}
 
-<section
-style={{
-width: "100%",
-backgroundColor: COLORS.white,
-padding: "14px 0",
-}}
->
-<div
-style={{
-position: "relative",
-width: "100%",
-maxWidth: "1400px",
-margin: "0 auto",
-height: "min(82vw, 900px)",
-minHeight: "360px",
-}}
->
+<section style={{
+width:"100%",
+background:COLORS.white,
+padding:"20px 0"
+}}>
+
+<div style={{
+position:"relative",
+width:"100%",
+maxWidth:"1400px",
+margin:"0 auto",
+height:"min(85vw,900px)",
+minHeight:"420px"
+}}>
+
 <Image
 src="/IMG_1844.jpeg"
-alt="The Front Porch hero image"
+alt="The Front Porch"
 fill
 priority
 style={{
-objectFit: "contain",
-objectPosition: "center",
+objectFit:"contain",
+objectPosition:"center"
 }}
 />
+
 </div>
+
 </section>
 
-{/* NAVIGATION */}
+{/* NAV BAR */}
 
-<nav
-style={{
-width: "100%",
-backgroundColor: COLORS.blue,
-borderTop: `3px solid ${COLORS.red}`,
-borderBottom: `3px solid ${COLORS.red}`,
-position: "sticky",
-top: 0,
-zIndex: 50,
-}}
->
+<nav style={{
+background:COLORS.blue,
+borderTop:`4px solid ${COLORS.red}`,
+borderBottom:`4px solid ${COLORS.red}`
+}}>
 
-{/* Desktop Nav */}
+{/* DESKTOP NAV */}
 
-<div
-style={{
-maxWidth: "1400px",
-margin: "0 auto",
-padding: "18px 20px",
-display: "flex",
-justifyContent: "center",
-gap: "28px",
-flexWrap: "wrap",
-}}
->
+<div style={{
+display:"flex",
+justifyContent:"center",
+gap:"30px",
+padding:"18px",
+flexWrap:"wrap"
+}} className="desktopNav">
 
-{navItems.map((item) =>
-item.external ? (
+<a href="/" style={navLink}>HOME</a>
 
-<a
-key={item.label}
-href={item.href}
-target="_blank"
-style={{
-color: COLORS.white,
-fontWeight: 800,
-textDecoration: "none",
-fontSize: ".85rem",
-letterSpacing: ".4px",
-}}
->
-
-{item.label}
-
+<a href={paypal} target="_blank" style={navLink}>
+DONATE TO THE FRONT PORCH
 </a>
 
-) : (
+<a href={shop} target="_blank" style={navLink}>
+TFP SHOP
+</a>
 
-<Link
-key={item.label}
-href={item.href}
-style={{
-color: COLORS.white,
-fontWeight: 800,
-textDecoration: "none",
-fontSize: ".85rem",
-letterSpacing: ".4px",
-}}
->
+<a href="#services" style={navLink}>
+SERVICES
+</a>
 
-{item.label}
+<a href="#events" style={navLink}>
+EVENTS
+</a>
 
-</Link>
-
-)
-
-)}
+<a href="#contact" style={navLink}>
+CONTACT US
+</a>
 
 </div>
+
+{/* MOBILE NAV */}
+
+<div style={{
+display:"flex",
+justifyContent:"space-between",
+alignItems:"center",
+padding:"12px 18px"
+}} className="mobileNav">
+
+<div style={{
+color:COLORS.white,
+fontWeight:800,
+fontSize:"18px"
+}}>
+THE FRONT PORCH
+</div>
+
+<button
+onClick={()=>setMenu(!menu)}
+style={{
+background:"none",
+border:`2px solid ${COLORS.white}`,
+color:COLORS.white,
+borderRadius:"8px",
+width:"44px",
+height:"40px",
+fontSize:"20px"
+}}
+>
+☰
+</button>
+
+</div>
+
+{menu && (
+
+<div style={{
+background:COLORS.blue,
+padding:"10px 20px"
+}}>
+
+<a href="/" style={mobileLink}>Home</a>
+<a href={paypal} style={mobileLink}>Donate To The Front Porch</a>
+<a href={shop} style={mobileLink}>TFP Shop</a>
+<a href="#services" style={mobileLink}>Services</a>
+<a href="#events" style={mobileLink}>Events</a>
+<a href="#contact" style={mobileLink}>Contact Us</a>
+
+</div>
+
+)}
 
 </nav>
 
 {/* DONATE SECTION */}
 
-<section
-style={{
-maxWidth: "1180px",
-margin: "0 auto",
-padding: "40px 20px",
-}}
->
+<section style={{
+maxWidth:"1100px",
+margin:"50px auto",
+padding:"0 20px"
+}}>
 
-<div
-style={{
-background: `linear-gradient(135deg, ${COLORS.red} 0%, ${COLORS.blue} 100%)`,
-borderRadius: "28px",
-padding: "42px 24px",
-textAlign: "center",
-color: COLORS.white,
-boxShadow: "0 22px 52px rgba(31,53,88,0.22)",
-}}
->
+<div style={{
+background:`linear-gradient(135deg, ${COLORS.red}, ${COLORS.blue})`,
+padding:"50px 25px",
+borderRadius:"28px",
+textAlign:"center",
+color:COLORS.white,
+boxShadow:"0 25px 60px rgba(0,0,0,.2)"
+}}>
 
-<h1
-style={{
-fontSize: "clamp(2rem,5vw,3.4rem)",
-marginBottom: "16px",
-}}
->
-
-Support The Front Porch
-
+<h1 style={{
+fontSize:"clamp(2.2rem,5vw,3.8rem)",
+marginBottom:"20px"
+}}>
+SUPPORT THE FRONT PORCH
 </h1>
 
-<p
-style={{
-maxWidth: "800px",
-margin: "0 auto 26px",
-lineHeight: 1.8,
-}}
->
-
-Your donations help us provide outreach, emergency relief,
-and support for veterans and their families.
-
+<p style={{
+maxWidth:"750px",
+margin:"0 auto 28px",
+lineHeight:"1.8"
+}}>
+Your donations help provide outreach, emergency relief, and
+real support to veterans and their families.
 </p>
 
 <a
-href={paypalLink}
+href={paypal}
 target="_blank"
 style={{
-display: "inline-block",
-backgroundColor: COLORS.white,
-color: COLORS.red,
-padding: "20px 40px",
-borderRadius: "18px",
-fontWeight: 900,
-fontSize: "1.1rem",
-textDecoration: "none",
+background:COLORS.white,
+color:COLORS.red,
+padding:"20px 42px",
+borderRadius:"18px",
+fontWeight:900,
+fontSize:"20px",
+textDecoration:"none"
 }}
 >
 
-DONATE TO THE FRONT PORCH
+DONATE NOW
 
 </a>
 
@@ -243,32 +215,25 @@ DONATE TO THE FRONT PORCH
 
 {/* FACEBOOK */}
 
-<section
-style={{
-textAlign: "center",
-marginBottom: "40px",
-}}
->
+<section style={{
+textAlign:"center",
+marginBottom:"50px"
+}}>
 
 <a
-href={facebookLink}
+href={facebook}
 target="_blank"
 style={{
-display: "inline-flex",
-alignItems: "center",
-gap: "10px",
-backgroundColor: "#1877F2",
-color: "#FFFFFF",
-padding: "14px 24px",
-borderRadius: "12px",
-textDecoration: "none",
-fontWeight: "700",
-fontSize: "1rem",
-boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
+background:COLORS.blue,
+color:COLORS.white,
+padding:"16px 26px",
+borderRadius:"12px",
+fontWeight:700,
+textDecoration:"none"
 }}
 >
 
-👍 Like Us On Facebook
+👍 LIKE US ON FACEBOOK
 
 </a>
 
@@ -276,51 +241,35 @@ boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
 
 {/* EVENTS */}
 
-<section
-id="events"
-style={{
-maxWidth: "1100px",
-margin: "0 auto",
-padding: "40px 20px",
-}}
->
+<section id="events" style={{
+maxWidth:"1000px",
+margin:"0 auto",
+padding:"40px 20px"
+}}>
 
-<h2
-style={{
-textAlign: "center",
-fontSize: "2.4rem",
-marginBottom: "30px",
-}}
->
-
-Events
-
+<h2 style={{
+textAlign:"center",
+fontSize:"2.4rem",
+marginBottom:"30px"
+}}>
+EVENTS
 </h2>
 
-<div
-style={{
-display: "grid",
-gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
-gap: "20px",
-}}
->
+<div style={{
+display:"grid",
+gridTemplateColumns:"repeat(auto-fit,minmax(250px,1fr))",
+gap:"20px"
+}}>
 
-{["TBD","TBD","TBD"].map((item,index)=>(
-<div
-key={index}
-style={{
-backgroundColor: COLORS.white,
+{["TBD","TBD","TBD"].map((e,i)=>(
+<div key={i} style={{
 border:`2px solid ${COLORS.red}`,
-borderRadius:"16px",
-padding:"22px",
-textAlign:"center",
-}}
->
-
+padding:"25px",
+borderRadius:"14px",
+textAlign:"center"
+}}>
 <h3>TBD</h3>
-
 <p>TBD</p>
-
 </div>
 ))}
 
@@ -330,57 +279,36 @@ textAlign:"center",
 
 {/* CONTACT */}
 
-<section
-id="contact"
-style={{
-maxWidth:"900px",
-margin:"0 auto",
-padding:"60px 20px",
-textAlign:"center"
-}}
->
+<section id="contact" style={{
+textAlign:"center",
+padding:"60px 20px"
+}}>
 
-<h2
-style={{
-fontSize:"2.5rem",
-marginBottom:"20px"
-}}
->
-
-Contact Us
-
+<h2 style={{fontSize:"2.4rem"}}>
+CONTACT US
 </h2>
 
-<p style={{fontSize:"1.1rem",marginBottom:"10px"}}>
+<p style={{marginTop:"20px"}}>
 
-Phone:
-<a
-href="tel:16065958622"
-style={{
-color:COLORS.red,
-textDecoration:"none",
-fontWeight:700,
-marginLeft:"8px"
-}}
+Phone
+<a href="tel:16065958622"
+style={{color:COLORS.red,fontWeight:700,marginLeft:"8px"}}
 >
 (606)595-8622
 </a>
 
 </p>
 
-<p style={{fontSize:"1.1rem"}}>
+<p>
 
-Email:
+Email
 <a
 href="mailto:thefrontporch606@gmail.com"
-style={{
-color:COLORS.red,
-textDecoration:"none",
-fontWeight:700,
-marginLeft:"8px"
-}}
+style={{color:COLORS.red,fontWeight:700,marginLeft:"8px"}}
 >
+
 thefrontporch606@gmail.com
+
 </a>
 
 </p>
@@ -388,5 +316,23 @@ thefrontporch606@gmail.com
 </section>
 
 </main>
-  );
+
+)
+
+}
+
+const navLink={
+color:"#FFFFFF",
+fontWeight:800,
+textDecoration:"none",
+fontSize:".9rem",
+letterSpacing:".4px"
+}
+
+const mobileLink={
+display:"block",
+padding:"12px 0",
+color:"#FFFFFF",
+textDecoration:"none",
+fontWeight:700
 }
