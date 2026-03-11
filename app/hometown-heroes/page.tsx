@@ -41,16 +41,16 @@ const kiaVeterans: Veteran[] = [
     city: "London, KY",
     branch: "United States Army",
     campaign: "Vietnam",
-    years: "KIA 07/21/1968 Age 20",
+    years: "KIA Bình Định Province, Vietnam 04/21/1968 Age 20",
     image: "/heroes/dannyhoskins.jpg",
   },
   {
-    name: "PFC. Gary Wayne Carmack",
+    name: "MM1c Ulis C. Steely",
     city: "Corbin, KY",
-    branch: "United States Army",
-    campaign: "Vietnam",
-    years: "KIA 05/09/1969 Age 19",
-    image: "/heroes/garycarmack.jpg",
+    branch: "United States Navy",
+    campaign: "USS Oklahoma, Pearl Harbor",
+    years: "KIA 12/07/1941 Age 25",
+    image: "/heroes/ulissteely.jpg",
   },
 ];
 
