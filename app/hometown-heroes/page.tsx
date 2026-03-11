@@ -12,46 +12,50 @@ type Veteran = {
 };
 
 const kiaVeterans: Veteran[] = [
-  {
-    name: "LCPL. Thomas TJ Reilly JR.",
-    city: "London, KY",
-    branch: "United States Marine Corps",
-    campaign: "Operation Iraqi Freedom",
-    years: "KIA Karmah, Iraq 12/21/2008 Age 19",
-    image: "/heroes/tjreilly.JPG",
-  },
-  {
-    name: "PFC. Dustin Paul Napier",
-    city: "London, KY",
-    branch: "United States Army",
-    campaign "Operation Enduring Freedom",
-    years: "KIA Zabul Province, Afghanistan 01/08/2012 Age20",
-    image: "/heroes/dustinnapier.jpeg",
-  },
-  {
-    name: "CPL. Joseph S. Tremblay",
-    city: "Corbin, KY",
-    branch: "United States Marine Corps",
-    campaign: "Operation Iraqi Freedom",
-    years: "KIA Hit, Iraq 04/27/2005 Age 23",
-    image: "/heroes/joesphtremblay.JPG",
-  },
-  {
-    name: "PFC. Danny Ray Hoskins ",
-    city: "London, KY",
-    branch: "United States Army",
-    campaign: "Vietnam",
-    years: "KIA Bình Định Province, Vietnam 04/21/1968 Age 20",
-    image: "/heroes/dannyhoskins.jpeg",
-  },
-  {
-    name: "MM1c Ulis C. Steely",
-    city: "Corbin, KY",
-    branch: "United States Navy",
-    campaign: "USS Oklahoma, Pearl Harbor",
-    years: "KIA 12/07/1941 Age 25",
-    image: "/heroes/ulissteely.jpeg",
-  },
+{
+name: "LCPL. Thomas TJ Reilly JR.",
+city: "London, KY",
+branch: "United States Marine Corps",
+campaign: "Operation Iraqi Freedom",
+years: "KIA Karma, Iraq 12/21/2008 Age 22",
+image: "/heroes/tjreilly.JPG",
+},
+
+{
+name: "PFC. Dustin Paul Napier",
+city: "London, KY",
+branch: "United States Army",
+campaign: "Operation Enduring Freedom",
+years: "KIA Zabul Province, Afghanistan",
+image: "/heroes/dustinnapier.jpeg",
+},
+
+{
+name: "CPL. Joseph S. Tremblay",
+city: "Corbin, KY",
+branch: "United States Marine Corps",
+campaign: "Operation Iraqi Freedom",
+years: "KIA Hit, Iraq 04/27/2005 Age 23",
+image: "/heroes/josephtremblay.JPG",
+},
+
+{
+name: "PFC. Danny Ray Hoskins",
+city: "London, KY",
+branch: "United States Army",
+campaign: "Vietnam",
+years: "KIA Bình Định Province, Vietnam",
+image: "/heroes/dannyhoskins.jpeg",
+},
+
+{
+name: "MM1c Uliss C. Steely",
+city: "Corbin, KY",
+branch: "United States Navy",
+campaign: "USS Oklahoma, Pearl Harbor",
+years: "KIA 12/07/1941 Age 25",
+image: "/heroes/ulissteely.jpeg",
+},
 ];
 
 const otherVeterans: Veteran[] = [
