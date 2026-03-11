@@ -12,94 +12,49 @@ type Veteran = {
 };
 
 const kiaVeterans: Veteran[] = [
-{
-name: "LCPL. Thomas TJ Reilly JR.",
-city: "London, KY",
-branch: "United States Marine Corps",
-campaign: "Operation Iraqi Freedom",
-years: "KIA Karma, Iraq 12/21/2008 Age 22",
-image: "/heroes/tjreilly.JPG",
-},
-
-{
-name: "PFC. Dustin Paul Napier",
-city: "London, KY",
-branch: "United States Army",
-campaign: "Operation Enduring Freedom",
-years: "KIA Zabul Province, Afghanistan",
-image: "/heroes/dustinnapier.jpeg",
-},
-
-{
-name: "CPL. Joseph S. Tremblay",
-city: "Corbin, KY",
-branch: "United States Marine Corps",
-campaign: "Operation Iraqi Freedom",
-years: "KIA Hit, Iraq 04/27/2005 Age 23",
-image: "/heroes/josephtremblay.JPG",
-},
-
-{
-name: "PFC. Danny Ray Hoskins",
-city: "London, KY",
-branch: "United States Army",
-campaign: "Vietnam",
-years: "KIA Bình Định Province, Vietnam",
-image: "/heroes/dannyhoskins.jpeg",
-},
-
-{
-name: "MM1c Uliss C. Steely",
-city: "Corbin, KY",
-branch: "United States Navy",
-campaign: "USS Oklahoma, Pearl Harbor",
-years: "KIA 12/07/1941 Age 25",
-image: "/heroes/ulissteely.jpeg",
-},
-];
-
-const otherVeterans: Veteran[] = [
   {
-    name: "Robert J. Owens",
-    city: "Indianapolis, IN",
-    branch: "United States Air Force",
-    campaign: "Cold War Era",
-    years: "1982 - 1990",
-    image: "/heroes/placeholder-6.jpg",
-  },
-  {
-    name: "William H. Scott",
-    city: "Fishers, IN",
-    branch: "United States Army",
-    campaign: "Operation Desert Storm",
-    years: "1989 - 1995",
-    image: "/heroes/placeholder-7.jpg",
-  },
-  {
-    name: "Steven M. Price",
-    city: "Noblesville, IN",
+    name: "LCPL. Thomas TJ Reilly JR.",
+    city: "London, KY",
     branch: "United States Marine Corps",
-    campaign: "Peacetime Service",
-    years: "1998 - 2002",
-    image: "/heroes/placeholder-8.jpg",
+    campaign: "Operation Iraqi Freedom",
+    years: "KIA Karmah, Iraq 12/21/2008 Age 22",
+    image: "/heroes/tjreilly.JPG",
   },
   {
-    name: "Charles E. Turner",
-    city: "Avon, IN",
-    branch: "United States Navy",
+    name: "PFC. Dustin Paul Napier",
+    city: "London, KY",
+    branch: "United States Army",
     campaign: "Operation Enduring Freedom",
-    years: "2001 - 2007",
-    image: "/heroes/placeholder-9.jpg",
+    years: "KIA Zabul Province, Afghanistan",
+    image: "/heroes/dustinnapier.jpeg",
   },
   {
-    name: "Thomas A. Mitchell",
-    city: "Brownsburg, IN",
+    name: "CPL. Joseph S. Tremblay",
+    city: "Corbin, KY",
+    branch: "United States Marine Corps",
+    campaign: "Operation Iraqi Freedom",
+    years: "KIA Hit, Iraq 04/27/2005 Age 23",
+    image: "/heroes/josephtremblay.JPG",
+  },
+  {
+    name: "PFC. Danny Ray Hoskins",
+    city: "London, KY",
     branch: "United States Army",
     campaign: "Vietnam",
-    years: "1969 - 1973",
-    image: "/heroes/placeholder-10.jpg",
+    years: "KIA Bình Định Province, Vietnam",
+    image: "/heroes/dannyhoskins.jpeg",
+  },
+  {
+    name: "MM1c Uliss C. Steely",
+    city: "Corbin, KY",
+    branch: "United States Navy",
+    campaign: "USS Oklahoma, Pearl Harbor",
+    years: "KIA 12/07/1941 Age 25",
+    image: "/heroes/ulissteely.jpeg",
   },
 ];
+
+const otherVeterans: Veteran[] = [];
 
 export default function HometownHeroesPage() {
   const [open, setOpen] = useState(false);
@@ -117,14 +72,17 @@ export default function HometownHeroesPage() {
             </button>
 
             <p className="quote">
-              “Greater love has no one than this: to lay down one&apos;s life for
-              one&apos;s friends.” - John 15:13
+              "Greater love has no one than this: to lay down one&apos;s life for
+              one&apos;s friends." - John 15:13
             </p>
           </div>
         </section>
 
         <section className="heroes-section">
-          <h2 className="section-title">Veterans Who Gave Their Life in War or Combat Zone</h2>
+          <h2 className="section-title">
+            Veterans Who Gave Their Life in a War or Combat Zone
+          </h2>
+
           <div className="veteran-grid">
             {kiaVeterans.map((vet, index) => (
               <article className="veteran-card" key={`${vet.name}-${index}`}>
@@ -146,28 +104,38 @@ export default function HometownHeroesPage() {
 
         <section className="quote-section">
           <p className="quote quote-bottom">
-            “A nation that does not honor its heroes will not long endure.” - Abraham Lincoln
+            "A nation that does not honor its heroes will not long endure." -
+            Abraham Lincoln
           </p>
         </section>
 
         <section className="heroes-section other-section">
           <h2 className="section-title">All Other Veterans</h2>
-          <div className="veteran-grid">
-            {otherVeterans.map((vet, index) => (
-              <article className="veteran-card" key={`${vet.name}-${index}`}>
-                <div className="image-wrap">
-                  <img src={vet.image} alt={vet.name} className="veteran-image" />
-                </div>
 
-                <div className="veteran-info">
-                  <p>{vet.campaign}</p>
-                  <p className="name">{vet.name}</p>
-                  <p>{vet.city}</p>
-                  <p>{vet.branch}</p>
-                  <p>{vet.years}</p>
-                </div>
-              </article>
-            ))}
+          <div className="veteran-grid">
+            {otherVeterans.length > 0 ? (
+              otherVeterans.map((vet, index) => (
+                <article className="veteran-card" key={`${vet.name}-${index}`}>
+                  <div className="image-wrap">
+                    <img
+                      src={vet.image}
+                      alt={vet.name}
+                      className="veteran-image"
+                    />
+                  </div>
+
+                  <div className="veteran-info">
+                    <p>{vet.campaign}</p>
+                    <p className="name">{vet.name}</p>
+                    <p>{vet.city}</p>
+                    <p>{vet.branch}</p>
+                    <p>{vet.years}</p>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <div className="empty-state">Additional hometown heroes coming soon.</div>
+            )}
           </div>
         </section>
       </main>
@@ -183,7 +151,7 @@ export default function HometownHeroesPage() {
 
             <form
               className="hero-form"
-              action="https://formsubmit.co/thefrontporch606@gmail.com"
+              action="https://formsubmit.co/YOUR-EMAIL-HERE"
               method="POST"
               encType="multipart/form-data"
             >
@@ -212,7 +180,7 @@ export default function HometownHeroesPage() {
         .heroes-page {
           min-height: 100vh;
           background:
-            linear-gradient(to bottom, rgba(255,255,255,0.96), rgba(245,245,245,0.98)),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.97), rgba(245, 245, 245, 0.98)),
             url("/american-texture.jpg");
           background-size: cover;
           background-position: center;
@@ -226,21 +194,15 @@ export default function HometownHeroesPage() {
           text-align: center;
           border-bottom: 4px solid #c9a227;
           background:
-            linear-gradient(180deg, rgba(8,18,42,0.90) 0%, rgba(17,37,75,0.82) 55%, rgba(255,255,255,0.06) 100%),
-            url("/flag-bg.jpg");
-          background-size: cover;
-          background-position: center;
+            linear-gradient(180deg, rgba(8, 18, 42, 0.9) 0%, rgba(17, 37, 75, 0.82) 55%, rgba(255, 255, 255, 0.06) 100%);
         }
 
         .hero-overlay {
           position: absolute;
           inset: 0;
           background:
-            linear-gradient(
-              to bottom,
-              rgba(255,255,255,0.03),
-              rgba(255,255,255,0.00)
-            );
+            radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 35%),
+            radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 30%);
           pointer-events: none;
         }
 
@@ -270,8 +232,9 @@ export default function HometownHeroesPage() {
           background-clip: text;
           color: transparent;
           text-shadow:
-            0 2px 0 rgba(255,255,255,0.15),
-            0 5px 18px rgba(0,0,0,0.35);
+            0 2px 0 rgba(255, 255, 255, 0.12),
+            0 8px 22px rgba(0, 0, 0, 0.38),
+            0 0 22px rgba(255, 255, 255, 0.1);
         }
 
         .submit-btn,
@@ -285,14 +248,16 @@ export default function HometownHeroesPage() {
           font-size: 1rem;
           font-weight: 800;
           cursor: pointer;
-          box-shadow: 0 10px 24px rgba(0,0,0,0.22);
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+          transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
         }
 
         .submit-btn:hover,
         .form-submit-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 14px 28px rgba(0,0,0,0.28);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
         }
 
         .quote-section,
@@ -307,10 +272,10 @@ export default function HometownHeroesPage() {
           max-width: 1000px;
           font-size: clamp(1rem, 2vw, 1.35rem);
           line-height: 1.7;
-          color: #fff;
+          color: #ffffff;
           font-style: italic;
           font-weight: 600;
-          text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
         }
 
         .quote-bottom {
@@ -337,17 +302,25 @@ export default function HometownHeroesPage() {
         }
 
         .veteran-card {
-          background: #fff;
-          border: 1px solid rgba(0,0,0,0.08);
+          background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+          border: 1px solid rgba(15, 36, 71, 0.08);
           border-radius: 18px;
           overflow: hidden;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.08),
+            0 0 0 rgba(201, 162, 39, 0);
+          transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            border-color 0.25s ease;
         }
 
         .veteran-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+          transform: translateY(-6px);
+          border-color: rgba(201, 162, 39, 0.65);
+          box-shadow:
+            0 18px 40px rgba(0, 0, 0, 0.14),
+            0 0 24px rgba(201, 162, 39, 0.22);
         }
 
         .image-wrap {
@@ -381,6 +354,17 @@ export default function HometownHeroesPage() {
           font-size: 1rem;
         }
 
+        .empty-state {
+          grid-column: 1 / -1;
+          text-align: center;
+          padding: 36px 20px;
+          border: 2px dashed rgba(15, 36, 71, 0.2);
+          border-radius: 18px;
+          color: #1f3558;
+          font-weight: 700;
+          background: rgba(255, 255, 255, 0.72);
+        }
+
         .other-section {
           padding-top: 10px;
           padding-bottom: 80px;
@@ -389,7 +373,7 @@ export default function HometownHeroesPage() {
         .modal-backdrop {
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,0.62);
+          background: rgba(0, 0, 0, 0.62);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -404,7 +388,7 @@ export default function HometownHeroesPage() {
           background: #fff;
           border-radius: 22px;
           padding: 28px;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
 
         .close-btn {
