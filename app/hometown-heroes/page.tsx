@@ -19,15 +19,15 @@ const kiaVeterans: Veteran[] = [
     city: "London, KY",
     branch: "United States Marine Corps",
     campaign: "Operation Iraqi Freedom",
-    years: "KIA Karmah, Iraq 12/21/2008 Age 22",
+    years: "KIA Karmah, Iraq 12/21/2008 Age 19",
     image: "/heroes/tjreilly.JPG",
   },
   {
     name: "PFC. Dustin Paul Napier",
-    city: "London, KY",
+    city: "Corbin, KY",
     branch: "United States Army",
     campaign: "Operation Enduring Freedom",
-    years: "KIA Zabul Province, Afghanistan",
+    years: "KIA Qalat, Afghanistan 01/08/2012 Age 20,
     image: "/heroes/dustinnapier.jpeg",
   },
   {
