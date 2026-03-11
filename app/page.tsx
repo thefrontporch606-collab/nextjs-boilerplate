@@ -109,6 +109,10 @@ export default function Home() {
             HOME
           </a>
 
+          <a href="/hometown-heroes" className="nav-link">
+            HOMETOWN HEROES
+          </a>
+
           <a
             href={paypal}
             target="_blank"
