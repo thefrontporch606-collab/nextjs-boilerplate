@@ -37,12 +37,12 @@ const kiaVeterans: Veteran[] = [
     image: "/heroes/josephtremblay.JPG",
   },
   {
-    name: "PFC. Danny Ray Hoskins",
-    city: "London, KY",
+    name: "SSG.McKenley Odis Matlock",
+    city: "Barbourville, KY",
     branch: "United States Army",
     campaign: "Vietnam",
-    years: "KIA Bình Định Province, Vietnam",
-    image: "/heroes/dannyhoskins.jpeg",
+    years: "KIA Giah Dinh, South Vietnam 03/30/1968 Age 25 ",
+    image: "/heroes/odismatlock.jpeg",
   },
   {
     name: "MM1c Uliss C. Steely",
