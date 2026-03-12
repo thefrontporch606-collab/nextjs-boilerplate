@@ -100,7 +100,7 @@ export default function HometownHeroesPage() {
           <div className="hero-inner">
             <div className="logo-wrap">
               <Image
-                src="/frontporch-logo.png"
+                src="/frontporch-logo.PNG"
                 alt="The Front Porch Logo"
                 width={220}
                 height={120}
