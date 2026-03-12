@@ -8,15 +8,7 @@ const COLORS = {
   gold: "#F7D774",
 };
 
-const symbols = [
-  "🎖",
-  "🇺🇸",
-  "🪖",
-  "🎯",
-  "⭐",
-  "💰",
-  "🏆",
-];
+const symbols = ["🎖", "🇺🇸", "🪖", "🎯", "⭐", "💰", "🏆"];
 
 function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
@@ -26,7 +18,6 @@ export default function ScratchTicketClient() {
   const [grid, setGrid] = useState<string[]>(
     Array.from({ length: 9 }, () => "?")
   );
-
   const [scratched, setScratched] = useState(false);
 
   function reveal() {
@@ -57,7 +48,7 @@ export default function ScratchTicketClient() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3,120px)",
+          gridTemplateColumns: "repeat(3, 120px)",
           gap: "10px",
           justifyContent: "center",
           marginBottom: "30px",
@@ -76,6 +67,7 @@ export default function ScratchTicketClient() {
               justifyContent: "center",
               fontSize: "40px",
               fontWeight: "bold",
+              color: "#111",
             }}
           >
             {symbol}
