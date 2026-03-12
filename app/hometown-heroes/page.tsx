@@ -62,12 +62,12 @@ const otherVeterans: Veteran[] = [
   // REPLACE THESE 3 PLACEHOLDERS WITH REAL NON-KIA VETERANS AS YOU ADD THEM
 
   {
-    name: "Name",
-    city: "City",
-    branch: "Branch",
-    campaign: "Campaign",
-    years: "Years From-To",
-    isPlaceholder: true,
+    name: "CPL Vincent Tomasino",
+    city: "Williamsburg, KY",
+    branch: "United States Marine Corps",
+    campaign: "",
+    years: "1973-1977",
+    image: "/heroes/vincenttomasino.jpeg",
   },
   {
     name: "Name",
