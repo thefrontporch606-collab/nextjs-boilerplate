@@ -2,35 +2,37 @@
 
 import { useState } from "react";
 
-const COLORS = {
-  blue: "#1F3558",
-  red: "#B44537",
-  gold: "#F7D774",
-};
-
-const symbols = ["🎖", "🇺🇸", "🪖", "🎯", "⭐", "💰", "🏆"];
-
-function getRandomSymbol() {
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
 export default function ScratchTicketClient() {
-  const [grid, setGrid] = useState<string[]>(
-    Array.from({ length: 9 }, () => "?")
-  );
-  const [scratched, setScratched] = useState(false);
+  const [symbols, setSymbols] = useState<string[]>(["?", "?", "?"]);
+  const [message, setMessage] = useState("");
+  const [revealed, setRevealed] = useState(false);
 
-  function reveal() {
-    const newGrid = Array.from({ length: 9 }, () => getRandomSymbol());
-    setGrid(newGrid);
-    setScratched(true);
+  async function scratchTicket() {
+    const res = await fetch("/api/scratchoff/reveal", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
+    });
+
+    const data = await res.json();
+
+    setSymbols(data.symbols);
+    setRevealed(true);
+
+    if (data.isWinner) {
+      setMessage(`You won ${data.prizeLabel}!`);
+    } else {
+      setMessage("Sorry, this ticket is not a winner.");
+    }
   }
 
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: COLORS.blue,
+        background: "#1F3558",
         color: "#fff",
         fontFamily: "Arial, sans-serif",
         textAlign: "center",
@@ -42,19 +44,18 @@ export default function ScratchTicketClient() {
       </h1>
 
       <p style={{ marginBottom: "30px" }}>
-        Match 3 symbols in a row to win!
+        Match 3 symbols to win!
       </p>
 
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 120px)",
-          gap: "10px",
+          display: "flex",
           justifyContent: "center",
+          gap: "20px",
           marginBottom: "30px",
         }}
       >
-        {grid.map((symbol, i) => (
+        {symbols.map((s, i) => (
           <div
             key={i}
             style={{
@@ -65,21 +66,21 @@ export default function ScratchTicketClient() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "40px",
+              fontSize: "30px",
               fontWeight: "bold",
               color: "#111",
             }}
           >
-            {symbol}
+            {s}
           </div>
         ))}
       </div>
 
-      {!scratched && (
+      {!revealed && (
         <button
-          onClick={reveal}
+          onClick={scratchTicket}
           style={{
-            background: COLORS.red,
+            background: "#B44537",
             border: "none",
             padding: "16px 28px",
             fontSize: "18px",
@@ -93,15 +94,15 @@ export default function ScratchTicketClient() {
         </button>
       )}
 
-      {scratched && (
+      {revealed && (
         <p
           style={{
             marginTop: "20px",
             fontSize: "20px",
-            color: COLORS.gold,
+            color: "#F7D774",
           }}
         >
-          Ticket revealed!
+          {message}
         </p>
       )}
     </main>
