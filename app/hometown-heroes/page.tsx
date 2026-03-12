@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 type Veteran = {
@@ -14,6 +14,8 @@ type Veteran = {
 };
 
 const kiaVeterans: Veteran[] = [
+  // PASTE NEW KIA HEROES DIRECTLY BELOW THIS LINE
+
   {
     name: "LCPL. Thomas TJ Reilly JR.",
     city: "London, KY",
@@ -27,7 +29,7 @@ const kiaVeterans: Veteran[] = [
     city: "Corbin, KY",
     branch: "United States Army",
     campaign: "Operation Enduring Freedom",
-    years: "KIA Qalat, Afghanistan 01/08/2012 Age 20,
+    years: "KIA Qalat, Afghanistan 01/08/2012 Age 20",
     image: "/heroes/dustinnapier.jpeg",
   },
   {
@@ -56,32 +58,38 @@ const kiaVeterans: Veteran[] = [
   },
 ];
 
-const otherVeterans: Veteran[] = [];
+const otherVeterans: Veteran[] = [
+  // REPLACE THESE 3 PLACEHOLDERS WITH REAL NON-KIA VETERANS AS YOU ADD THEM
 
-function makePlaceholders(count: number, type: "KIA" | "VETERAN"): Veteran[] {
-  return Array.from({ length: count }, (_, i) => ({
-    name: `${type} HONOREE`,
+  {
+    name: "Name",
     city: "City",
     branch: "Branch",
-    campaign: "Campaign/Theatre",
-    years: type === "KIA" ? "Service Details" : "Years From-To",
+    campaign: "Campaign",
+    years: "Years From-To",
     isPlaceholder: true,
-  }));
-}
+  },
+  {
+    name: "Name",
+    city: "City",
+    branch: "Branch",
+    campaign: "Campaign",
+    years: "Years From-To",
+    isPlaceholder: true,
+  },
+  {
+    name: "Name",
+    city: "City",
+    branch: "Branch",
+    campaign: "Campaign",
+    years: "Years From-To",
+    isPlaceholder: true,
+  },
+];
 
 export default function HometownHeroesPage() {
   const [formOpen, setFormOpen] = useState(false);
   const [selectedVeteran, setSelectedVeteran] = useState<Veteran | null>(null);
-
-  const kiaWall = useMemo(
-    () => [...kiaVeterans, ...makePlaceholders(12, "KIA")],
-    []
-  );
-
-  const otherWall = useMemo(
-    () => [...otherVeterans, ...makePlaceholders(12, "VETERAN")],
-    []
-  );
 
   return (
     <>
@@ -101,10 +109,13 @@ export default function HometownHeroesPage() {
               />
             </div>
 
-            <h1 className="memorial-line">
-              <span className="salutes-text">Salutes Our</span>{" "}
-              <span className="heroes-text">HOMETOWN HEROES</span>
-            </h1>
+            <div className="title-image-wrap">
+              <img
+                src="/hometown-heroes-title.png"
+                alt="Hometown Heroes"
+                className="title-image"
+              />
+            </div>
 
             <div className="branches-row">
               <img src="/branches.png" alt="U.S. Military Branch Emblems" />
@@ -123,11 +134,11 @@ export default function HometownHeroesPage() {
           </h2>
 
           <div className="veteran-grid">
-            {kiaWall.map((vet, index) => (
+            {kiaVeterans.map((vet, index) => (
               <button
                 key={`kia-${vet.name}-${index}`}
                 type="button"
-                className={`veteran-card ${vet.isPlaceholder ? "placeholder-card" : ""}`}
+                className="veteran-card kia-card"
                 onClick={() => setSelectedVeteran(vet)}
               >
                 <div className="image-wrap">
@@ -138,6 +149,8 @@ export default function HometownHeroesPage() {
                       <span>Photo Coming Soon</span>
                     </div>
                   )}
+
+                  <div className="kia-light" />
                   <div className="image-glow" />
                 </div>
 
@@ -160,7 +173,7 @@ export default function HometownHeroesPage() {
           </h2>
 
           <div className="veteran-grid">
-            {otherWall.map((vet, index) => (
+            {otherVeterans.map((vet, index) => (
               <button
                 key={`other-${vet.name}-${index}`}
                 type="button"
@@ -193,7 +206,10 @@ export default function HometownHeroesPage() {
 
       {formOpen && (
         <div className="modal-backdrop" onClick={() => setFormOpen(false)}>
-          <div className="modal patriotic-form-modal" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="modal patriotic-form-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button className="close-btn" onClick={() => setFormOpen(false)}>
               ×
             </button>
@@ -212,16 +228,35 @@ export default function HometownHeroesPage() {
               method="POST"
               encType="multipart/form-data"
             >
-              <input type="hidden" name="_subject" value="New Hometown Hero Submission" />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Hometown Hero Submission"
+              />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
 
               <div className="form-grid">
                 <input type="text" name="name" placeholder="Name" required />
                 <input type="text" name="city" placeholder="City" required />
-                <input type="text" name="branch" placeholder="Branch Of Service" required />
-                <input type="text" name="campaign" placeholder="Campaign/Theatre" required />
-                <input type="text" name="years" placeholder="Years From-To" required />
+                <input
+                  type="text"
+                  name="branch"
+                  placeholder="Branch Of Service"
+                  required
+                />
+                <input
+                  type="text"
+                  name="campaign"
+                  placeholder="Campaign/Theatre"
+                  required
+                />
+                <input
+                  type="text"
+                  name="years"
+                  placeholder="Years From-To"
+                  required
+                />
                 <input type="file" name="photo" accept="image/*" required />
               </div>
 
@@ -234,9 +269,18 @@ export default function HometownHeroesPage() {
       )}
 
       {selectedVeteran && (
-        <div className="modal-backdrop" onClick={() => setSelectedVeteran(null)}>
-          <div className="modal memorial-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={() => setSelectedVeteran(null)}>
+        <div
+          className="modal-backdrop"
+          onClick={() => setSelectedVeteran(null)}
+        >
+          <div
+            className="modal memorial-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close-btn"
+              onClick={() => setSelectedVeteran(null)}
+            >
               ×
             </button>
 
@@ -327,7 +371,7 @@ export default function HometownHeroesPage() {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-bottom: 8px;
+          margin-bottom: 10px;
         }
 
         .hero-logo {
@@ -337,58 +381,23 @@ export default function HometownHeroesPage() {
           object-fit: contain;
           display: block;
           filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
+          mix-blend-mode: multiply;
         }
 
-        .memorial-line {
-          margin: 0;
-          text-align: center;
-          line-height: 1.05;
+        .title-image-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 8px;
         }
 
-        .salutes-text {
-          display: inline-block;
-          color: #ffffff;
-          font-size: clamp(1rem, 2vw, 1.45rem);
-          font-weight: 700;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          margin-right: 10px;
-          text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
-          vertical-align: middle;
-        }
-
-        .heroes-text {
-          display: inline-block;
-          font-size: clamp(2.2rem, 6.4vw, 5.4rem);
-          font-weight: 900;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          vertical-align: middle;
-          background:
-            linear-gradient(
-              180deg,
-              #ffffff 0%,
-              #f8f8f8 14%,
-              #c31f33 14%,
-              #c31f33 28%,
-              #ffffff 28%,
-              #ffffff 42%,
-              #b0172a 42%,
-              #b0172a 56%,
-              #ffffff 56%,
-              #ffffff 70%,
-              #8e1323 70%,
-              #8e1323 84%,
-              #ffffff 84%,
-              #ffffff 100%
-            );
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          text-shadow:
-            0 2px 0 rgba(255, 255, 255, 0.1),
-            0 10px 24px rgba(0, 0, 0, 0.38),
-            0 0 24px rgba(209, 180, 67, 0.12);
+        .title-image {
+          display: block;
+          width: min(100%, 820px);
+          max-width: 100%;
+          height: auto;
+          filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.28));
         }
 
         .branches-row {
@@ -396,7 +405,7 @@ export default function HometownHeroesPage() {
           justify-content: center;
           align-items: center;
           width: 100%;
-          margin-top: 14px;
+          margin-top: 10px;
           margin-bottom: 22px;
         }
 
@@ -491,6 +500,12 @@ export default function HometownHeroesPage() {
             0 0 26px rgba(209, 180, 67, 0.2);
         }
 
+        .kia-card {
+          box-shadow:
+            0 10px 26px rgba(0, 0, 0, 0.08),
+            0 0 18px rgba(255, 255, 255, 0.08);
+        }
+
         .placeholder-card {
           border-style: dashed;
         }
@@ -501,6 +516,24 @@ export default function HometownHeroesPage() {
           aspect-ratio: 1 / 1;
           background: #d7d7d7;
           overflow: hidden;
+        }
+
+        .kia-light {
+          position: absolute;
+          top: -18%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 70%;
+          height: 80%;
+          background: radial-gradient(
+            ellipse at top,
+            rgba(255, 255, 255, 0.55) 0%,
+            rgba(255, 255, 255, 0.18) 32%,
+            rgba(255, 255, 255, 0.04) 58%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          pointer-events: none;
+          z-index: 2;
         }
 
         .placeholder-image {
@@ -531,6 +564,7 @@ export default function HometownHeroesPage() {
             linear-gradient(to top, rgba(15, 36, 71, 0.18), transparent 35%),
             radial-gradient(circle at top center, rgba(255, 255, 255, 0.22), transparent 35%);
           pointer-events: none;
+          z-index: 3;
         }
 
         .veteran-image {
@@ -764,16 +798,9 @@ export default function HometownHeroesPage() {
             max-width: 155px;
           }
 
-          .memorial-line {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-          }
-
-          .salutes-text {
-            margin-right: 0;
-            letter-spacing: 0.1em;
+          .title-image {
+            width: 100%;
+            max-width: 620px;
           }
 
           .branches-row {
