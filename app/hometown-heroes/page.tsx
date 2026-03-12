@@ -15,7 +15,6 @@ type Veteran = {
 
 const kiaVeterans: Veteran[] = [
   // PASTE NEW KIA HEROES DIRECTLY BELOW THIS LINE
-
   {
     name: "LCPL. Thomas TJ Reilly JR.",
     city: "London, KY",
@@ -59,13 +58,12 @@ const kiaVeterans: Veteran[] = [
 ];
 
 const otherVeterans: Veteran[] = [
-  // REPLACE THESE 3 PLACEHOLDERS WITH REAL NON-KIA VETERANS AS YOU ADD THEM
-
+  // REPLACE THESE 3 SPOTS WITH REAL NON-KIA VETERANS AS YOU ADD THEM
   {
     name: "CPL Vincent Tomasino",
     city: "Williamsburg, KY",
     branch: "United States Marine Corps",
-    campaign: "",
+    campaign: "Peacetime Service",
     years: "1973-1977",
     image: "/heroes/vincenttomasino.jpeg",
   },
@@ -102,8 +100,8 @@ export default function HometownHeroesPage() {
               <Image
                 src="/frontporch-logo.PNG"
                 alt="The Front Porch Logo"
-                width={220}
-                height={120}
+                width={260}
+                height={160}
                 priority
                 className="hero-logo"
               />
@@ -111,7 +109,7 @@ export default function HometownHeroesPage() {
 
             <div className="title-image-wrap">
               <img
-                src="/hometown-heroes-title.png"
+                src="/hometown-heroes-title.PNG"
                 alt="Hometown Heroes"
                 className="title-image"
               />
@@ -377,11 +375,10 @@ export default function HometownHeroesPage() {
         .hero-logo {
           width: auto;
           height: auto;
-          max-width: 190px;
+          max-width: 230px;
           object-fit: contain;
           display: block;
-          filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
-          mix-blend-mode: multiply;
+          filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.2));
         }
 
         .title-image-wrap {
@@ -394,7 +391,7 @@ export default function HometownHeroesPage() {
 
         .title-image {
           display: block;
-          width: min(100%, 820px);
+          width: min(100%, 880px);
           max-width: 100%;
           height: auto;
           filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.28));
@@ -795,7 +792,7 @@ export default function HometownHeroesPage() {
           }
 
           .hero-logo {
-            max-width: 155px;
+            max-width: 170px;
           }
 
           .title-image {
