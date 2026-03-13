@@ -14,7 +14,6 @@ type Veteran = {
 };
 
 const kiaVeterans: Veteran[] = [
-  // PASTE NEW KIA HEROES DIRECTLY BELOW THIS LINE
   {
     name: "LCPL. Thomas TJ Reilly JR.",
     city: "London, KY",
@@ -99,8 +98,8 @@ export default function HometownHeroesPage() {
               <Image
                 src="/frontporch-logo.PNG"
                 alt="The Front Porch Logo"
-                width={360}
-                height={220}
+                width={420}
+                height={260}
                 priority
                 className="hero-logo"
               />
@@ -150,7 +149,6 @@ export default function HometownHeroesPage() {
                       <span>Photo Coming Soon</span>
                     </div>
                   )}
-
                   <div className="kia-light" />
                   <div className="image-glow" />
                 </div>
@@ -229,35 +227,16 @@ export default function HometownHeroesPage() {
               method="POST"
               encType="multipart/form-data"
             >
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Hometown Hero Submission"
-              />
+              <input type="hidden" name="_subject" value="New Hometown Hero Submission" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
 
               <div className="form-grid">
                 <input type="text" name="name" placeholder="Name" required />
                 <input type="text" name="city" placeholder="City" required />
-                <input
-                  type="text"
-                  name="branch"
-                  placeholder="Branch Of Service"
-                  required
-                />
-                <input
-                  type="text"
-                  name="campaign"
-                  placeholder="Campaign/Theatre"
-                  required
-                />
-                <input
-                  type="text"
-                  name="years"
-                  placeholder="Years From-To"
-                  required
-                />
+                <input type="text" name="branch" placeholder="Branch Of Service" required />
+                <input type="text" name="campaign" placeholder="Campaign/Theatre" required />
+                <input type="text" name="years" placeholder="Years From-To" required />
                 <input type="file" name="photo" accept="image/*" required />
               </div>
 
@@ -270,18 +249,12 @@ export default function HometownHeroesPage() {
       )}
 
       {selectedVeteran && (
-        <div
-          className="modal-backdrop"
-          onClick={() => setSelectedVeteran(null)}
-        >
+        <div className="modal-backdrop" onClick={() => setSelectedVeteran(null)}>
           <div
             className="modal memorial-modal"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              className="close-btn"
-              onClick={() => setSelectedVeteran(null)}
-            >
+            <button className="close-btn" onClick={() => setSelectedVeteran(null)}>
               ×
             </button>
 
@@ -315,21 +288,27 @@ export default function HometownHeroesPage() {
       <style jsx>{`
         .heroes-page {
           min-height: 100vh;
-          background:
-            radial-gradient(circle at top center, rgba(255, 255, 255, 0.96), rgba(244, 244, 244, 0.98)),
-            linear-gradient(180deg, #f3f3f3 0%, #ebebeb 100%);
+          background: linear-gradient(180deg, #f8f8f8 0%, #ececec 100%);
           color: #111;
         }
 
         .hero-header {
           position: relative;
           overflow: hidden;
-          padding: 34px 18px 36px;
+          padding: 18px 18px 26px;
           text-align: center;
           background:
-            linear-gradient(180deg, rgba(8, 22, 48, 0.98) 0%, rgba(22, 51, 96, 0.94) 56%, rgba(146, 29, 44, 0.92) 100%);
+            linear-gradient(
+              180deg,
+              #ffffff 0%,
+              #ffffff 14%,
+              rgba(180, 69, 55, 0.28) 32%,
+              rgba(180, 69, 55, 0.75) 52%,
+              rgba(31, 53, 88, 0.92) 78%,
+              rgba(17, 37, 71, 0.98) 100%
+            );
           border-bottom: 5px solid #d1b443;
-          box-shadow: inset 0 -40px 80px rgba(0, 0, 0, 0.18);
+          box-shadow: inset 0 -32px 60px rgba(0, 0, 0, 0.14);
         }
 
         .hero-header::before {
@@ -337,14 +316,14 @@ export default function HometownHeroesPage() {
           position: absolute;
           inset: 0;
           background:
+            radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.75), transparent 28%),
             repeating-linear-gradient(
               180deg,
-              rgba(255, 255, 255, 0.05) 0px,
-              rgba(255, 255, 255, 0.05) 12px,
+              rgba(255, 255, 255, 0.045) 0px,
+              rgba(255, 255, 255, 0.045) 12px,
               rgba(255, 255, 255, 0.01) 12px,
               rgba(255, 255, 255, 0.01) 24px
             );
-          opacity: 0.44;
           pointer-events: none;
         }
 
@@ -352,9 +331,9 @@ export default function HometownHeroesPage() {
           position: absolute;
           inset: 0;
           background:
-            radial-gradient(circle at 16% 15%, rgba(255, 255, 255, 0.18), transparent 22%),
-            radial-gradient(circle at 84% 16%, rgba(255, 255, 255, 0.12), transparent 20%),
-            radial-gradient(circle at center, rgba(255, 255, 255, 0.03), transparent 42%);
+            radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.16), transparent 22%),
+            radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.12), transparent 20%),
+            radial-gradient(circle at center, rgba(255, 255, 255, 0.04), transparent 40%);
           pointer-events: none;
         }
 
@@ -372,31 +351,32 @@ export default function HometownHeroesPage() {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-bottom: 16px;
+          margin-bottom: 2px;
         }
 
         .hero-logo {
           width: auto;
           height: auto;
-          max-width: 360px;
+          max-width: 430px;
           object-fit: contain;
           display: block;
-          filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.2));
+          filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.22));
         }
 
         .salutes-wrap {
-          margin-bottom: 14px;
+          margin-bottom: 2px;
         }
 
         .salutes-text {
-          margin: 8px 0 6px;
+          margin: 0;
           color: #ffffff;
-          font-size: clamp(1.8rem, 3vw, 2.6rem);
+          font-size: clamp(2.15rem, 4vw, 3.3rem);
           font-family: "Brush Script MT", "Lucida Handwriting", cursive;
-          font-weight: 600;
-          letter-spacing: 0.06em;
-          text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          text-shadow: 0 4px 14px rgba(0, 0, 0, 0.42);
           text-align: center;
+          line-height: 1;
         }
 
         .title-image-wrap {
@@ -404,16 +384,16 @@ export default function HometownHeroesPage() {
           justify-content: center;
           align-items: center;
           width: 100%;
-          margin-top: 12px;
-          margin-bottom: 18px;
+          margin-top: -2px;
+          margin-bottom: 8px;
         }
 
         .title-image {
           display: block;
-          width: min(100%, 820px);
+          width: min(100%, 900px);
           max-width: 100%;
           height: auto;
-          filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.28));
+          filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
         }
 
         .branches-row {
@@ -421,16 +401,16 @@ export default function HometownHeroesPage() {
           justify-content: center;
           align-items: center;
           width: 100%;
-          margin-top: 10px;
-          margin-bottom: 22px;
+          margin-top: 2px;
+          margin-bottom: 16px;
         }
 
         .branches-row img {
           display: block;
-          width: min(100%, 840px);
+          width: min(100%, 920px);
           height: auto;
           max-width: 100%;
-          opacity: 0.97;
+          opacity: 0.98;
           filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
         }
 
@@ -441,7 +421,7 @@ export default function HometownHeroesPage() {
           border: 2px solid rgba(255, 255, 255, 0.42);
           border-radius: 999px;
           padding: 16px 34px;
-          font-size: 1.04rem;
+          font-size: 1.08rem;
           font-weight: 900;
           letter-spacing: 0.03em;
           cursor: pointer;
@@ -536,16 +516,16 @@ export default function HometownHeroesPage() {
 
         .kia-light {
           position: absolute;
-          top: -18%;
+          bottom: -10%;
           left: 50%;
           transform: translateX(-50%);
-          width: 72%;
-          height: 86%;
+          width: 84%;
+          height: 74%;
           background: radial-gradient(
-            ellipse at top,
-            rgba(255, 255, 255, 0.58) 0%,
-            rgba(255, 255, 255, 0.2) 32%,
-            rgba(255, 255, 255, 0.05) 58%,
+            ellipse at bottom,
+            rgba(255, 244, 210, 0.6) 0%,
+            rgba(255, 244, 210, 0.22) 34%,
+            rgba(255, 255, 255, 0.08) 58%,
             rgba(255, 255, 255, 0) 100%
           );
           pointer-events: none;
@@ -578,7 +558,7 @@ export default function HometownHeroesPage() {
           inset: 0;
           background:
             linear-gradient(to top, rgba(15, 36, 71, 0.18), transparent 35%),
-            radial-gradient(circle at top center, rgba(255, 255, 255, 0.22), transparent 35%);
+            radial-gradient(circle at top center, rgba(255, 255, 255, 0.2), transparent 35%);
           pointer-events: none;
           z-index: 3;
         }
@@ -791,22 +771,26 @@ export default function HometownHeroesPage() {
         }
 
         @media (max-width: 900px) {
+          .hero-header {
+            padding: 14px 14px 24px;
+          }
+
           .hero-logo {
-            max-width: 300px;
+            max-width: 340px;
           }
 
           .salutes-text {
-            font-size: 2rem;
+            font-size: 2.45rem;
           }
 
           .title-image {
             width: 100%;
-            max-width: 720px;
+            max-width: 760px;
           }
 
           .branches-row img {
             width: 100%;
-            max-width: 920px;
+            max-width: 980px;
           }
 
           .quote-heading {
