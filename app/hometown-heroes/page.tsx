@@ -99,8 +99,8 @@ export default function HometownHeroesPage() {
               <Image
                 src="/frontporch-logo.PNG"
                 alt="The Front Porch Logo"
-                width={260}
-                height={160}
+                width={360}
+                height={220}
                 priority
                 className="hero-logo"
               />
@@ -150,6 +150,7 @@ export default function HometownHeroesPage() {
                       <span>Photo Coming Soon</span>
                     </div>
                   )}
+
                   <div className="kia-light" />
                   <div className="image-glow" />
                 </div>
@@ -323,7 +324,7 @@ export default function HometownHeroesPage() {
         .hero-header {
           position: relative;
           overflow: hidden;
-          padding: 26px 18px 36px;
+          padding: 34px 18px 36px;
           text-align: center;
           background:
             linear-gradient(180deg, rgba(8, 22, 48, 0.98) 0%, rgba(22, 51, 96, 0.94) 56%, rgba(146, 29, 44, 0.92) 100%);
@@ -371,30 +372,30 @@ export default function HometownHeroesPage() {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-bottom: 10px;
+          margin-bottom: 16px;
         }
 
         .hero-logo {
           width: auto;
           height: auto;
-          max-width: 220px;
+          max-width: 360px;
           object-fit: contain;
           display: block;
           filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.2));
         }
 
         .salutes-wrap {
-          margin-bottom: 4px;
+          margin-bottom: 14px;
         }
 
         .salutes-text {
-          margin: 0;
+          margin: 8px 0 6px;
           color: #ffffff;
-          font-size: clamp(1.05rem, 2.2vw, 1.6rem);
-          font-weight: 800;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+          font-size: clamp(1.8rem, 3vw, 2.6rem);
+          font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
           text-align: center;
         }
 
@@ -403,7 +404,8 @@ export default function HometownHeroesPage() {
           justify-content: center;
           align-items: center;
           width: 100%;
-          margin-bottom: 10px;
+          margin-top: 12px;
+          margin-bottom: 18px;
         }
 
         .title-image {
@@ -425,7 +427,7 @@ export default function HometownHeroesPage() {
 
         .branches-row img {
           display: block;
-          width: min(100%, 760px);
+          width: min(100%, 840px);
           height: auto;
           max-width: 100%;
           opacity: 0.97;
@@ -537,13 +539,13 @@ export default function HometownHeroesPage() {
           top: -18%;
           left: 50%;
           transform: translateX(-50%);
-          width: 70%;
-          height: 80%;
+          width: 72%;
+          height: 86%;
           background: radial-gradient(
             ellipse at top,
-            rgba(255, 255, 255, 0.55) 0%,
-            rgba(255, 255, 255, 0.18) 32%,
-            rgba(255, 255, 255, 0.04) 58%,
+            rgba(255, 255, 255, 0.58) 0%,
+            rgba(255, 255, 255, 0.2) 32%,
+            rgba(255, 255, 255, 0.05) 58%,
             rgba(255, 255, 255, 0) 100%
           );
           pointer-events: none;
@@ -789,36 +791,31 @@ export default function HometownHeroesPage() {
         }
 
         @media (max-width: 900px) {
-          .veteran-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-          }
-
           .hero-logo {
-            max-width: 170px;
+            max-width: 300px;
           }
 
           .salutes-text {
-            font-size: 0.95rem;
-            letter-spacing: 0.12em;
+            font-size: 2rem;
           }
 
           .title-image {
             width: 100%;
-            max-width: 620px;
-          }
-
-          .branches-row {
-            margin-bottom: 18px;
+            max-width: 720px;
           }
 
           .branches-row img {
             width: 100%;
-            max-width: 100%;
+            max-width: 920px;
           }
 
           .quote-heading {
             font-size: clamp(1.25rem, 4.6vw, 1.7rem);
+          }
+
+          .veteran-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
           }
 
           .veteran-info {
