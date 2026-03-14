@@ -61,7 +61,7 @@ const otherVeterans: Veteran[] = [
     name: "CPL Vincent Tomasino",
     city: "Williamsburg, KY",
     branch: "United States Marine Corps",
-    campaign: "Peacetime Service",
+    campaign: "Vietnam Era Veteran",
     years: "1973-1977",
     image: "/heroes/vincenttomasino.jpeg",
   },
@@ -370,11 +370,13 @@ export default function HometownHeroesPage() {
         .salutes-text {
           margin: 0;
           color: #ffffff;
-          font-size: clamp(2.15rem, 4vw, 3.3rem);
+          font-size: clamp(3rem, 5.6vw, 4.6rem);
           font-family: "Brush Script MT", "Lucida Handwriting", cursive;
-          font-weight: 500;
+          font-weight: 700;
           letter-spacing: 0.02em;
-          text-shadow: 0 4px 14px rgba(0, 0, 0, 0.42);
+          text-shadow:
+            0 4px 14px rgba(0, 0, 0, 0.42),
+            0 0 14px rgba(255, 255, 255, 0.18);
           text-align: center;
           line-height: 1;
         }
@@ -456,11 +458,11 @@ export default function HometownHeroesPage() {
         .quote-heading {
           margin: 0 0 30px;
           text-align: center;
-          font-size: clamp(1.45rem, 2.9vw, 2.35rem);
+          font-size: clamp(1.75rem, 3.5vw, 2.8rem);
           line-height: 1.45;
           color: #1f3558;
           font-style: italic;
-          font-weight: 800;
+          font-weight: 900;
           text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
         }
 
@@ -516,18 +518,19 @@ export default function HometownHeroesPage() {
 
         .kia-light {
           position: absolute;
-          bottom: -10%;
+          bottom: -16%;
           left: 50%;
           transform: translateX(-50%);
-          width: 84%;
-          height: 74%;
+          width: 94%;
+          height: 92%;
           background: radial-gradient(
             ellipse at bottom,
-            rgba(255, 244, 210, 0.6) 0%,
-            rgba(255, 244, 210, 0.22) 34%,
-            rgba(255, 255, 255, 0.08) 58%,
+            rgba(255, 244, 210, 0.75) 0%,
+            rgba(255, 244, 210, 0.34) 34%,
+            rgba(255, 255, 255, 0.14) 58%,
             rgba(255, 255, 255, 0) 100%
           );
+          filter: blur(6px);
           pointer-events: none;
           z-index: 2;
         }
@@ -780,7 +783,7 @@ export default function HometownHeroesPage() {
           }
 
           .salutes-text {
-            font-size: 2.45rem;
+            font-size: 3.45rem;
           }
 
           .title-image {
@@ -794,7 +797,7 @@ export default function HometownHeroesPage() {
           }
 
           .quote-heading {
-            font-size: clamp(1.25rem, 4.6vw, 1.7rem);
+            font-size: clamp(2.1rem, 5.5vw, 3.1rem);
           }
 
           .veteran-grid {
