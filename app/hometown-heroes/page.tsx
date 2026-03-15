@@ -301,14 +301,19 @@ export default function HometownHeroesPage() {
             linear-gradient(
               180deg,
               #ffffff 0%,
-              #ffffff 14%,
-              rgba(180, 69, 55, 0.28) 32%,
-              rgba(180, 69, 55, 0.75) 52%,
-              rgba(31, 53, 88, 0.92) 78%,
-              rgba(17, 37, 71, 0.98) 100%
+              #f8f4f4 10%,
+              #ecd7d4 20%,
+              #c98a82 34%,
+              #a84f44 48%,
+              #7f2f2f 60%,
+              #4d2544 74%,
+              #223a5c 88%,
+              #112547 100%
             );
           border-bottom: 5px solid #d1b443;
-          box-shadow: inset 0 -32px 60px rgba(0, 0, 0, 0.14);
+          box-shadow:
+            inset 0 -32px 60px rgba(0, 0, 0, 0.18),
+            inset 0 20px 40px rgba(255, 255, 255, 0.08);
         }
 
         .hero-header::before {
@@ -316,13 +321,15 @@ export default function HometownHeroesPage() {
           position: absolute;
           inset: 0;
           background:
-            radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.75), transparent 28%),
+            radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.68), transparent 24%),
+            radial-gradient(circle at 20% 22%, rgba(255, 255, 255, 0.08), transparent 18%),
+            radial-gradient(circle at 80% 24%, rgba(255, 255, 255, 0.06), transparent 18%),
             repeating-linear-gradient(
               180deg,
-              rgba(255, 255, 255, 0.045) 0px,
-              rgba(255, 255, 255, 0.045) 12px,
-              rgba(255, 255, 255, 0.01) 12px,
-              rgba(255, 255, 255, 0.01) 24px
+              rgba(255, 255, 255, 0.035) 0px,
+              rgba(255, 255, 255, 0.035) 12px,
+              rgba(255, 255, 255, 0.008) 12px,
+              rgba(255, 255, 255, 0.008) 24px
             );
           pointer-events: none;
         }
