@@ -29,7 +29,7 @@ const COLORS = {
 const menuItems = [
   { label: "HOME", href: "/" },
   { label: "HOMETOWN HEROES", href: "/hometown-heroes" },
-  { label: "R&R", href: "/coming-soon" },
+  { label: "ENTERTAINMENT ZONE", href: "/coming-soon" },
   { label: "DONATE", href: paypal, external: true },
   { label: "TFP SHOP", href: shop, external: true },
   { label: "CONTACT US", href: "#contact" },
