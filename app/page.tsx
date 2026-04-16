@@ -513,36 +513,36 @@ export default function Home() {
             </div>
           </section>
 
-          <section
-            style={{
-              maxWidth: "860px",
-              margin: "0 auto 22px",
-              textAlign: "center",
-            }}
-          >
-            <Link
-              href="/coming-soon"
-              className="promo-link"
-              style={{
-                display: "inline-block",
-                width: "100%",
-                maxWidth: "456px",
-                textDecoration: "none",
-              }}
-            >
-              <div className="image-card">
-                <img
-                  src="/raffles-games-button.jpeg"
-                  alt="Raffles and Games"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
-                />
-              </div>
-            </Link>
-          </section>
+          
+            
+              
+              
+             
+          
+          
+            
+              
+            
+              
+                
+             
+              
+              
+              
+            
+            
+            
+                  
+                  
+                  
+                    
+                    
+                    
+                
+              
+            
+          
+    
 
           <section className="top-row">
             <div className="facebook-block">
