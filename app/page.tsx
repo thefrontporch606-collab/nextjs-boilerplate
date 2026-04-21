@@ -225,8 +225,6 @@
     <div className="content-wrap">
       <section className="section-stack">
 
-        {/* EXISTING CONTENT ABOVE */}
-
         <section id="events" className="events-panel">
           <h2 className="events-title">Upcoming Events</h2>
           <ul className="events-list">
@@ -236,7 +234,7 @@
           </ul>
         </section>
 
-        {/* ✅ NEW CARE PACKAGE SECTION */}
+        {/* ✅ PAYPAL CARE PACKAGE BOX */}
         <section style={{ marginTop: "20px", textAlign: "center" }}>
           <div className="image-card" style={{ padding: "24px 18px" }}>
             <h2
@@ -263,7 +261,7 @@
             </p>
 
             <a
-              href={carePackagePaypal}
+              href="https://www.paypal.com/donate/?hosted_button_id=BSKSR77NFL9DJ"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "none" }}
