@@ -1,3 +1,4 @@
+// app/page.tsx
 "use client";
 
 import Image from "next/image";
@@ -189,11 +190,6 @@ export default function Home() {
           width: 100%;
         }
 
-        .flyer-left-wrap {
-          width: 50%;
-          margin-right: auto;
-        }
-
         .image-button {
           display: block;
           width: 100%;
@@ -267,9 +263,26 @@ export default function Home() {
           font-size: 0.92rem;
         }
 
+        .donation-row {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 20px;
+          align-items: center;
+          width: 100%;
+          max-width: 860px;
+          margin: 0 auto;
+        }
+
+        .donation-flyer {
+          max-width: 420px;
+          width: 100%;
+        }
+
         .paypal-box {
           width: 100%;
-          text-align: left;
+          max-width: 260px;
+          text-align: right;
+          justify-self: end;
         }
 
         .paypal-box form {
@@ -446,8 +459,17 @@ export default function Home() {
             grid-template-columns: 1fr;
           }
 
-          .flyer-left-wrap {
+          .donation-row {
+            grid-template-columns: 1fr;
+            justify-items: center;
+          }
+
+          .donation-flyer,
+          .paypal-box {
+            max-width: 100%;
             width: 100%;
+            text-align: center;
+            justify-self: center;
           }
         }
 
@@ -618,57 +640,6 @@ export default function Home() {
           </section>
 
           <section className="section-stack">
-            <div className="flyer-left-wrap">
-              <a
-                href={paypal}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="promo-link centered-block"
-                style={{ display: "block" }}
-              >
-                <div className="image-card">
-                  <img
-                    src="/donate-new.jpeg"
-                    alt="Donate to TFP"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      display: "block",
-                    }}
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div className="paypal-box">
-              <form
-                action="https://www.paypal.com/donate"
-                method="post"
-                target="_top"
-              >
-                <input
-                  type="hidden"
-                  name="hosted_button_id"
-                  value="BSKSR77NFL9DJ"
-                />
-                <input
-                  type="image"
-                  src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-                  name="submit"
-                  title="PayPal - The safer, easier way to pay online!"
-                  alt="Donate with PayPal button"
-                  style={{ border: 0 }}
-                />
-                <img
-                  alt=""
-                  src="https://www.paypal.com/en_US/i/scr/pixel.gif"
-                  width="1"
-                  height="1"
-                  style={{ border: 0 }}
-                />
-              </form>
-            </div>
-
             <section id="events" className="events-panel">
               <h2 className="events-title">Upcoming Events</h2>
               <ul className="events-list">
@@ -677,6 +648,59 @@ export default function Home() {
                 <li>TBD Event 3</li>
               </ul>
             </section>
+
+            <div className="donation-row">
+              <div className="donation-flyer">
+                <a
+                  href={paypal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="promo-link centered-block"
+                  style={{ display: "block" }}
+                >
+                  <div className="image-card">
+                    <img
+                      src="/donate-new.jpeg"
+                      alt="Donate to TFP"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        display: "block",
+                      }}
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div className="paypal-box">
+                <form
+                  action="https://www.paypal.com/donate"
+                  method="post"
+                  target="_top"
+                >
+                  <input
+                    type="hidden"
+                    name="hosted_button_id"
+                    value="BSKSR77NFL9DJ"
+                  />
+                  <input
+                    type="image"
+                    src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+                    name="submit"
+                    title="PayPal - The safer, easier way to pay online!"
+                    alt="Donate with PayPal button"
+                    style={{ border: 0 }}
+                  />
+                  <img
+                    alt=""
+                    src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+                    width="1"
+                    height="1"
+                    style={{ border: 0 }}
+                  />
+                </form>
+              </div>
+            </div>
 
             <section id="contact" className="contact-strip">
               <a href={phoneHref} className="contact-link">
