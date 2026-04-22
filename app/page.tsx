@@ -263,133 +263,6 @@ export default function Home() {
           font-size: 0.92rem;
         }
 
-        .events-panel {
-          text-align: center;
-          padding: 8px 0 0;
-        }
-
-        .events-title {
-          margin: 0 0 10px;
-          color: ${COLORS.blue};
-          font-size: 2rem;
-          font-weight: 900;
-        }
-
-        .event-highlight {
-          position: relative;
-          background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
-          border: 2px solid ${COLORS.gold};
-          border-radius: 22px;
-          padding: 28px 22px;
-          max-width: 620px;
-          margin: 0 auto 16px;
-          box-shadow: 0 14px 30px rgba(31, 53, 88, 0.12);
-          overflow: hidden;
-        }
-
-        .event-highlight::before,
-        .event-highlight::after {
-          content: "◆";
-          position: absolute;
-          font-size: 2rem;
-          color: rgba(212, 166, 42, 0.18);
-          font-weight: 900;
-          pointer-events: none;
-        }
-
-        .event-highlight::before {
-          top: 14px;
-          left: 18px;
-          transform: rotate(14deg);
-        }
-
-        .event-highlight::after {
-          bottom: 12px;
-          right: 18px;
-          transform: rotate(-14deg);
-        }
-
-        .chip {
-          position: absolute;
-          width: 74px;
-          height: 74px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 900;
-          font-size: 0.75rem;
-          letter-spacing: 0.06em;
-          color: #ffffff;
-          border: 6px solid #ffffff;
-          box-shadow: 0 8px 18px rgba(31, 53, 88, 0.18);
-          pointer-events: none;
-        }
-
-        .chip::before {
-          content: "";
-          position: absolute;
-          inset: 8px;
-          border: 2px dashed rgba(255, 255, 255, 0.75);
-          border-radius: 50%;
-        }
-
-        .chip-1 {
-          top: -14px;
-          left: -10px;
-          background: ${COLORS.red};
-          transform: rotate(-18deg);
-        }
-
-        .chip-2 {
-          right: -14px;
-          top: 30px;
-          background: ${COLORS.blue};
-          transform: rotate(18deg);
-        }
-
-        .chip-3 {
-          bottom: -18px;
-          right: 64px;
-          background: ${COLORS.gold};
-          color: #2b1500;
-          transform: rotate(-10deg);
-        }
-
-        .event-kicker {
-          margin: 0 0 10px;
-          font-size: 0.92rem;
-          font-weight: 900;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: ${COLORS.blue};
-        }
-
-        .event-highlight-title {
-          margin: 0;
-          color: ${COLORS.red};
-          font-size: 1.65rem;
-          font-weight: 900;
-          line-height: 1.3;
-        }
-
-        .event-date {
-          margin: 14px 0 0;
-          font-size: 1.15rem;
-          font-weight: 900;
-          color: ${COLORS.blue};
-        }
-
-        .events-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          color: ${COLORS.blue};
-          font-weight: 800;
-          line-height: 1.9;
-          font-size: 1.02rem;
-        }
-
         .donation-row {
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;
@@ -537,6 +410,134 @@ export default function Home() {
           filter: brightness(1.03);
         }
 
+        .events-panel {
+          text-align: center;
+          padding: 8px 0 0;
+        }
+
+        .events-title {
+          margin: 0 0 10px;
+          color: ${COLORS.blue};
+          font-size: 2rem;
+          font-weight: 900;
+        }
+
+        .event-highlight {
+          position: relative;
+          background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+          border: 2px solid ${COLORS.gold};
+          border-radius: 22px;
+          padding: 26px 22px;
+          max-width: 620px;
+          margin: 0 auto 16px;
+          box-shadow: 0 12px 28px rgba(31, 53, 88, 0.12);
+          overflow: hidden;
+        }
+
+        .event-highlight::before,
+        .event-highlight::after {
+          content: "♠";
+          position: absolute;
+          color: rgba(180, 69, 55, 0.12);
+          font-size: 2.2rem;
+          font-weight: 900;
+          pointer-events: none;
+        }
+
+        .event-highlight::before {
+          top: 12px;
+          right: 20px;
+          transform: rotate(10deg);
+        }
+
+        .event-highlight::after {
+          bottom: 10px;
+          left: 20px;
+          transform: rotate(-10deg);
+        }
+
+        .event-kicker {
+          margin: 0 0 10px;
+          font-size: 0.9rem;
+          font-weight: 900;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: ${COLORS.blue};
+        }
+
+        .event-highlight-title {
+          margin: 0;
+          color: ${COLORS.red};
+          font-size: 1.5rem;
+          font-weight: 900;
+          line-height: 1.35;
+        }
+
+        .event-date {
+          margin: 14px 0 0;
+          font-size: 1.1rem;
+          font-weight: 900;
+          color: ${COLORS.blue};
+        }
+
+        .events-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          color: ${COLORS.blue};
+          font-weight: 800;
+          line-height: 1.9;
+          font-size: 1.02rem;
+        }
+
+        .chip {
+          position: absolute;
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 900;
+          font-size: 0.72rem;
+          letter-spacing: 0.04em;
+          border: 6px solid #ffffff;
+          box-shadow: 0 10px 22px rgba(31, 53, 88, 0.18);
+          pointer-events: none;
+        }
+
+        .chip::before {
+          content: "";
+          position: absolute;
+          inset: 8px;
+          border-radius: 50%;
+          border: 2px dashed rgba(255, 255, 255, 0.75);
+        }
+
+        .chip-1 {
+          top: -14px;
+          left: -10px;
+          background: ${COLORS.red};
+          color: #ffffff;
+          transform: rotate(-18deg);
+        }
+
+        .chip-2 {
+          top: 24px;
+          right: -16px;
+          background: ${COLORS.blue};
+          color: #ffffff;
+          transform: rotate(18deg);
+        }
+
+        .chip-3 {
+          bottom: -16px;
+          right: 60px;
+          background: ${COLORS.gold};
+          color: #2b1500;
+          transform: rotate(-10deg);
+        }
+
         @media (max-width: 900px) {
           .top-row {
             grid-template-columns: 1fr;
@@ -601,11 +602,11 @@ export default function Home() {
           }
 
           .event-highlight {
-            padding: 24px 16px;
+            padding: 22px 16px;
           }
 
           .event-highlight-title {
-            font-size: 1.28rem;
+            font-size: 1.2rem;
           }
 
           .event-date {
@@ -615,18 +616,18 @@ export default function Home() {
           .chip {
             width: 58px;
             height: 58px;
-            font-size: 0.62rem;
+            font-size: 0.58rem;
             border-width: 5px;
           }
 
           .chip-2 {
             right: -10px;
-            top: 22px;
+            top: 20px;
           }
 
           .chip-3 {
-            right: 30px;
-            bottom: -12px;
+            right: 24px;
+            bottom: -10px;
           }
 
           .top-row {
@@ -778,9 +779,9 @@ export default function Home() {
               <h2 className="events-title">Upcoming Events</h2>
 
               <div className="event-highlight">
-                <div className="chip chip-1">POKER</div>
+                <div className="chip chip-1">TFP</div>
                 <div className="chip chip-2">HEROES</div>
-                <div className="chip chip-3">TFP</div>
+                <div className="chip chip-3">POKER</div>
 
                 <p className="event-kicker">Featured Event</p>
 
