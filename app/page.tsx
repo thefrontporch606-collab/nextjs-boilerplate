@@ -8,8 +8,6 @@ import { FormEvent, useState } from "react";
 const paypal =
   "https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G";
 
-const shop = "https://the-front-porch-4771.myshopify.com";
-
 const facebook =
   "https://www.facebook.com/share/1ALeuZKmMZ/?mibextid=wwXIfr";
 
@@ -26,18 +24,6 @@ const COLORS = {
   gold: "#D4A62A",
   lightBg: "#F3F4F6",
 };
-
-const menuItems = [
-  { label: "HOME", href: "/" },
-  { label: "HOMETOWN HEROES", href: "/hometown-heroes" },
-  { label: "ENTERTAINMENT ZONE", href: "/coming-soon" },
-  { label: "DONATE", href: paypal, external: true },
-  { label: "TFP SHOP", href: shop, external: true },
-  { label: "CONTACT US", href: "#contact" },
-  { label: "VETERAN RESOURCES", href: "/veteran-resources" },
-  { label: "EVENTS", href: "#events" },
-  { label: "MEMBERSHIP", href: "/coming-soon" },
-];
 
 export default function Home() {
   const [showCareModal, setShowCareModal] = useState(false);
@@ -98,13 +84,114 @@ export default function Home() {
         .page-shell {
           width: 100%;
           overflow-x: hidden;
+          padding-bottom: 60px;
+        }
+
+        .floating-nav-wrap {
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background: rgba(243, 244, 246, 0.92);
+          backdrop-filter: blur(10px);
+          padding: 14px 10px 10px;
+        }
+
+        .floating-nav {
+          width: 100%;
+          max-width: 1520px;
+          margin: 0 auto;
+          position: relative;
+        }
+
+        .floating-nav-img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        .nav-hotspot {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          display: block;
+          text-indent: -9999px;
+          overflow: hidden;
+        }
+
+        .nav-home {
+          left: 3%;
+          width: 23%;
+        }
+
+        .nav-hometown {
+          left: 27%;
+          width: 8.5%;
+        }
+
+        .nav-mission {
+          left: 36.5%;
+          width: 8.5%;
+        }
+
+        .nav-support {
+          left: 46%;
+          width: 10%;
+        }
+
+        .nav-resources {
+          left: 57%;
+          width: 10%;
+        }
+
+        .nav-studio {
+          left: 68%;
+          width: 10%;
+        }
+
+        .nav-raffles {
+          left: 79%;
+          width: 8%;
+        }
+
+        .nav-donate {
+          right: 2%;
+          width: 11%;
+        }
+
+        .facebook-under-nav {
+          width: 100%;
+          max-width: 235px;
+          margin-top: 8px;
+          margin-bottom: 18px;
+          margin-left: calc((100vw - min(1520px, 100vw)) / 2 + 42px);
+        }
+
+        .facebook-under-nav .image-card {
+          border-radius: 0;
+          box-shadow: none;
+          background: transparent;
+        }
+
+        .top-logo-section {
+          width: 100%;
+          background: ${COLORS.white};
+          padding: 12px 0 8px;
+        }
+
+        .top-logo-wrap {
+          position: relative;
+          width: 100%;
+          max-width: 490px;
+          margin: 0 auto;
+          height: min(43vw, 410px);
+          min-height: 180px;
         }
 
         .content-wrap {
           width: 100%;
           max-width: 980px;
           margin: 0 auto;
-          padding: 0 14px 60px;
+          padding: 24px 14px 60px;
         }
 
         .image-card {
@@ -126,48 +213,8 @@ export default function Home() {
           filter: brightness(1.03);
         }
 
-        .main-menu-box {
-          width: 100%;
-          max-width: 860px;
-          margin: 0 auto 34px;
-          background: ${COLORS.blue};
-          border-radius: 0;
-          padding: 20px 18px;
-        }
-
-        .main-menu-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 14px 18px;
-          align-items: center;
-        }
-
-        .main-menu-link {
-          color: #ffffff;
-          text-decoration: none;
-          font-weight: 800;
-          font-size: 1.05rem;
-          line-height: 1.2;
-          letter-spacing: 0.3px;
-          text-align: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 34px;
-          padding: 4px 2px;
-          background: transparent;
-          border: 0;
-        }
-
-        .main-menu-link:hover {
-          text-decoration: underline;
-        }
-
         .top-row {
-          display: grid;
-          grid-template-columns: 290px 1fr;
-          gap: 18px;
-          align-items: start;
+          display: block;
           margin: 0 auto 20px;
           max-width: 860px;
         }
@@ -318,98 +365,6 @@ export default function Home() {
           margin-right: 6px;
         }
 
-        .care-modal-backdrop {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.64);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 9999;
-          padding: 20px;
-        }
-
-        .care-modal {
-          width: 100%;
-          max-width: 560px;
-          background: #ffffff;
-          border-radius: 24px;
-          padding: 24px;
-          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-          position: relative;
-        }
-
-        .care-close-btn {
-          position: absolute;
-          top: 10px;
-          right: 14px;
-          border: 0;
-          background: transparent;
-          font-size: 1.9rem;
-          line-height: 1;
-          cursor: pointer;
-          color: ${COLORS.blue};
-        }
-
-        .care-modal-title {
-          margin: 0 0 8px;
-          text-align: center;
-          font-size: 1.8rem;
-          font-weight: 900;
-          color: ${COLORS.blue};
-        }
-
-        .care-modal-text {
-          margin: 0 0 18px;
-          text-align: center;
-          line-height: 1.55;
-          color: #4f5f74;
-        }
-
-        .field-label {
-          display: block;
-          margin-bottom: 8px;
-          color: ${COLORS.blue};
-          font-weight: 800;
-          font-size: 0.98rem;
-        }
-
-        .field-input,
-        .field-textarea {
-          width: 100%;
-          border: 1px solid #d3d8e0;
-          border-radius: 14px;
-          padding: 13px 14px;
-          font-size: 1rem;
-          font-family: Arial, sans-serif;
-          margin-bottom: 14px;
-          color: ${COLORS.blue};
-        }
-
-        .field-input:focus,
-        .field-textarea:focus {
-          outline: 2px solid ${COLORS.gold};
-          border-color: ${COLORS.gold};
-        }
-
-        .care-submit-btn {
-          width: 100%;
-          border: 0;
-          border-radius: 16px;
-          padding: 16px 18px;
-          font-size: 1.08rem;
-          font-weight: 900;
-          letter-spacing: 0.03em;
-          color: #2b1500;
-          background: linear-gradient(180deg, #ffe36c 0%, #ffbe1a 48%, #cb7a00 100%);
-          box-shadow: 0 8px 18px rgba(133, 69, 0, 0.28);
-          cursor: pointer;
-        }
-
-        .care-submit-btn:hover {
-          filter: brightness(1.03);
-        }
-
         .events-panel {
           text-align: center;
           padding: 8px 0 0;
@@ -538,22 +493,114 @@ export default function Home() {
           transform: rotate(-10deg);
         }
 
+        .care-modal-backdrop {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.64);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          padding: 20px;
+        }
+
+        .care-modal {
+          width: 100%;
+          max-width: 560px;
+          background: #ffffff;
+          border-radius: 24px;
+          padding: 24px;
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+          position: relative;
+        }
+
+        .care-close-btn {
+          position: absolute;
+          top: 10px;
+          right: 14px;
+          border: 0;
+          background: transparent;
+          font-size: 1.9rem;
+          line-height: 1;
+          cursor: pointer;
+          color: ${COLORS.blue};
+        }
+
+        .care-modal-title {
+          margin: 0 0 8px;
+          text-align: center;
+          font-size: 1.8rem;
+          font-weight: 900;
+          color: ${COLORS.blue};
+        }
+
+        .care-modal-text {
+          margin: 0 0 18px;
+          text-align: center;
+          line-height: 1.55;
+          color: #4f5f74;
+        }
+
+        .field-label {
+          display: block;
+          margin-bottom: 8px;
+          color: ${COLORS.blue};
+          font-weight: 800;
+          font-size: 0.98rem;
+        }
+
+        .field-input,
+        .field-textarea {
+          width: 100%;
+          border: 1px solid #d3d8e0;
+          border-radius: 14px;
+          padding: 13px 14px;
+          font-size: 1rem;
+          font-family: Arial, sans-serif;
+          margin-bottom: 14px;
+          color: ${COLORS.blue};
+        }
+
+        .field-input:focus,
+        .field-textarea:focus {
+          outline: 2px solid ${COLORS.gold};
+          border-color: ${COLORS.gold};
+        }
+
+        .care-submit-btn {
+          width: 100%;
+          border: 0;
+          border-radius: 16px;
+          padding: 16px 18px;
+          font-size: 1.08rem;
+          font-weight: 900;
+          letter-spacing: 0.03em;
+          color: #2b1500;
+          background: linear-gradient(180deg, #ffe36c 0%, #ffbe1a 48%, #cb7a00 100%);
+          box-shadow: 0 8px 18px rgba(133, 69, 0, 0.28);
+          cursor: pointer;
+        }
+
+        .care-submit-btn:hover {
+          filter: brightness(1.03);
+        }
+
         @media (max-width: 900px) {
+          .floating-nav-wrap {
+            overflow-x: auto;
+            padding: 10px;
+          }
+
+          .floating-nav {
+            min-width: 980px;
+          }
+
+          .facebook-under-nav {
+            max-width: 230px;
+            margin-left: 12px;
+          }
+
           .top-row {
-            grid-template-columns: 1fr;
-            max-width: 760px;
-          }
-
-          .top-row > * {
-            margin: 0 auto;
-            width: 100%;
-          }
-
-          .top-row .facebook-block {
-            max-width: 280px;
-          }
-
-          .main-menu-box {
             max-width: 760px;
           }
 
@@ -580,13 +627,9 @@ export default function Home() {
         }
 
         @media (max-width: 640px) {
-          .main-menu-grid {
-            gap: 12px 10px;
-          }
-
-          .main-menu-link {
-            font-size: 0.9rem;
-            min-height: 30px;
+          .top-logo-wrap {
+            max-width: 330px;
+            height: 300px;
           }
 
           .care-modal {
@@ -629,31 +672,74 @@ export default function Home() {
             right: 24px;
             bottom: -10px;
           }
-
-          .top-row {
-            gap: 14px;
-          }
         }
       `}</style>
 
       <div className="page-shell">
-        <section
-          style={{
-            width: "100%",
-            background: COLORS.white,
-            padding: "20px 0 8px",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              maxWidth: "980px",
-              margin: "0 auto",
-              height: "min(86vw,820px)",
-              minHeight: "320px",
-            }}
+        <div className="floating-nav-wrap">
+          <nav className="floating-nav" aria-label="Main navigation">
+            <img
+              src="/frontporch-nav.PNG"
+              alt="The Front Porch navigation"
+              className="floating-nav-img"
+            />
+
+            <Link href="/" className="nav-hotspot nav-home">
+              Back to the Porch
+            </Link>
+            <Link href="/hometown-heroes" className="nav-hotspot nav-hometown">
+              Hometown Heroes
+            </Link>
+            <Link href="/mission" className="nav-hotspot nav-mission">
+              Mission
+            </Link>
+            <Link href="/request-support" className="nav-hotspot nav-support">
+              Request Support
+            </Link>
+            <Link href="/veteran-resources" className="nav-hotspot nav-resources">
+              Veteran Resources
+            </Link>
+            <Link href="/front-porch-studio" className="nav-hotspot nav-studio">
+              Front Porch Studio
+            </Link>
+            <Link href="/raffles" className="nav-hotspot nav-raffles">
+              Raffles
+            </Link>
+            <a
+              href={paypal}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-hotspot nav-donate"
+            >
+              Donate
+            </a>
+          </nav>
+        </div>
+
+        <div className="facebook-under-nav">
+          <a
+            href={facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="promo-link"
+            style={{ display: "block" }}
           >
+            <div className="image-card">
+              <img
+                src="/Facebook-like.PNG"
+                alt="Like us on Facebook"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                }}
+              />
+            </div>
+          </a>
+        </div>
+
+        <section className="top-logo-section">
+          <div className="top-logo-wrap">
             <Image
               src="/IMG_1844.jpeg"
               alt="The Front Porch"
@@ -668,55 +754,7 @@ export default function Home() {
         </section>
 
         <div className="content-wrap">
-          <section className="main-menu-box" aria-label="Main navigation directory">
-            <div className="main-menu-grid">
-              {menuItems.map((item) =>
-                item.external ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="main-menu-link"
-                  >
-                    {item.label}
-                  </a>
-                ) : item.href.startsWith("#") ? (
-                  <a key={item.label} href={item.href} className="main-menu-link">
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link key={item.label} href={item.href} className="main-menu-link">
-                    {item.label}
-                  </Link>
-                )
-              )}
-            </div>
-          </section>
-
           <section className="top-row">
-            <div className="facebook-block">
-              <a
-                href={facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="promo-link"
-                style={{ display: "block" }}
-              >
-                <div className="image-card">
-                  <img
-                    src="/facebook-like.PNG"
-                    alt="Like us on Facebook"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      display: "block",
-                    }}
-                  />
-                </div>
-              </a>
-            </div>
-
             <div>
               <div className="image-card">
                 <img
@@ -826,16 +864,8 @@ export default function Home() {
               </div>
 
               <div className="paypal-box">
-                <form
-                  action="https://www.paypal.com/donate"
-                  method="post"
-                  target="_top"
-                >
-                  <input
-                    type="hidden"
-                    name="hosted_button_id"
-                    value="BSKSR77NFL9DJ"
-                  />
+                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                  <input type="hidden" name="hosted_button_id" value="BSKSR77NFL9DJ" />
                   <input
                     type="image"
                     src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
