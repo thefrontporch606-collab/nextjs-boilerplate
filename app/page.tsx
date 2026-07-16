@@ -3,17 +3,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { FormEvent, useState } from "react";
 
 const paypal =
   "https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G";
-
 const facebook =
   "https://www.facebook.com/share/1ALeuZKmMZ/?mibextid=wwXIfr";
-
 const phone = "(606)595-8622";
 const phoneHref = "tel:16065958622";
-
 const email = "thefrontporch606@gmail.com";
 const emailHref = "mailto:thefrontporch606@gmail.com";
 
@@ -33,21 +31,17 @@ export default function Home() {
 
   const handleCarePackageSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const trimmedName = donorName.trim();
     const trimmedMessage = message.trim();
-
     if (!trimmedName) {
       alert("Please enter your name.");
       return;
     }
-
     const url = new URL(paypal);
     url.searchParams.set("amount", "10");
     url.searchParams.set("campaign", "care-package");
     url.searchParams.set("donor_name", trimmedName);
     url.searchParams.set("message", trimmedMessage);
-
     window.location.href = url.toString();
   };
 
@@ -67,26 +61,26 @@ export default function Home() {
         minHeight: "100vh",
       }}
     >
+      <Script
+        src="https://widgets.givebutter.com/latest.umd.cjs?acct=JRbIiAfUH9uPrqiF&p=other"
+        strategy="afterInteractive"
+      />
       <style jsx global>{`
         * {
           box-sizing: border-box;
         }
-
         html {
           scroll-behavior: smooth;
         }
-
         body {
           margin: 0;
           background: ${COLORS.lightBg};
         }
-
         .page-shell {
           width: 100%;
           overflow-x: hidden;
           padding-bottom: 60px;
         }
-
         .floating-nav-wrap {
           position: sticky;
           top: 0;
@@ -95,20 +89,17 @@ export default function Home() {
           backdrop-filter: blur(10px);
           padding: 14px 10px 10px;
         }
-
         .floating-nav {
           width: 100%;
           max-width: 1520px;
           margin: 0 auto;
           position: relative;
         }
-
         .floating-nav-img {
           width: 100%;
           height: auto;
           display: block;
         }
-
         .nav-hotspot {
           position: absolute;
           top: 0;
@@ -117,47 +108,38 @@ export default function Home() {
           text-indent: -9999px;
           overflow: hidden;
         }
-
         .nav-home {
           left: 3%;
           width: 23%;
         }
-
         .nav-hometown {
           left: 27%;
           width: 8.5%;
         }
-
         .nav-mission {
           left: 36.5%;
           width: 8.5%;
         }
-
         .nav-support {
           left: 46%;
           width: 10%;
         }
-
         .nav-resources {
           left: 57%;
           width: 10%;
         }
-
         .nav-studio {
           left: 68%;
           width: 10%;
         }
-
         .nav-raffles {
           left: 79%;
           width: 8%;
         }
-
         .nav-donate {
           right: 2%;
           width: 11%;
         }
-
         .facebook-under-nav {
           width: 100%;
           max-width: 235px;
@@ -165,19 +147,16 @@ export default function Home() {
           margin-bottom: 18px;
           margin-left: calc((100vw - min(1520px, 100vw)) / 2 + 42px);
         }
-
         .facebook-under-nav .image-card {
           border-radius: 0;
           box-shadow: none;
           background: transparent;
         }
-
         .top-logo-section {
           width: 100%;
           background: ${COLORS.white};
           padding: 12px 0 8px;
         }
-
         .top-logo-wrap {
           position: relative;
           width: 100%;
@@ -186,14 +165,12 @@ export default function Home() {
           height: min(43vw, 410px);
           min-height: 180px;
         }
-
         .content-wrap {
           width: 100%;
           max-width: 980px;
           margin: 0 auto;
           padding: 24px 14px 60px;
         }
-
         .image-card {
           width: 100%;
           border-radius: 28px;
@@ -201,30 +178,25 @@ export default function Home() {
           box-shadow: 0 16px 38px rgba(31, 53, 88, 0.14);
           background: #ffffff;
         }
-
         .promo-link,
         .image-button {
           transition: transform 0.2s ease, filter 0.2s ease;
         }
-
         .promo-link:hover,
         .image-button:hover {
           transform: translateY(-2px);
           filter: brightness(1.03);
         }
-
         .top-row {
           display: block;
           margin: 0 auto 20px;
           max-width: 860px;
         }
-
         .top-row .image-card {
           border-radius: 0;
           box-shadow: none;
           background: transparent;
         }
-
         .section-stack {
           display: flex;
           flex-direction: column;
@@ -232,11 +204,9 @@ export default function Home() {
           max-width: 860px;
           margin: 0 auto;
         }
-
         .centered-block {
           width: 100%;
         }
-
         .image-button {
           display: block;
           width: 100%;
@@ -245,7 +215,6 @@ export default function Home() {
           padding: 0;
           cursor: pointer;
         }
-
         .newsletter-card {
           background: #ffffff;
           border-radius: 20px;
@@ -253,7 +222,6 @@ export default function Home() {
           box-shadow: 0 12px 28px rgba(31, 53, 88, 0.12);
           margin-top: 12px;
         }
-
         .newsletter-title {
           margin: 0 0 14px;
           font-size: 1.3rem;
@@ -261,14 +229,12 @@ export default function Home() {
           color: ${COLORS.blue};
           text-align: center;
         }
-
         .newsletter-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 10px;
           align-items: center;
         }
-
         .newsletter-input {
           width: 100%;
           border: 1px solid #d3d8e0;
@@ -278,12 +244,10 @@ export default function Home() {
           color: ${COLORS.blue};
           background: #fff;
         }
-
         .newsletter-input:focus {
           outline: 2px solid ${COLORS.gold};
           border-color: ${COLORS.gold};
         }
-
         .newsletter-button {
           border: 0;
           border-radius: 12px;
@@ -297,11 +261,9 @@ export default function Home() {
           white-space: nowrap;
           grid-column: 1 / -1;
         }
-
         .newsletter-button:hover {
           filter: brightness(1.03);
         }
-
         .newsletter-status {
           margin: 12px 0 0;
           text-align: center;
@@ -309,7 +271,6 @@ export default function Home() {
           font-weight: 700;
           font-size: 0.92rem;
         }
-
         .donation-row {
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;
@@ -319,34 +280,28 @@ export default function Home() {
           max-width: 860px;
           margin: 0 auto;
         }
-
         .donation-flyer {
           max-width: 420px;
           width: 100%;
         }
-
         .paypal-box {
           width: 100%;
           max-width: 260px;
           text-align: right;
           justify-self: end;
         }
-
         .paypal-box form {
           display: inline-block;
         }
-
         .paypal-box input[type="image"] {
           max-width: 100%;
           height: auto;
           display: block;
         }
-
         .contact-strip {
           text-align: center;
           padding: 24px 0 0;
         }
-
         .contact-link {
           display: inline-block;
           margin: 6px 12px;
@@ -355,28 +310,23 @@ export default function Home() {
           text-decoration: none;
           font-size: 1rem;
         }
-
         .contact-link:hover {
           text-decoration: underline;
         }
-
         .contact-label {
           color: ${COLORS.blue};
           margin-right: 6px;
         }
-
         .events-panel {
           text-align: center;
           padding: 8px 0 0;
         }
-
         .events-title {
           margin: 0 0 10px;
           color: ${COLORS.blue};
           font-size: 2rem;
           font-weight: 900;
         }
-
         .event-highlight {
           position: relative;
           background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
@@ -388,7 +338,6 @@ export default function Home() {
           box-shadow: 0 12px 28px rgba(31, 53, 88, 0.12);
           overflow: hidden;
         }
-
         .event-highlight::before,
         .event-highlight::after {
           content: "♠";
@@ -398,19 +347,16 @@ export default function Home() {
           font-weight: 900;
           pointer-events: none;
         }
-
         .event-highlight::before {
           top: 12px;
           right: 20px;
           transform: rotate(10deg);
         }
-
         .event-highlight::after {
           bottom: 10px;
           left: 20px;
           transform: rotate(-10deg);
         }
-
         .event-kicker {
           margin: 0 0 10px;
           font-size: 0.9rem;
@@ -419,7 +365,6 @@ export default function Home() {
           text-transform: uppercase;
           color: ${COLORS.blue};
         }
-
         .event-highlight-title {
           margin: 0;
           color: ${COLORS.red};
@@ -427,14 +372,12 @@ export default function Home() {
           font-weight: 900;
           line-height: 1.35;
         }
-
         .event-date {
           margin: 14px 0 0;
           font-size: 1.1rem;
           font-weight: 900;
           color: ${COLORS.blue};
         }
-
         .events-list {
           list-style: none;
           padding: 0;
@@ -444,7 +387,6 @@ export default function Home() {
           line-height: 1.9;
           font-size: 1.02rem;
         }
-
         .chip {
           position: absolute;
           width: 72px;
@@ -460,7 +402,6 @@ export default function Home() {
           box-shadow: 0 10px 22px rgba(31, 53, 88, 0.18);
           pointer-events: none;
         }
-
         .chip::before {
           content: "";
           position: absolute;
@@ -468,7 +409,6 @@ export default function Home() {
           border-radius: 50%;
           border: 2px dashed rgba(255, 255, 255, 0.75);
         }
-
         .chip-1 {
           top: -14px;
           left: -10px;
@@ -476,7 +416,6 @@ export default function Home() {
           color: #ffffff;
           transform: rotate(-18deg);
         }
-
         .chip-2 {
           top: 24px;
           right: -16px;
@@ -484,7 +423,6 @@ export default function Home() {
           color: #ffffff;
           transform: rotate(18deg);
         }
-
         .chip-3 {
           bottom: -16px;
           right: 60px;
@@ -492,7 +430,6 @@ export default function Home() {
           color: #2b1500;
           transform: rotate(-10deg);
         }
-
         .care-modal-backdrop {
           position: fixed;
           inset: 0;
@@ -503,7 +440,6 @@ export default function Home() {
           z-index: 9999;
           padding: 20px;
         }
-
         .care-modal {
           width: 100%;
           max-width: 560px;
@@ -513,7 +449,6 @@ export default function Home() {
           box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
           position: relative;
         }
-
         .care-close-btn {
           position: absolute;
           top: 10px;
@@ -525,7 +460,6 @@ export default function Home() {
           cursor: pointer;
           color: ${COLORS.blue};
         }
-
         .care-modal-title {
           margin: 0 0 8px;
           text-align: center;
@@ -533,14 +467,12 @@ export default function Home() {
           font-weight: 900;
           color: ${COLORS.blue};
         }
-
         .care-modal-text {
           margin: 0 0 18px;
           text-align: center;
           line-height: 1.55;
           color: #4f5f74;
         }
-
         .field-label {
           display: block;
           margin-bottom: 8px;
@@ -548,7 +480,6 @@ export default function Home() {
           font-weight: 800;
           font-size: 0.98rem;
         }
-
         .field-input,
         .field-textarea {
           width: 100%;
@@ -560,13 +491,11 @@ export default function Home() {
           margin-bottom: 14px;
           color: ${COLORS.blue};
         }
-
         .field-input:focus,
         .field-textarea:focus {
           outline: 2px solid ${COLORS.gold};
           border-color: ${COLORS.gold};
         }
-
         .care-submit-btn {
           width: 100%;
           border: 0;
@@ -580,43 +509,34 @@ export default function Home() {
           box-shadow: 0 8px 18px rgba(133, 69, 0, 0.28);
           cursor: pointer;
         }
-
         .care-submit-btn:hover {
           filter: brightness(1.03);
         }
-
         @media (max-width: 900px) {
           .floating-nav-wrap {
             overflow-x: auto;
             padding: 10px;
           }
-
           .floating-nav {
             min-width: 980px;
           }
-
           .facebook-under-nav {
             max-width: 230px;
             margin-left: 12px;
           }
-
           .top-row {
             max-width: 760px;
           }
-
           .section-stack {
             max-width: 760px;
           }
-
           .newsletter-grid {
             grid-template-columns: 1fr;
           }
-
           .donation-row {
             grid-template-columns: 1fr;
             justify-items: center;
           }
-
           .donation-flyer,
           .paypal-box {
             max-width: 100%;
@@ -625,56 +545,45 @@ export default function Home() {
             justify-self: center;
           }
         }
-
         @media (max-width: 640px) {
           .top-logo-wrap {
             max-width: 330px;
             height: 300px;
           }
-
           .care-modal {
             padding: 20px 16px;
           }
-
           .care-modal-title {
             font-size: 1.5rem;
           }
-
           .events-title {
             font-size: 1.7rem;
           }
-
           .event-highlight {
             padding: 22px 16px;
           }
-
           .event-highlight-title {
             font-size: 1.2rem;
           }
-
           .event-date {
             font-size: 1rem;
           }
-
           .chip {
             width: 58px;
             height: 58px;
             font-size: 0.58rem;
             border-width: 5px;
           }
-
           .chip-2 {
             right: -10px;
             top: 20px;
           }
-
           .chip-3 {
             right: 24px;
             bottom: -10px;
           }
         }
       `}</style>
-
       <div className="page-shell">
         <div className="floating-nav-wrap">
           <nav className="floating-nav" aria-label="Main navigation">
@@ -683,7 +592,6 @@ export default function Home() {
               alt="The Front Porch navigation"
               className="floating-nav-img"
             />
-
             <Link href="/" className="nav-hotspot nav-home">
               Back to the Porch
             </Link>
@@ -767,10 +675,8 @@ export default function Home() {
                   }}
                 />
               </div>
-
               <div className="newsletter-card">
                 <h2 className="newsletter-title">Sign Up For Our Newsletter</h2>
-
                 <form onSubmit={handleNewsletterSubmit}>
                   <div className="newsletter-grid">
                     <input
@@ -804,7 +710,6 @@ export default function Home() {
                     </button>
                   </div>
                 </form>
-
                 {newsletterStatus ? (
                   <p className="newsletter-status">{newsletterStatus}</p>
                 ) : null}
@@ -815,14 +720,11 @@ export default function Home() {
           <section className="section-stack">
             <section id="events" className="events-panel">
               <h2 className="events-title">Upcoming Events</h2>
-
               <div className="event-highlight">
                 <div className="chip chip-1">TFP</div>
                 <div className="chip chip-2">HEROES</div>
                 <div className="chip chip-3">POKER</div>
-
                 <p className="event-kicker">Featured Event</p>
-
                 <p className="event-highlight-title">
                   The Front Porch
                   <br />
@@ -830,10 +732,8 @@ export default function Home() {
                   <br />
                   Charity Poker Tournament
                 </p>
-
                 <p className="event-date">May 23rd 2PM</p>
               </div>
-
               <ul className="events-list">
                 <li>TBD Event 2</li>
                 <li>TBD Event 3</li>
@@ -862,7 +762,6 @@ export default function Home() {
                   </div>
                 </a>
               </div>
-
               <div className="paypal-box">
                 <form action="https://www.paypal.com/donate" method="post" target="_top">
                   <input type="hidden" name="hosted_button_id" value="BSKSR77NFL9DJ" />
@@ -916,13 +815,11 @@ export default function Home() {
             >
               ×
             </button>
-
             <h2 className="care-modal-title">Send a $10 Care Package</h2>
             <p className="care-modal-text">
               Enter your name and add an optional note to a soldier, then
               continue to the donation page.
             </p>
-
             <form onSubmit={handleCarePackageSubmit}>
               <label htmlFor="donorName" className="field-label">
                 Name:
@@ -936,7 +833,6 @@ export default function Home() {
                 placeholder="Enter your name"
                 required
               />
-
               <label htmlFor="message" className="field-label">
                 Send A Message With Package:
               </label>
@@ -948,7 +844,6 @@ export default function Home() {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Write a note to a soldier"
               />
-
               <button type="submit" className="care-submit-btn">
                 Continue to $10 Donation
               </button>
