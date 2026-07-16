@@ -6,8 +6,6 @@ import Link from "next/link";
 import Script from "next/script";
 import { FormEvent, useState } from "react";
 
-const paypal =
-  "https://www.paypal.com/donate/?hosted_button_id=JJ9CFXVS9J44G";
 const facebook =
   "https://www.facebook.com/share/1ALeuZKmMZ/?mibextid=wwXIfr";
 const phone = "(606)595-8622";
@@ -24,26 +22,7 @@ const COLORS = {
 };
 
 export default function Home() {
-  const [showCareModal, setShowCareModal] = useState(false);
-  const [donorName, setDonorName] = useState("");
-  const [message, setMessage] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("");
-
-  const handleCarePackageSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const trimmedName = donorName.trim();
-    const trimmedMessage = message.trim();
-    if (!trimmedName) {
-      alert("Please enter your name.");
-      return;
-    }
-    const url = new URL(paypal);
-    url.searchParams.set("amount", "10");
-    url.searchParams.set("campaign", "care-package");
-    url.searchParams.set("donor_name", trimmedName);
-    url.searchParams.set("message", trimmedMessage);
-    window.location.href = url.toString();
-  };
 
   const handleNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -430,88 +409,6 @@ export default function Home() {
           color: #2b1500;
           transform: rotate(-10deg);
         }
-        .care-modal-backdrop {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.64);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 9999;
-          padding: 20px;
-        }
-        .care-modal {
-          width: 100%;
-          max-width: 560px;
-          background: #ffffff;
-          border-radius: 24px;
-          padding: 24px;
-          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-          position: relative;
-        }
-        .care-close-btn {
-          position: absolute;
-          top: 10px;
-          right: 14px;
-          border: 0;
-          background: transparent;
-          font-size: 1.9rem;
-          line-height: 1;
-          cursor: pointer;
-          color: ${COLORS.blue};
-        }
-        .care-modal-title {
-          margin: 0 0 8px;
-          text-align: center;
-          font-size: 1.8rem;
-          font-weight: 900;
-          color: ${COLORS.blue};
-        }
-        .care-modal-text {
-          margin: 0 0 18px;
-          text-align: center;
-          line-height: 1.55;
-          color: #4f5f74;
-        }
-        .field-label {
-          display: block;
-          margin-bottom: 8px;
-          color: ${COLORS.blue};
-          font-weight: 800;
-          font-size: 0.98rem;
-        }
-        .field-input,
-        .field-textarea {
-          width: 100%;
-          border: 1px solid #d3d8e0;
-          border-radius: 14px;
-          padding: 13px 14px;
-          font-size: 1rem;
-          font-family: Arial, sans-serif;
-          margin-bottom: 14px;
-          color: ${COLORS.blue};
-        }
-        .field-input:focus,
-        .field-textarea:focus {
-          outline: 2px solid ${COLORS.gold};
-          border-color: ${COLORS.gold};
-        }
-        .care-submit-btn {
-          width: 100%;
-          border: 0;
-          border-radius: 16px;
-          padding: 16px 18px;
-          font-size: 1.08rem;
-          font-weight: 900;
-          letter-spacing: 0.03em;
-          color: #2b1500;
-          background: linear-gradient(180deg, #ffe36c 0%, #ffbe1a 48%, #cb7a00 100%);
-          box-shadow: 0 8px 18px rgba(133, 69, 0, 0.28);
-          cursor: pointer;
-        }
-        .care-submit-btn:hover {
-          filter: brightness(1.03);
-        }
         @media (max-width: 900px) {
           .floating-nav-wrap {
             overflow-x: auto;
@@ -549,12 +446,6 @@ export default function Home() {
           .top-logo-wrap {
             max-width: 330px;
             height: 300px;
-          }
-          .care-modal {
-            padding: 20px 16px;
-          }
-          .care-modal-title {
-            font-size: 1.5rem;
           }
           .events-title {
             font-size: 1.7rem;
@@ -613,14 +504,6 @@ export default function Home() {
             <Link href="/raffles" className="nav-hotspot nav-raffles">
               Raffles
             </Link>
-            <a
-              href={paypal}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-hotspot nav-donate"
-            >
-              Donate
-            </a>
           </nav>
         </div>
 
@@ -740,50 +623,6 @@ export default function Home() {
               </ul>
             </section>
 
-            <div className="donation-row">
-              <div className="donation-flyer">
-                <a
-                  href={paypal}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="promo-link centered-block"
-                  style={{ display: "block" }}
-                >
-                  <div className="image-card">
-                    <img
-                      src="/donate-new.jpeg"
-                      alt="Donate to TFP"
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        display: "block",
-                      }}
-                    />
-                  </div>
-                </a>
-              </div>
-              <div className="paypal-box">
-                <form action="https://www.paypal.com/donate" method="post" target="_top">
-                  <input type="hidden" name="hosted_button_id" value="BSKSR77NFL9DJ" />
-                  <input
-                    type="image"
-                    src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-                    name="submit"
-                    title="PayPal - The safer, easier way to pay online!"
-                    alt="Donate with PayPal button"
-                    style={{ border: 0 }}
-                  />
-                  <img
-                    alt=""
-                    src="https://www.paypal.com/en_US/i/scr/pixel.gif"
-                    width="1"
-                    height="1"
-                    style={{ border: 0 }}
-                  />
-                </form>
-              </div>
-            </div>
-
             <section id="contact" className="contact-strip">
               <a href={phoneHref} className="contact-link">
                 <span className="contact-label">Phone:</span>
@@ -797,60 +636,6 @@ export default function Home() {
           </section>
         </div>
       </div>
-
-      {showCareModal && (
-        <div
-          className="care-modal-backdrop"
-          onClick={() => setShowCareModal(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Send a care package"
-        >
-          <div className="care-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="care-close-btn"
-              onClick={() => setShowCareModal(false)}
-              aria-label="Close popup"
-            >
-              ×
-            </button>
-            <h2 className="care-modal-title">Send a $10 Care Package</h2>
-            <p className="care-modal-text">
-              Enter your name and add an optional note to a soldier, then
-              continue to the donation page.
-            </p>
-            <form onSubmit={handleCarePackageSubmit}>
-              <label htmlFor="donorName" className="field-label">
-                Name:
-              </label>
-              <input
-                id="donorName"
-                type="text"
-                className="field-input"
-                value={donorName}
-                onChange={(e) => setDonorName(e.target.value)}
-                placeholder="Enter your name"
-                required
-              />
-              <label htmlFor="message" className="field-label">
-                Send A Message With Package:
-              </label>
-              <textarea
-                id="message"
-                className="field-textarea"
-                rows={5}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Write a note to a soldier"
-              />
-              <button type="submit" className="care-submit-btn">
-                Continue to $10 Donation
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
