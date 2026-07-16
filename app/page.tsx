@@ -6,6 +6,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { FormEvent, useState } from "react";
 
+const givebutter = "https://givebutter.com/donate-to-the-front-porch-nebqxb";
 const facebook =
   "https://www.facebook.com/share/1ALeuZKmMZ/?mibextid=wwXIfr";
 const phone = "(606)595-8622";
@@ -504,6 +505,14 @@ export default function Home() {
             <Link href="/raffles" className="nav-hotspot nav-raffles">
               Raffles
             </Link>
+            <a
+              href={givebutter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-hotspot nav-donate"
+            >
+              Donate
+            </a>
           </nav>
         </div>
 
