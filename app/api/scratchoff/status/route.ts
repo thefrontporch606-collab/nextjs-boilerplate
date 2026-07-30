@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { PRIZES, TOTAL_TICKETS } from "@/lib/prizes";
 
+export const runtime = "edge";
+
 export async function GET() {
   try {
     const soldCount = 0;
