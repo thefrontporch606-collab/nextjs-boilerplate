@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./home.module.css";
 
 const pathways = [
   {
@@ -26,33 +27,33 @@ const pathways = [
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="home-page">
-      <section className="home-hero" aria-labelledby="home-title">
-        <div className="home-hero__overlay" />
-        <div className="home-hero__content">
-          <p className="home-eyebrow">Serving veterans across Kentucky</p>
+    <main id="main-content" className={styles.homePage}>
+      <section className={styles.hero} aria-labelledby="home-title">
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <p className={styles.eyebrow}>Serving veterans across Kentucky</p>
           <h1 id="home-title">No Veteran Should Ever Run Out of Places to Turn.</h1>
-          <p className="home-hero__lead">
+          <p className={styles.heroLead}>
             The Front Porch connects veterans, service members, and families with practical help, trusted resources, and a community that remembers their service.
           </p>
-          <div className="home-hero__actions">
-            <Link className="home-button home-button--primary" href="/veteran-support">
+          <div className={styles.heroActions}>
+            <Link className={`${styles.button} ${styles.buttonPrimary}`} href="/veteran-support">
               Get help now
             </Link>
-            <Link className="home-button home-button--secondary" href="/veteran-resources">
+            <Link className={`${styles.button} ${styles.buttonSecondary}`} href="/veteran-resources">
               Browse resources
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="home-section home-section--intro" aria-labelledby="start-here-title">
-        <div className="home-section__inner">
-          <p className="home-eyebrow home-eyebrow--dark">Start here</p>
+      <section className={`${styles.section} ${styles.intro}`} aria-labelledby="start-here-title">
+        <div className={styles.sectionInner}>
+          <p className={`${styles.eyebrow} ${styles.eyebrowDark}`}>Start here</p>
           <h2 id="start-here-title">What do you need today?</h2>
-          <div className="home-pathways">
+          <div className={styles.pathways}>
             {pathways.map((pathway) => (
-              <article className="home-card" key={pathway.title}>
+              <article className={styles.card} key={pathway.title}>
                 <h3>{pathway.title}</h3>
                 <p>{pathway.description}</p>
                 <Link href={pathway.href}>{pathway.label} →</Link>
@@ -62,13 +63,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-section home-section--mission" aria-labelledby="mission-title">
-        <div className="home-section__inner home-mission-grid">
+      <section className={styles.section} aria-labelledby="mission-title">
+        <div className={`${styles.sectionInner} ${styles.missionGrid}`}>
           <div>
-            <p className="home-eyebrow home-eyebrow--dark">Our mission</p>
+            <p className={`${styles.eyebrow} ${styles.eyebrowDark}`}>Our mission</p>
             <h2 id="mission-title">A clearer path to help.</h2>
           </div>
-          <div className="home-mission-copy">
+          <div className={styles.missionCopy}>
             <p>
               Veterans should not have to sort through disconnected websites, outdated phone numbers, and confusing eligibility rules when they need assistance.
             </p>
@@ -79,31 +80,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-section home-section--features" aria-label="Featured areas">
-        <div className="home-section__inner home-feature-grid">
-          <Link className="home-feature" href="/veteran-discounts">
+      <section className={`${styles.section} ${styles.features}`} aria-label="Featured areas">
+        <div className={`${styles.sectionInner} ${styles.featureGrid}`}>
+          <Link className={styles.feature} href="/veteran-discounts">
             <span>Benefits &amp; discounts</span>
             <strong>Find programs and savings available to veterans.</strong>
           </Link>
-          <Link className="home-feature" href="/hometown-heroes">
+          <Link className={styles.feature} href="/hometown-heroes">
             <span>Hometown Heroes</span>
             <strong>Honor those who served and remember those we lost.</strong>
           </Link>
-          <a className="home-feature" href="https://givebutter.com/donate-to-the-front-porch-nebqxb" target="_blank" rel="noreferrer">
+          <a className={styles.feature} href="https://givebutter.com/donate-to-the-front-porch-nebqxb" target="_blank" rel="noreferrer">
             <span>Support the mission</span>
             <strong>Help us expand access to veteran support across Kentucky.</strong>
           </a>
         </div>
       </section>
 
-      <section className="home-callout" aria-labelledby="callout-title">
-        <div className="home-section__inner home-callout__inner">
+      <section className={styles.callout} aria-labelledby="callout-title">
+        <div className={`${styles.sectionInner} ${styles.calloutInner}`}>
           <div>
-            <p className="home-eyebrow">The Front Porch</p>
+            <p className={styles.eyebrow}>The Front Porch</p>
             <h2 id="callout-title">Built around one question:</h2>
             <p>Does this make it easier for a Veteran to get help?</p>
           </div>
-          <Link className="home-button home-button--light" href="/veteran-resources">
+          <Link className={`${styles.button} ${styles.buttonLight}`} href="/veteran-resources">
             Find a resource
           </Link>
         </div>
