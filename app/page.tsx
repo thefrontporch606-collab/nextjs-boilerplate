@@ -1,650 +1,113 @@
-// app/page.tsx
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
-import { FormEvent, useState } from "react";
 
-const givebutter = "https://givebutter.com/donate-to-the-front-porch-nebqxb";
-const facebook =
-  "https://www.facebook.com/share/1ALeuZKmMZ/?mibextid=wwXIfr";
-const phone = "(606)595-8622";
-const phoneHref = "tel:16065958622";
-const email = "thefrontporch606@gmail.com";
-const emailHref = "mailto:thefrontporch606@gmail.com";
+const pathways = [
+  {
+    title: "I need help now",
+    description:
+      "Find crisis support, housing help, food assistance, transportation, health care, and other urgent services.",
+    href: "/veteran-support",
+    label: "Find veteran support",
+  },
+  {
+    title: "I am looking for resources",
+    description:
+      "Browse local, regional, Kentucky, and federal organizations that serve veterans and their families.",
+    href: "/veteran-resources",
+    label: "Explore veteran resources",
+  },
+  {
+    title: "I want to honor a veteran",
+    description:
+      "Visit Hometown Heroes to remember the fallen and recognize veterans from our communities.",
+    href: "/hometown-heroes",
+    label: "Visit Hometown Heroes",
+  },
+];
 
-const COLORS = {
-  blue: "#1F3558",
-  red: "#B44537",
-  white: "#FFFFFF",
-  gold: "#D4A62A",
-  lightBg: "#F3F4F6",
-};
-
-export default function Home() {
-  const [newsletterStatus, setNewsletterStatus] = useState("");
-
-  const handleNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setNewsletterStatus(
-      "Newsletter signup is not connected yet. This form is currently display only."
-    );
-  };
-
+export default function HomePage() {
   return (
-    <main
-      style={{
-        background: COLORS.lightBg,
-        fontFamily: "Arial, sans-serif",
-        color: COLORS.blue,
-        minHeight: "100vh",
-      }}
-    >
-      <Script
-        src="https://widgets.givebutter.com/latest.umd.cjs?acct=JRbIiAfUH9uPrqiF&p=other"
-        strategy="afterInteractive"
-      />
-      <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
-        html {
-          scroll-behavior: smooth;
-        }
-        body {
-          margin: 0;
-          background: ${COLORS.lightBg};
-        }
-        .page-shell {
-          width: 100%;
-          overflow-x: hidden;
-          padding-bottom: 60px;
-        }
-        .floating-nav-wrap {
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          background: rgba(243, 244, 246, 0.92);
-          backdrop-filter: blur(10px);
-          padding: 14px 10px 10px;
-        }
-        .floating-nav {
-          width: 100%;
-          max-width: 1520px;
-          margin: 0 auto;
-          position: relative;
-        }
-        .floating-nav-img {
-          width: 100%;
-          height: auto;
-          display: block;
-        }
-        .nav-hotspot {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          display: block;
-          text-indent: -9999px;
-          overflow: hidden;
-        }
-        .nav-home {
-          left: 3%;
-          width: 23%;
-        }
-        .nav-hometown {
-          left: 27%;
-          width: 8.5%;
-        }
-        .nav-mission {
-          left: 36.5%;
-          width: 8.5%;
-        }
-        .nav-support {
-          left: 46%;
-          width: 10%;
-        }
-        .nav-resources {
-          left: 57%;
-          width: 10%;
-        }
-        .nav-studio {
-          left: 68%;
-          width: 10%;
-        }
-        .nav-raffles {
-          left: 79%;
-          width: 8%;
-        }
-        .nav-donate {
-          right: 2%;
-          width: 11%;
-        }
-        .facebook-under-nav {
-          width: 100%;
-          max-width: 235px;
-          margin-top: 8px;
-          margin-bottom: 18px;
-          margin-left: calc((100vw - min(1520px, 100vw)) / 2 + 42px);
-        }
-        .facebook-under-nav .image-card {
-          border-radius: 0;
-          box-shadow: none;
-          background: transparent;
-        }
-        .top-logo-section {
-          width: 100%;
-          background: ${COLORS.white};
-          padding: 12px 0 8px;
-        }
-        .top-logo-wrap {
-          position: relative;
-          width: 100%;
-          max-width: 490px;
-          margin: 0 auto;
-          height: min(43vw, 410px);
-          min-height: 180px;
-        }
-        .content-wrap {
-          width: 100%;
-          max-width: 980px;
-          margin: 0 auto;
-          padding: 24px 14px 60px;
-        }
-        .image-card {
-          width: 100%;
-          border-radius: 28px;
-          overflow: hidden;
-          box-shadow: 0 16px 38px rgba(31, 53, 88, 0.14);
-          background: #ffffff;
-        }
-        .promo-link,
-        .image-button {
-          transition: transform 0.2s ease, filter 0.2s ease;
-        }
-        .promo-link:hover,
-        .image-button:hover {
-          transform: translateY(-2px);
-          filter: brightness(1.03);
-        }
-        .top-row {
-          display: block;
-          margin: 0 auto 20px;
-          max-width: 860px;
-        }
-        .top-row .image-card {
-          border-radius: 0;
-          box-shadow: none;
-          background: transparent;
-        }
-        .section-stack {
-          display: flex;
-          flex-direction: column;
-          gap: 22px;
-          max-width: 860px;
-          margin: 0 auto;
-        }
-        .centered-block {
-          width: 100%;
-        }
-        .image-button {
-          display: block;
-          width: 100%;
-          border: 0;
-          background: transparent;
-          padding: 0;
-          cursor: pointer;
-        }
-        .newsletter-card {
-          background: #ffffff;
-          border-radius: 20px;
-          padding: 18px;
-          box-shadow: 0 12px 28px rgba(31, 53, 88, 0.12);
-          margin-top: 12px;
-        }
-        .newsletter-title {
-          margin: 0 0 14px;
-          font-size: 1.3rem;
-          font-weight: 900;
-          color: ${COLORS.blue};
-          text-align: center;
-        }
-        .newsletter-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 10px;
-          align-items: center;
-        }
-        .newsletter-input {
-          width: 100%;
-          border: 1px solid #d3d8e0;
-          border-radius: 12px;
-          padding: 12px 14px;
-          font-size: 0.96rem;
-          color: ${COLORS.blue};
-          background: #fff;
-        }
-        .newsletter-input:focus {
-          outline: 2px solid ${COLORS.gold};
-          border-color: ${COLORS.gold};
-        }
-        .newsletter-button {
-          border: 0;
-          border-radius: 12px;
-          padding: 12px 18px;
-          font-size: 0.95rem;
-          font-weight: 900;
-          color: #2b1500;
-          background: linear-gradient(180deg, #ffe36c 0%, #ffbe1a 48%, #cb7a00 100%);
-          box-shadow: 0 8px 18px rgba(133, 69, 0, 0.18);
-          cursor: pointer;
-          white-space: nowrap;
-          grid-column: 1 / -1;
-        }
-        .newsletter-button:hover {
-          filter: brightness(1.03);
-        }
-        .newsletter-status {
-          margin: 12px 0 0;
-          text-align: center;
-          color: ${COLORS.red};
-          font-weight: 700;
-          font-size: 0.92rem;
-        }
-        .donation-row {
-          display: grid;
-          grid-template-columns: minmax(0, 1fr) auto;
-          gap: 20px;
-          align-items: center;
-          width: 100%;
-          max-width: 860px;
-          margin: 0 auto;
-        }
-        .donation-flyer {
-          max-width: 420px;
-          width: 100%;
-        }
-        .paypal-box {
-          width: 100%;
-          max-width: 260px;
-          text-align: right;
-          justify-self: end;
-        }
-        .paypal-box form {
-          display: inline-block;
-        }
-        .paypal-box input[type="image"] {
-          max-width: 100%;
-          height: auto;
-          display: block;
-        }
-        .contact-strip {
-          text-align: center;
-          padding: 24px 0 0;
-        }
-        .contact-link {
-          display: inline-block;
-          margin: 6px 12px;
-          font-weight: 800;
-          color: ${COLORS.red};
-          text-decoration: none;
-          font-size: 1rem;
-        }
-        .contact-link:hover {
-          text-decoration: underline;
-        }
-        .contact-label {
-          color: ${COLORS.blue};
-          margin-right: 6px;
-        }
-        .events-panel {
-          text-align: center;
-          padding: 8px 0 0;
-        }
-        .events-title {
-          margin: 0 0 10px;
-          color: ${COLORS.blue};
-          font-size: 2rem;
-          font-weight: 900;
-        }
-        .event-highlight {
-          position: relative;
-          background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
-          border: 2px solid ${COLORS.gold};
-          border-radius: 22px;
-          padding: 26px 22px;
-          max-width: 620px;
-          margin: 0 auto 16px;
-          box-shadow: 0 12px 28px rgba(31, 53, 88, 0.12);
-          overflow: hidden;
-        }
-        .event-highlight::before,
-        .event-highlight::after {
-          content: "♠";
-          position: absolute;
-          color: rgba(180, 69, 55, 0.12);
-          font-size: 2.2rem;
-          font-weight: 900;
-          pointer-events: none;
-        }
-        .event-highlight::before {
-          top: 12px;
-          right: 20px;
-          transform: rotate(10deg);
-        }
-        .event-highlight::after {
-          bottom: 10px;
-          left: 20px;
-          transform: rotate(-10deg);
-        }
-        .event-kicker {
-          margin: 0 0 10px;
-          font-size: 0.9rem;
-          font-weight: 900;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: ${COLORS.blue};
-        }
-        .event-highlight-title {
-          margin: 0;
-          color: ${COLORS.red};
-          font-size: 1.5rem;
-          font-weight: 900;
-          line-height: 1.35;
-        }
-        .event-date {
-          margin: 14px 0 0;
-          font-size: 1.1rem;
-          font-weight: 900;
-          color: ${COLORS.blue};
-        }
-        .events-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          color: ${COLORS.blue};
-          font-weight: 800;
-          line-height: 1.9;
-          font-size: 1.02rem;
-        }
-        .chip {
-          position: absolute;
-          width: 72px;
-          height: 72px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 900;
-          font-size: 0.72rem;
-          letter-spacing: 0.04em;
-          border: 6px solid #ffffff;
-          box-shadow: 0 10px 22px rgba(31, 53, 88, 0.18);
-          pointer-events: none;
-        }
-        .chip::before {
-          content: "";
-          position: absolute;
-          inset: 8px;
-          border-radius: 50%;
-          border: 2px dashed rgba(255, 255, 255, 0.75);
-        }
-        .chip-1 {
-          top: -14px;
-          left: -10px;
-          background: ${COLORS.red};
-          color: #ffffff;
-          transform: rotate(-18deg);
-        }
-        .chip-2 {
-          top: 24px;
-          right: -16px;
-          background: ${COLORS.blue};
-          color: #ffffff;
-          transform: rotate(18deg);
-        }
-        .chip-3 {
-          bottom: -16px;
-          right: 60px;
-          background: ${COLORS.gold};
-          color: #2b1500;
-          transform: rotate(-10deg);
-        }
-        @media (max-width: 900px) {
-          .floating-nav-wrap {
-            overflow-x: auto;
-            padding: 10px;
-          }
-          .floating-nav {
-            min-width: 980px;
-          }
-          .facebook-under-nav {
-            max-width: 230px;
-            margin-left: 12px;
-          }
-          .top-row {
-            max-width: 760px;
-          }
-          .section-stack {
-            max-width: 760px;
-          }
-          .newsletter-grid {
-            grid-template-columns: 1fr;
-          }
-          .donation-row {
-            grid-template-columns: 1fr;
-            justify-items: center;
-          }
-          .donation-flyer,
-          .paypal-box {
-            max-width: 100%;
-            width: 100%;
-            text-align: center;
-            justify-self: center;
-          }
-        }
-        @media (max-width: 640px) {
-          .top-logo-wrap {
-            max-width: 330px;
-            height: 300px;
-          }
-          .events-title {
-            font-size: 1.7rem;
-          }
-          .event-highlight {
-            padding: 22px 16px;
-          }
-          .event-highlight-title {
-            font-size: 1.2rem;
-          }
-          .event-date {
-            font-size: 1rem;
-          }
-          .chip {
-            width: 58px;
-            height: 58px;
-            font-size: 0.58rem;
-            border-width: 5px;
-          }
-          .chip-2 {
-            right: -10px;
-            top: 20px;
-          }
-          .chip-3 {
-            right: 24px;
-            bottom: -10px;
-          }
-        }
-      `}</style>
-      <div className="page-shell">
-        <div className="floating-nav-wrap">
-          <nav className="floating-nav" aria-label="Main navigation">
-            <img
-              src="/frontporch-nav.PNG"
-              alt="The Front Porch navigation"
-              className="floating-nav-img"
-            />
-            <Link href="/" className="nav-hotspot nav-home">
-              Back to the Porch
+    <main id="main-content" className="home-page">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-hero__overlay" />
+        <div className="home-hero__content">
+          <p className="home-eyebrow">Serving veterans across Kentucky</p>
+          <h1 id="home-title">No Veteran Should Ever Run Out of Places to Turn.</h1>
+          <p className="home-hero__lead">
+            The Front Porch connects veterans, service members, and families with practical help, trusted resources, and a community that remembers their service.
+          </p>
+          <div className="home-hero__actions">
+            <Link className="home-button home-button--primary" href="/veteran-support">
+              Get help now
             </Link>
-            <Link href="/hometown-heroes" className="nav-hotspot nav-hometown">
-              Hometown Heroes
+            <Link className="home-button home-button--secondary" href="/veteran-resources">
+              Browse resources
             </Link>
-            <Link href="/mission" className="nav-hotspot nav-mission">
-              Mission
-            </Link>
-            <Link href="/request-support" className="nav-hotspot nav-support">
-              Request Support
-            </Link>
-            <Link href="/veteran-resources" className="nav-hotspot nav-resources">
-              Veteran Resources
-            </Link>
-            <Link href="/front-porch-studio" className="nav-hotspot nav-studio">
-              Front Porch Studio
-            </Link>
-            <Link href="/raffles" className="nav-hotspot nav-raffles">
-              Raffles
-            </Link>
-            <a
-              href={givebutter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-hotspot nav-donate"
-            >
-              Donate
-            </a>
-          </nav>
+          </div>
         </div>
+      </section>
 
-        <div className="facebook-under-nav">
-          <a
-            href={facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="promo-link"
-            style={{ display: "block" }}
-          >
-            <div className="image-card">
-              <img
-                src="/Facebook-like.PNG"
-                alt="Like us on Facebook"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                }}
-              />
-            </div>
+      <section className="home-section home-section--intro" aria-labelledby="start-here-title">
+        <div className="home-section__inner">
+          <p className="home-eyebrow home-eyebrow--dark">Start here</p>
+          <h2 id="start-here-title">What do you need today?</h2>
+          <div className="home-pathways">
+            {pathways.map((pathway) => (
+              <article className="home-card" key={pathway.title}>
+                <h3>{pathway.title}</h3>
+                <p>{pathway.description}</p>
+                <Link href={pathway.href}>{pathway.label} →</Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section--mission" aria-labelledby="mission-title">
+        <div className="home-section__inner home-mission-grid">
+          <div>
+            <p className="home-eyebrow home-eyebrow--dark">Our mission</p>
+            <h2 id="mission-title">A clearer path to help.</h2>
+          </div>
+          <div className="home-mission-copy">
+            <p>
+              Veterans should not have to sort through disconnected websites, outdated phone numbers, and confusing eligibility rules when they need assistance.
+            </p>
+            <p>
+              The Front Porch is building one dependable place to find support, understand available benefits, discover community resources, and preserve the stories of Kentucky veterans.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section--features" aria-label="Featured areas">
+        <div className="home-section__inner home-feature-grid">
+          <Link className="home-feature" href="/veteran-discounts">
+            <span>Benefits &amp; discounts</span>
+            <strong>Find programs and savings available to veterans.</strong>
+          </Link>
+          <Link className="home-feature" href="/hometown-heroes">
+            <span>Hometown Heroes</span>
+            <strong>Honor those who served and remember those we lost.</strong>
+          </Link>
+          <a className="home-feature" href="https://givebutter.com/donate-to-the-front-porch-nebqxb" target="_blank" rel="noreferrer">
+            <span>Support the mission</span>
+            <strong>Help us expand access to veteran support across Kentucky.</strong>
           </a>
         </div>
+      </section>
 
-        <section className="top-logo-section">
-          <div className="top-logo-wrap">
-            <Image
-              src="/IMG_1844.jpeg"
-              alt="The Front Porch"
-              fill
-              priority
-              style={{
-                objectFit: "contain",
-                objectPosition: "center",
-              }}
-            />
+      <section className="home-callout" aria-labelledby="callout-title">
+        <div className="home-section__inner home-callout__inner">
+          <div>
+            <p className="home-eyebrow">The Front Porch</p>
+            <h2 id="callout-title">Built around one question:</h2>
+            <p>Does this make it easier for a Veteran to get help?</p>
           </div>
-        </section>
-
-        <div className="content-wrap">
-          <section className="top-row">
-            <div>
-              <div className="image-card">
-                <img
-                  src="/news-letter.JPG"
-                  alt="Newsletter sign up"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                  }}
-                />
-              </div>
-              <div className="newsletter-card">
-                <h2 className="newsletter-title">Sign Up For Our Newsletter</h2>
-                <form onSubmit={handleNewsletterSubmit}>
-                  <div className="newsletter-grid">
-                    <input
-                      className="newsletter-input"
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                      required
-                    />
-                    <input
-                      className="newsletter-input"
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      required
-                    />
-                    <input
-                      className="newsletter-input"
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number (Optional)"
-                    />
-                    <input
-                      className="newsletter-input"
-                      type="text"
-                      name="address"
-                      placeholder="Address (Optional)"
-                    />
-                    <button type="submit" className="newsletter-button">
-                      SUBMIT
-                    </button>
-                  </div>
-                </form>
-                {newsletterStatus ? (
-                  <p className="newsletter-status">{newsletterStatus}</p>
-                ) : null}
-              </div>
-            </div>
-          </section>
-
-          <section className="section-stack">
-            <section id="events" className="events-panel">
-              <h2 className="events-title">Upcoming Events</h2>
-              <div className="event-highlight">
-                <div className="chip chip-1">TFP</div>
-                <div className="chip chip-2">HEROES</div>
-                <div className="chip chip-3">POKER</div>
-                <p className="event-kicker">Featured Event</p>
-                <p className="event-highlight-title">
-                  The Front Porch
-                  <br />
-                  Hold&apos;em For Heroes
-                  <br />
-                  Charity Poker Tournament
-                </p>
-                <p className="event-date">May 23rd 2PM</p>
-              </div>
-              <ul className="events-list">
-                <li>TBD Event 2</li>
-                <li>TBD Event 3</li>
-              </ul>
-            </section>
-
-            <section id="contact" className="contact-strip">
-              <a href={phoneHref} className="contact-link">
-                <span className="contact-label">Phone:</span>
-                {phone}
-              </a>
-              <a href={emailHref} className="contact-link">
-                <span className="contact-label">Email:</span>
-                {email}
-              </a>
-            </section>
-          </section>
+          <Link className="home-button home-button--light" href="/veteran-resources">
+            Find a resource
+          </Link>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
