@@ -1,862 +1,157 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { FormEvent, useMemo, useState } from "react";
 
 type Veteran = {
+  id: string;
+  rank: string;
   name: string;
   city: string;
   branch: string;
   campaign: string;
   years: string;
   image?: string;
-  isPlaceholder?: boolean;
+  fallen?: boolean;
 };
 
-const kiaVeterans: Veteran[] = [
-  {
-    name: "LCPL. Thomas TJ Reilly JR.",
-    city: "London, KY",
-    branch: "United States Marine Corps",
-    campaign: "Operation Iraqi Freedom",
-    years: "KIA Karmah, Iraq 12/21/2008 Age 19",
-    image: "/heroes/tjreilly.JPG",
-  },
-  {
-    name: "PFC. Dustin Paul Napier",
-    city: "Corbin, KY",
-    branch: "United States Army",
-    campaign: "Operation Enduring Freedom",
-    years: "KIA Qalat, Afghanistan 01/08/2012 Age 20",
-    image: "/heroes/dustinnapier.jpeg",
-  },
-  {
-    name: "CPL. Joseph S. Tremblay",
-    city: "Corbin, KY",
-    branch: "United States Marine Corps",
-    campaign: "Operation Iraqi Freedom",
-    years: "KIA Hit, Iraq 04/27/2005 Age 23",
-    image: "/heroes/josephtremblay.JPG",
-  },
-  {
-    name: "SSG. McKenley Odis Matlock",
-    city: "Barbourville, KY",
-    branch: "United States Army",
-    campaign: "Vietnam",
-    years: "KIA Giah Dinh, South Vietnam 03/30/1968 Age 25",
-    image: "/heroes/odismatlock.jpeg",
-  },
-  {
-    name: "MM1c Uliss C. Steely",
-    city: "Corbin, KY",
-    branch: "United States Navy",
-    campaign: "USS Oklahoma, Pearl Harbor",
-    years: "KIA 12/07/1941 Age 25",
-    image: "/heroes/ulissteely.jpeg",
-  },
+const heroes: Veteran[] = [
+  { id: "thomas-tj-reilly-jr", rank: "LCPL.", name: "Thomas TJ Reilly JR.", city: "London, KY", branch: "United States Marine Corps", campaign: "Operation Iraqi Freedom", years: "KIA Karmah, Iraq 12/21/2008 • Age 19", image: "/heroes/tjreilly.JPG", fallen: true },
+  { id: "dustin-paul-napier", rank: "PFC.", name: "Dustin Paul Napier", city: "Corbin, KY", branch: "United States Army", campaign: "Operation Enduring Freedom", years: "KIA Qalat, Afghanistan 01/08/2012 • Age 20", image: "/heroes/dustinnapier.jpeg", fallen: true },
+  { id: "joseph-s-tremblay", rank: "CPL.", name: "Joseph S. Tremblay", city: "Corbin, KY", branch: "United States Marine Corps", campaign: "Operation Iraqi Freedom", years: "KIA Hit, Iraq 04/27/2005 • Age 23", image: "/heroes/josephtremblay.JPG", fallen: true },
+  { id: "mckenley-odis-matlock", rank: "SSG.", name: "McKenley Odis Matlock", city: "Barbourville, KY", branch: "United States Army", campaign: "Vietnam", years: "KIA Giah Dinh, South Vietnam 03/30/1968 • Age 25", image: "/heroes/odismatlock.jpeg", fallen: true },
+  { id: "uliss-c-steely", rank: "MM1c", name: "Uliss C. Steely", city: "Corbin, KY", branch: "United States Navy", campaign: "USS Oklahoma, Pearl Harbor", years: "KIA 12/07/1941 • Age 25", image: "/heroes/ulissteely.jpeg", fallen: true },
+  { id: "vincent-tomasino", rank: "CPL", name: "Vincent Tomasino", city: "Williamsburg, KY", branch: "United States Marine Corps", campaign: "Vietnam Era Veteran", years: "1973–1977", image: "/heroes/vincenttomasino.jpeg" },
 ];
 
-const otherVeterans: Veteran[] = [
-  {
-    name: "CPL Vincent Tomasino",
-    city: "Williamsburg, KY",
-    branch: "United States Marine Corps",
-    campaign: "Vietnam Era Veteran",
-    years: "1973-1977",
-    image: "/heroes/vincenttomasino.jpeg",
-  },
-  {
-    name: "Name",
-    city: "City",
-    branch: "Branch",
-    campaign: "Campaign",
-    years: "Years From-To",
-    isPlaceholder: true,
-  },
-  {
-    name: "Name",
-    city: "City",
-    branch: "Branch",
-    campaign: "Campaign",
-    years: "Years From-To",
-    isPlaceholder: true,
-  },
-];
+const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
 
 export default function HometownHeroesPage() {
+  const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState<Veteran | null>(null);
   const [formOpen, setFormOpen] = useState(false);
-  const [selectedVeteran, setSelectedVeteran] = useState<Veteran | null>(null);
+  const [highlighted, setHighlighted] = useState<string | null>(null);
+
+  const matches = useMemo(() => {
+    const q = normalize(query);
+    if (!q) return [];
+    return heroes.filter((hero) => normalize(`${hero.rank} ${hero.name}`).includes(q));
+  }, [query]);
+
+  const goToHero = (hero: Veteran) => {
+    setQuery(`${hero.rank} ${hero.name}`);
+    setHighlighted(hero.id);
+    document.getElementById(hero.id)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => setHighlighted(null), 2400);
+  };
+
+  const submitSearch = (event: FormEvent) => {
+    event.preventDefault();
+    if (matches[0]) goToHero(matches[0]);
+  };
+
+  const shareHero = async (hero: Veteran) => {
+    const url = `${window.location.origin}${window.location.pathname}#${hero.id}`;
+    if (navigator.share) await navigator.share({ title: `${hero.rank} ${hero.name}`, text: "View this Hometown Hero on The Front Porch.", url });
+    else await navigator.clipboard.writeText(url);
+  };
+
+  const HeroCard = ({ hero }: { hero: Veteran }) => (
+    <article id={hero.id} className={`hero-card ${hero.fallen ? "fallen" : ""} ${highlighted === hero.id ? "highlighted" : ""}`}>
+      <button className="card-main" type="button" onClick={() => setSelected(hero)} aria-label={`View ${hero.rank} ${hero.name}`}>
+        <div className="photo-wrap">
+          {hero.image ? <img src={hero.image} alt={`${hero.rank} ${hero.name}`} /> : <div className="photo-placeholder">Photo coming soon</div>}
+        </div>
+        <div className="card-copy">
+          <p className="rank">{hero.rank}</p>
+          <h3>{hero.name}</h3>
+          <p>{hero.city}</p>
+          <p>{hero.branch}</p>
+          <p>{hero.campaign}</p>
+          {hero.years && <p>{hero.years}</p>}
+        </div>
+      </button>
+    </article>
+  );
 
   return (
-    <>
-      <main className="heroes-page">
-        <section className="hero-header">
-          <div className="hero-overlay" />
+    <main className="page-shell">
+      <section className="masthead">
+        <Image src="/frontporch-logo.PNG" alt="The Front Porch" width={420} height={260} priority className="logo" />
+        <p className="salutes">Salutes Our</p>
+        <img src="/hometown-heroes.PNG" alt="Hometown Heroes" className="title-art" />
+        <img src="/branches.png" alt="United States military branch emblems" className="branches" />
+        <button className="primary-button" onClick={() => setFormOpen(true)}>Submit a Hometown Hero</button>
+      </section>
 
-          <div className="hero-inner">
-            <div className="logo-wrap">
-              <Image
-                src="/frontporch-logo.PNG"
-                alt="The Front Porch Logo"
-                width={420}
-                height={260}
-                priority
-                className="hero-logo"
-              />
+      <section className="search-section" aria-labelledby="hero-search-title">
+        <div className="search-inner">
+          <h1 id="hero-search-title">Search for a Hometown Hero</h1>
+          <p>Enter a veteran’s first name, last name, or full name.</p>
+          <form onSubmit={submitSearch} className="search-form">
+            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Example: Dustin Napier" aria-label="Search Hometown Heroes by name" />
+            <button type="submit">Find Hero</button>
+          </form>
+          {query && (
+            <div className="results" role="listbox" aria-label="Hero search results">
+              {matches.length ? matches.map((hero) => <button key={hero.id} type="button" onClick={() => goToHero(hero)}>{hero.rank} {hero.name}</button>) : <p>No matching hero was found.</p>}
             </div>
+          )}
+        </div>
+      </section>
 
-            <div className="salutes-wrap">
-              <p className="salutes-text">Salutes Our</p>
+      <section className="wall-section">
+        <h2>“Greater love has no one than this: to lay down one&apos;s life for one&apos;s friends.” — John 15:13</h2>
+        <div className="grid">{heroes.filter((hero) => hero.fallen).map((hero) => <HeroCard key={hero.id} hero={hero} />)}</div>
+      </section>
+
+      <section className="wall-section veterans-section">
+        <h2>“A nation that does not honor its heroes will not long endure.” — Abraham Lincoln</h2>
+        <div className="grid">{heroes.filter((hero) => !hero.fallen).map((hero) => <HeroCard key={hero.id} hero={hero} />)}</div>
+      </section>
+
+      {selected && (
+        <div className="modal-backdrop" onClick={() => setSelected(null)}>
+          <section className="modal" onClick={(event) => event.stopPropagation()} aria-modal="true" role="dialog" aria-label={`${selected.rank} ${selected.name}`}>
+            <button className="close" onClick={() => setSelected(null)} aria-label="Close">×</button>
+            {selected.image && <img src={selected.image} alt={`${selected.rank} ${selected.name}`} className="modal-photo" />}
+            <p className="rank">{selected.rank}</p>
+            <h2>{selected.name}</h2>
+            <p>{selected.city}</p><p>{selected.branch}</p><p>{selected.campaign}</p><p>{selected.years}</p>
+            <div className="actions">
+              <button onClick={() => shareHero(selected)}>Share This Hero</button>
+              <button onClick={() => window.print()}>Print This Hero</button>
+              <a href={`mailto:thefrontporch606@gmail.com?subject=${encodeURIComponent(`Correction for ${selected.rank} ${selected.name}`)}`}>Submit a Correction</a>
+              <a href={`mailto:thefrontporch606@gmail.com?subject=${encodeURIComponent(`Additional information for ${selected.rank} ${selected.name}`)}`}>Help Preserve This Hero</a>
             </div>
-
-            <div className="title-image-wrap">
-              <img
-                src="/hometown-heroes.PNG"
-                alt="Hometown Heroes"
-                className="title-image"
-              />
-            </div>
-
-            <div className="branches-row">
-              <img src="/branches.png" alt="U.S. Military Branch Emblems" />
-            </div>
-
-            <button className="submit-hero-btn" onClick={() => setFormOpen(true)}>
-              Submit A Hometown Hero
-            </button>
-          </div>
-        </section>
-
-        <section className="wall-section">
-          <h2 className="quote-heading">
-            “Greater love has no one than this: to lay down one&apos;s life for
-            one&apos;s friends.” - John 15:13
-          </h2>
-
-          <div className="veteran-grid">
-            {kiaVeterans.map((vet, index) => (
-              <button
-                key={`kia-${vet.name}-${index}`}
-                type="button"
-                className="veteran-card kia-card"
-                onClick={() => setSelectedVeteran(vet)}
-              >
-                <div className="image-wrap">
-                  {vet.image ? (
-                    <img src={vet.image} alt={vet.name} className="veteran-image" />
-                  ) : (
-                    <div className="placeholder-image">
-                      <span>Photo Coming Soon</span>
-                    </div>
-                  )}
-                  <div className="kia-light" />
-                  <div className="image-glow" />
-                </div>
-
-                <div className="veteran-info">
-                  <p>{vet.campaign}</p>
-                  <p className="name">{vet.name}</p>
-                  <p>{vet.city}</p>
-                  <p>{vet.branch}</p>
-                  <p>{vet.years}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="wall-section second-section">
-          <h2 className="quote-heading">
-            “A nation that does not honor its heroes will not long endure.” -
-            Abraham Lincoln
-          </h2>
-
-          <div className="veteran-grid">
-            {otherVeterans.map((vet, index) => (
-              <button
-                key={`other-${vet.name}-${index}`}
-                type="button"
-                className={`veteran-card ${vet.isPlaceholder ? "placeholder-card" : ""}`}
-                onClick={() => setSelectedVeteran(vet)}
-              >
-                <div className="image-wrap">
-                  {vet.image ? (
-                    <img src={vet.image} alt={vet.name} className="veteran-image" />
-                  ) : (
-                    <div className="placeholder-image">
-                      <span>Photo Coming Soon</span>
-                    </div>
-                  )}
-                  <div className="image-glow" />
-                </div>
-
-                <div className="veteran-info">
-                  <p className="name">{vet.name}</p>
-                  <p>{vet.city}</p>
-                  <p>{vet.branch}</p>
-                  <p>{vet.campaign}</p>
-                  <p>{vet.years}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {formOpen && (
-        <div className="modal-backdrop" onClick={() => setFormOpen(false)}>
-          <div
-            className="modal patriotic-form-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button className="close-btn" onClick={() => setFormOpen(false)}>
-              ×
-            </button>
-
-            <div className="form-top-accent" />
-
-            <h3 className="modal-title">Submit A Hometown Hero</h3>
-            <p className="modal-subtitle">
-              Help us honor veterans from our community by submitting their
-              information and photo for review.
-            </p>
-
-            <form
-              className="hero-form"
-              action="https://formsubmit.co/thefrontporch606@gmail.com"
-              method="POST"
-              encType="multipart/form-data"
-            >
-              <input type="hidden" name="_subject" value="New Hometown Hero Submission" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-
-              <div className="form-grid">
-                <input type="text" name="name" placeholder="Name" required />
-                <input type="text" name="city" placeholder="City" required />
-                <input type="text" name="branch" placeholder="Branch Of Service" required />
-                <input type="text" name="campaign" placeholder="Campaign/Theatre" required />
-                <input type="text" name="years" placeholder="Years From-To" required />
-                <input type="file" name="photo" accept="image/*" required />
-              </div>
-
-              <button type="submit" className="form-submit-btn">
-                Honor This Hero
-              </button>
-            </form>
-          </div>
+          </section>
         </div>
       )}
 
-      {selectedVeteran && (
-        <div className="modal-backdrop" onClick={() => setSelectedVeteran(null)}>
-          <div
-            className="modal memorial-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button className="close-btn" onClick={() => setSelectedVeteran(null)}>
-              ×
-            </button>
-
-            <div className="memorial-content">
-              <div className="memorial-image-wrap">
-                {selectedVeteran.image ? (
-                  <img
-                    src={selectedVeteran.image}
-                    alt={selectedVeteran.name}
-                    className="memorial-image"
-                  />
-                ) : (
-                  <div className="placeholder-image modal-placeholder">
-                    <span>Photo Coming Soon</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="memorial-text">
-                <p className="memorial-campaign">{selectedVeteran.campaign}</p>
-                <h3 className="memorial-name">{selectedVeteran.name}</h3>
-                <p>{selectedVeteran.city}</p>
-                <p>{selectedVeteran.branch}</p>
-                <p>{selectedVeteran.years}</p>
-              </div>
-            </div>
-          </div>
+      {formOpen && (
+        <div className="modal-backdrop" onClick={() => setFormOpen(false)}>
+          <section className="modal form-modal" onClick={(event) => event.stopPropagation()} aria-modal="true" role="dialog" aria-label="Submit a Hometown Hero">
+            <button className="close" onClick={() => setFormOpen(false)} aria-label="Close">×</button>
+            <h2>Submit a Hometown Hero</h2>
+            <p>Help us honor a veteran from our community. Submissions are reviewed before publication.</p>
+            <form action="https://formsubmit.co/thefrontporch606@gmail.com" method="POST" encType="multipart/form-data" className="submission-form">
+              <input type="hidden" name="_subject" value="New Hometown Hero Submission" />
+              <input name="rank" placeholder="Rank" />
+              <input name="name" placeholder="Full name" required />
+              <input name="city" placeholder="City / hometown" required />
+              <input name="branch" placeholder="Branch of service" required />
+              <input name="campaign" placeholder="Campaign, era, or conflict" />
+              <input name="years" placeholder="Service dates, if known" />
+              <input type="file" name="photo" accept="image/*" />
+              <button type="submit" className="primary-button">Honor This Hero</button>
+            </form>
+          </section>
         </div>
       )}
 
       <style jsx>{`
-        .heroes-page {
-          min-height: 100vh;
-          background: linear-gradient(180deg, #f8f8f8 0%, #ececec 100%);
-          color: #111;
-        }
-
-        .hero-header {
-          position: relative;
-          overflow: hidden;
-          padding: 18px 18px 26px;
-          text-align: center;
-          background:
-            linear-gradient(
-              180deg,
-              #ffffff 0%,
-              #f8f4f4 10%,
-              #ecd7d4 20%,
-              #c98a82 34%,
-              #a84f44 48%,
-              #7f2f2f 60%,
-              #4d2544 74%,
-              #223a5c 88%,
-              #112547 100%
-            );
-          border-bottom: 5px solid #d1b443;
-          box-shadow:
-            inset 0 -32px 60px rgba(0, 0, 0, 0.18),
-            inset 0 20px 40px rgba(255, 255, 255, 0.08);
-        }
-
-        .hero-header::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.68), transparent 24%),
-            radial-gradient(circle at 20% 22%, rgba(255, 255, 255, 0.08), transparent 18%),
-            radial-gradient(circle at 80% 24%, rgba(255, 255, 255, 0.06), transparent 18%),
-            repeating-linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0.035) 0px,
-              rgba(255, 255, 255, 0.035) 12px,
-              rgba(255, 255, 255, 0.008) 12px,
-              rgba(255, 255, 255, 0.008) 24px
-            );
-          pointer-events: none;
-        }
-
-        .hero-overlay {
-          position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.16), transparent 22%),
-            radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.12), transparent 20%),
-            radial-gradient(circle at center, rgba(255, 255, 255, 0.04), transparent 40%);
-          pointer-events: none;
-        }
-
-        .hero-inner {
-          position: relative;
-          z-index: 2;
-          max-width: 1380px;
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .logo-wrap {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 2px;
-        }
-
-        .hero-logo {
-          width: auto;
-          height: auto;
-          max-width: 430px;
-          object-fit: contain;
-          display: block;
-          filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.22));
-        }
-
-        .salutes-wrap {
-          margin-bottom: 2px;
-        }
-
-        .salutes-text {
-          margin: 0;
-          color: #ffffff;
-          font-size: clamp(3rem, 5.6vw, 4.6rem);
-          font-family: "Brush Script MT", "Lucida Handwriting", cursive;
-          font-weight: 700;
-          letter-spacing: 0.02em;
-          text-shadow:
-            0 4px 14px rgba(0, 0, 0, 0.42),
-            0 0 14px rgba(255, 255, 255, 0.18);
-          text-align: center;
-          line-height: 1;
-        }
-
-        .title-image-wrap {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          margin-top: -2px;
-          margin-bottom: 8px;
-        }
-
-        .title-image {
-          display: block;
-          width: min(100%, 900px);
-          max-width: 100%;
-          height: auto;
-          filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
-        }
-
-        .branches-row {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          margin-top: 2px;
-          margin-bottom: 16px;
-        }
-
-        .branches-row img {
-          display: block;
-          width: min(100%, 920px);
-          height: auto;
-          max-width: 100%;
-          opacity: 0.98;
-          filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
-        }
-
-        .submit-hero-btn {
-          background:
-            linear-gradient(135deg, #d9b84a 0%, #f4dc87 22%, #c79a19 54%, #e5c75d 100%);
-          color: #0f2447;
-          border: 2px solid rgba(255, 255, 255, 0.42);
-          border-radius: 999px;
-          padding: 16px 34px;
-          font-size: 1.08rem;
-          font-weight: 900;
-          letter-spacing: 0.03em;
-          cursor: pointer;
-          box-shadow:
-            0 14px 30px rgba(0, 0, 0, 0.24),
-            0 0 24px rgba(209, 180, 67, 0.2);
-          transition:
-            transform 0.22s ease,
-            box-shadow 0.22s ease,
-            filter 0.22s ease;
-        }
-
-        .submit-hero-btn:hover {
-          transform: translateY(-3px);
-          filter: brightness(1.04);
-          box-shadow:
-            0 18px 34px rgba(0, 0, 0, 0.28),
-            0 0 28px rgba(209, 180, 67, 0.26);
-        }
-
-        .wall-section {
-          max-width: 1500px;
-          margin: 0 auto;
-          padding: 42px 20px 24px;
-        }
-
-        .second-section {
-          padding-top: 8px;
-          padding-bottom: 80px;
-        }
-
-        .quote-heading {
-          margin: 0 0 30px;
-          text-align: center;
-          font-size: clamp(1.75rem, 3.5vw, 2.8rem);
-          line-height: 1.45;
-          color: #1f3558;
-          font-style: italic;
-          font-weight: 900;
-          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
-
-        .veteran-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 22px;
-        }
-
-        .veteran-card {
-          width: 100%;
-          background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
-          border: 1px solid rgba(31, 53, 88, 0.12);
-          border-radius: 18px;
-          overflow: hidden;
-          padding: 0;
-          text-align: center;
-          cursor: pointer;
-          box-shadow:
-            0 10px 26px rgba(0, 0, 0, 0.08),
-            0 0 0 rgba(209, 180, 67, 0);
-          transition:
-            transform 0.24s ease,
-            box-shadow 0.24s ease,
-            border-color 0.24s ease;
-        }
-
-        .veteran-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(209, 180, 67, 0.7);
-          box-shadow:
-            0 18px 42px rgba(0, 0, 0, 0.14),
-            0 0 26px rgba(209, 180, 67, 0.2);
-        }
-
-        .kia-card {
-          box-shadow:
-            0 10px 26px rgba(0, 0, 0, 0.08),
-            0 0 18px rgba(255, 255, 255, 0.08);
-        }
-
-        .placeholder-card {
-          border-style: dashed;
-        }
-
-        .image-wrap {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 1 / 1;
-          background: #d7d7d7;
-          overflow: hidden;
-        }
-
-        .kia-light {
-          position: absolute;
-          bottom: -16%;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 94%;
-          height: 92%;
-          background: radial-gradient(
-            ellipse at bottom,
-            rgba(255, 244, 210, 0.75) 0%,
-            rgba(255, 244, 210, 0.34) 34%,
-            rgba(255, 255, 255, 0.14) 58%,
-            rgba(255, 255, 255, 0) 100%
-          );
-          filter: blur(6px);
-          pointer-events: none;
-          z-index: 2;
-        }
-
-        .placeholder-image {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background:
-            linear-gradient(135deg, rgba(31, 53, 88, 0.92) 0%, rgba(180, 69, 55, 0.9) 100%);
-          color: #ffffff;
-          text-align: center;
-          padding: 16px;
-          font-weight: 800;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-        }
-
-        .modal-placeholder {
-          min-height: 100%;
-          font-size: 1.2rem;
-        }
-
-        .image-glow {
-          position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(to top, rgba(15, 36, 71, 0.18), transparent 35%),
-            radial-gradient(circle at top center, rgba(255, 255, 255, 0.2), transparent 35%);
-          pointer-events: none;
-          z-index: 3;
-        }
-
-        .veteran-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-
-        .veteran-info {
-          padding: 14px 12px 16px;
-          min-height: 154px;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-        }
-
-        .veteran-info p {
-          margin: 4px 0;
-          color: #111;
-          font-size: 0.95rem;
-          line-height: 1.35;
-          font-weight: 500;
-        }
-
-        .veteran-info .name {
-          font-size: 1.05rem;
-          font-weight: 900;
-          color: #0f2447;
-        }
-
-        .modal-backdrop {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.68);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 20px;
-          z-index: 9999;
-        }
-
-        .modal {
-          position: relative;
-          width: 100%;
-          max-width: 760px;
-          background: #ffffff;
-          border-radius: 24px;
-          overflow: hidden;
-          box-shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
-        }
-
-        .patriotic-form-modal {
-          border: 3px solid rgba(209, 180, 67, 0.65);
-        }
-
-        .form-top-accent {
-          height: 14px;
-          background:
-            linear-gradient(
-              90deg,
-              #1f3558 0%,
-              #1f3558 33.333%,
-              #ffffff 33.333%,
-              #ffffff 66.666%,
-              #b44537 66.666%,
-              #b44537 100%
-            );
-        }
-
-        .close-btn {
-          position: absolute;
-          top: 14px;
-          right: 14px;
-          width: 42px;
-          height: 42px;
-          border: none;
-          border-radius: 50%;
-          background: #f3f3f3;
-          color: #111;
-          font-size: 1.8rem;
-          cursor: pointer;
-          z-index: 2;
-        }
-
-        .modal-title {
-          margin: 22px 24px 10px;
-          text-align: center;
-          font-size: 1.9rem;
-          font-weight: 900;
-          color: #0f2447;
-        }
-
-        .modal-subtitle {
-          margin: 0 24px 20px;
-          text-align: center;
-          color: #333;
-          font-size: 1rem;
-          line-height: 1.6;
-        }
-
-        .hero-form {
-          padding: 0 24px 26px;
-        }
-
-        .form-grid {
-          display: grid;
-          gap: 14px;
-        }
-
-        .form-grid input {
-          width: 100%;
-          padding: 14px 16px;
-          border: 1px solid #d7d7d7;
-          border-radius: 12px;
-          background: #fff;
-          color: #111;
-          font-size: 1rem;
-        }
-
-        .form-grid input:focus {
-          outline: none;
-          border-color: #1f3558;
-          box-shadow: 0 0 0 3px rgba(31, 53, 88, 0.09);
-        }
-
-        .form-submit-btn {
-          margin-top: 18px;
-          width: 100%;
-          border: none;
-          border-radius: 14px;
-          padding: 16px 18px;
-          background:
-            linear-gradient(135deg, #1f3558 0%, #284978 42%, #b44537 100%);
-          color: #ffffff;
-          font-size: 1.03rem;
-          font-weight: 900;
-          letter-spacing: 0.03em;
-          cursor: pointer;
-          box-shadow: 0 14px 24px rgba(31, 53, 88, 0.18);
-          transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease,
-            filter 0.2s ease;
-        }
-
-        .form-submit-btn:hover {
-          transform: translateY(-2px);
-          filter: brightness(1.03);
-          box-shadow: 0 18px 30px rgba(31, 53, 88, 0.22);
-        }
-
-        .memorial-modal {
-          max-width: 920px;
-          background: linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
-          border: 3px solid rgba(209, 180, 67, 0.7);
-        }
-
-        .memorial-content {
-          display: grid;
-          grid-template-columns: 1.05fr 1fr;
-          align-items: stretch;
-        }
-
-        .memorial-image-wrap {
-          background: #d7d7d7;
-          min-height: 380px;
-        }
-
-        .memorial-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-
-        .memorial-text {
-          padding: 38px 30px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          background:
-            linear-gradient(180deg, rgba(31, 53, 88, 0.05) 0%, rgba(180, 69, 55, 0.03) 100%);
-        }
-
-        .memorial-campaign {
-          margin: 0 0 10px;
-          color: #b44537;
-          font-size: 1rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-
-        .memorial-name {
-          margin: 0 0 16px;
-          color: #0f2447;
-          font-size: 2rem;
-          line-height: 1.15;
-          font-weight: 900;
-        }
-
-        .memorial-text p {
-          margin: 6px 0;
-          color: #222;
-          font-size: 1.04rem;
-          line-height: 1.5;
-        }
-
-        @media (max-width: 900px) {
-          .hero-header {
-            padding: 14px 14px 24px;
-          }
-
-          .hero-logo {
-            max-width: 340px;
-          }
-
-          .salutes-text {
-            font-size: 3.45rem;
-          }
-
-          .title-image {
-            width: 100%;
-            max-width: 760px;
-          }
-
-          .branches-row img {
-            width: 100%;
-            max-width: 980px;
-          }
-
-          .quote-heading {
-            font-size: clamp(2.1rem, 5.5vw, 3.1rem);
-          }
-
-          .veteran-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-          }
-
-          .veteran-info {
-            padding: 10px 8px 12px;
-            min-height: 126px;
-          }
-
-          .veteran-info p {
-            font-size: 0.68rem;
-            line-height: 1.2;
-            margin: 3px 0;
-          }
-
-          .veteran-info .name {
-            font-size: 0.76rem;
-          }
-
-          .modal {
-            max-width: 100%;
-          }
-
-          .memorial-content {
-            grid-template-columns: 1fr;
-          }
-
-          .memorial-image-wrap {
-            min-height: 280px;
-          }
-
-          .memorial-text {
-            padding: 24px 20px 26px;
-          }
-
-          .memorial-name {
-            font-size: 1.5rem;
-          }
-
-          .modal-title {
-            font-size: 1.55rem;
-            margin-top: 26px;
-          }
-
-          .modal-subtitle {
-            font-size: 0.96rem;
-          }
-        }
+        .page-shell{min-height:100vh;background:#f2f3f5;color:#17212b}.masthead{text-align:center;padding:28px 18px 34px;background:linear-gradient(#fff 0%,#d8aaa3 32%,#8d3940 58%,#17375d 100%);border-bottom:5px solid #d0b44a}.logo{width:min(430px,90vw);height:auto}.salutes{margin:0;color:#fff;font-size:clamp(22px,4vw,36px);font-weight:800;text-shadow:0 2px 8px #000}.title-art{width:min(760px,94vw);margin:0 auto}.branches{width:min(660px,90vw);margin:14px auto 22px}.primary-button,.search-form button{border:0;border-radius:999px;padding:13px 22px;background:#a51e2c;color:#fff;font-weight:800;cursor:pointer}.search-section{padding:24px 16px;background:#102f4e;color:#fff}.search-inner{max-width:760px;margin:auto;text-align:center}.search-inner h1{margin:0 0 6px;font-size:clamp(22px,4vw,32px)}.search-inner p{margin:0 0 14px;color:#dbe6ef}.search-form{display:grid;grid-template-columns:1fr auto;gap:8px}.search-form input{min-width:0;padding:14px 16px;border:2px solid transparent;border-radius:12px;font-size:16px}.search-form input:focus{outline:none;border-color:#d0b44a}.results{display:grid;gap:6px;margin-top:8px;padding:8px;background:#fff;border-radius:12px;color:#17212b;text-align:left}.results button{padding:11px;border:0;border-radius:8px;background:#eef3f8;text-align:left;font-weight:700;cursor:pointer}.results p{margin:4px;color:#5b6772}.wall-section{padding:34px 16px}.wall-section h2{max-width:1050px;margin:0 auto 24px;text-align:center;font-family:Georgia,serif;font-size:clamp(19px,3vw,28px)}.veterans-section{background:#e6e9ed}.grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}.hero-card{scroll-margin-top:120px;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(15,35,55,.12);overflow:hidden;border:2px solid transparent;transition:.25s}.hero-card.fallen{border-color:#c3a445}.hero-card.highlighted{border-color:#c51f36;box-shadow:0 0 0 6px rgba(197,31,54,.2),0 16px 36px rgba(15,35,55,.2);transform:translateY(-4px)}.card-main{display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer;color:inherit}.photo-wrap{aspect-ratio:4/5;background:#d9dee4;overflow:hidden}.photo-wrap img{width:100%;height:100%;object-fit:cover}.photo-placeholder{height:100%;display:grid;place-items:center;color:#5b6772}.card-copy{padding:17px;text-align:center}.rank{margin:0 0 3px;font-weight:900;letter-spacing:.08em;color:#8e1f2e}.card-copy h3{margin:0 0 10px;font-size:1.35rem}.card-copy p:not(.rank){margin:5px 0;font-size:.94rem}.modal-backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:18px;background:rgba(5,16,27,.78)}.modal{position:relative;width:min(620px,100%);max-height:92vh;overflow:auto;padding:26px;border-radius:18px;background:#fff;text-align:center}.close{position:absolute;right:12px;top:8px;border:0;background:transparent;font-size:34px;cursor:pointer}.modal-photo{width:min(280px,100%);aspect-ratio:4/5;object-fit:cover;border-radius:14px;margin:0 auto 18px}.modal h2{margin:2px 0 12px}.modal p{margin:6px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:20px}.actions button,.actions a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px;border:1px solid #cbd5df;border-radius:10px;background:#f4f7fa;color:#17375d;text-decoration:none;font-weight:700;cursor:pointer}.submission-form{display:grid;gap:10px;margin-top:18px}.submission-form input{padding:13px;border:1px solid #cbd5df;border-radius:9px;font-size:16px}@media(max-width:600px){.search-form{grid-template-columns:1fr}.actions{grid-template-columns:1fr}.masthead{padding-top:18px}.wall-section{padding:28px 12px}}@media print{.masthead,.search-section,.wall-section,.close,.actions{display:none}.modal-backdrop{position:static;background:#fff}.modal{box-shadow:none;max-height:none}}
       `}</style>
-    </>
+    </main>
   );
 }
