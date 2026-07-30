@@ -10,18 +10,14 @@ const pathways = [
 export default function HomePage() {
   return (
     <main id="main-content" className={styles.homePage}>
-      <section className={styles.landingHero} aria-label="The Front Porch">
-        <div className={styles.landingShade} />
-        <img src="/frontporch-logo.PNG" alt="The Front Porch Veterans Nonprofit" className={styles.landingLogo} />
-        <p className={styles.landingTagline}>Proudly supports Southeastern Kentucky&apos;s veterans</p>
-        <nav className={styles.landingNav} aria-label="Landing page navigation">
-          <Link href="/">Home</Link>
-          <Link href="/veteran-support">Veteran Support Request</Link>
-          <Link href="/veteran-resources">Veteran Resources</Link>
-          <Link href="/hometown-heroes">Hometown Heroes</Link>
-          <Link href="/shop">Shop</Link>
-          <a href="https://givebutter.com/donate-to-the-front-porch-nebqxb" target="_blank" rel="noreferrer">Donate</a>
-        </nav>
+      <section className={styles.brandNav} aria-label="The Front Porch main navigation">
+        <img src="/frontporch-nav.PNG" alt="The Front Porch proudly supports Southeastern Kentucky veterans" className={styles.brandNavImage} />
+        <Link href="/" className={`${styles.hotspot} ${styles.homeHotspot}`} aria-label="Home" />
+        <Link href="/veteran-support" className={`${styles.hotspot} ${styles.supportHotspot}`} aria-label="Veteran Support Request" />
+        <Link href="/veteran-resources" className={`${styles.hotspot} ${styles.resourcesHotspot}`} aria-label="Veteran Resources" />
+        <Link href="/hometown-heroes" className={`${styles.hotspot} ${styles.heroesHotspot}`} aria-label="Hometown Heroes" />
+        <Link href="/shop" className={`${styles.hotspot} ${styles.shopHotspot}`} aria-label="Shop" />
+        <a href="https://givebutter.com/donate-to-the-front-porch-nebqxb" target="_blank" rel="noreferrer" className={`${styles.hotspot} ${styles.donateHotspot}`} aria-label="Donate" />
       </section>
 
       <div className={styles.crisisRow}>
