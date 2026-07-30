@@ -7,17 +7,17 @@ export async function GET() {
   try {
     const binary = atob(resourceDataPart1 + resourceDataPart2);
     const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
-    const json = await new Response(stream).text();
 
-    return new Response(json, {
+    return new Response(bytes, {
       headers: {
         "content-type": "application/json; charset=utf-8",
+        "content-encoding": "gzip",
         "cache-control": "public, max-age=3600, s-maxage=86400",
+        "vary": "accept-encoding",
       },
     });
   } catch (error) {
-    console.error("Veteran resource data could not be decompressed", error);
+    console.error("Veteran resource data could not be served", error);
     return Response.json({ error: "Resource directory unavailable" }, { status: 500 });
   }
 }
