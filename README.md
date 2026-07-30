@@ -230,3 +230,5 @@ Before large deletions:
 ## Long-term direction
 
 The Front Porch should evolve from a directory into a navigation platform where a Veteran describes the problem and receives the strongest available local, regional, state, and federal pathways. The architecture should support resource relationships, guided search, maps, favorites, verification workflows, and future expansion beyond Kentucky without requiring a rebuild.
+
+<!-- Cloudflare preview deployment trigger: 2026-07-30 -->
