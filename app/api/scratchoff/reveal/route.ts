@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ALL_SYMBOLS, prizeByCode, PrizeCode } from "@/lib/prizes";
 
+export const runtime = "edge";
+
 function randomItem<T>(items: T[]): T {
   return items[Math.floor(Math.random() * items.length)];
 }
