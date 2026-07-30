@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <main id="main-content" className={styles.homePage}>
       <section className={styles.brandNav} aria-label="The Front Porch main navigation">
-        <img src="/frontporch-nav.PNG" alt="The Front Porch proudly supports Southeastern Kentucky veterans" className={styles.brandNavImage} />
+        <img src="/frontporch-sunrise.svg" alt="The Front Porch proudly supports Southeastern Kentucky veterans" className={styles.brandNavImage} />
         <Link href="/" className={`${styles.hotspot} ${styles.homeHotspot}`} aria-label="Home" />
         <Link href="/veteran-support" className={`${styles.hotspot} ${styles.supportHotspot}`} aria-label="Veteran Support Request" />
         <Link href="/veteran-resources" className={`${styles.hotspot} ${styles.resourcesHotspot}`} aria-label="Veteran Resources" />
