@@ -7,19 +7,22 @@ const pathways = [
   { title: "I want to honor a veteran", description: "Visit Hometown Heroes to remember the fallen and recognize veterans from our communities.", href: "/hometown-heroes", label: "Visit Hometown Heroes" },
 ];
 
+const landingNavigation = [
+  { label: "Home", href: "/" },
+  { label: "Veteran Support Request", href: "/veteran-support" },
+  { label: "Veteran Resources", href: "/veteran-resources" },
+  { label: "Hometown Heroes", href: "/hometown-heroes" },
+  { label: "Shop", href: "/shop" },
+];
+
 export default function HomePage() {
   return (
     <main id="main-content" className={styles.homePage}>
-      <section className={styles.hero} aria-label="The Front Porch">
-        <div className={styles.heroCrop}>
-          <img src="/frontporch-nav.PNG" alt="The Front Porch proudly supports Southeastern Kentucky veterans" className={styles.heroImage} />
-        </div>
-        <nav className={styles.heroNav} aria-label="Primary landing page navigation">
-          <Link href="/">Home</Link>
-          <Link href="/veteran-support">Veteran Support Request</Link>
-          <Link href="/veteran-resources">Veteran Resources</Link>
-          <Link href="/hometown-heroes">Hometown Heroes</Link>
-          <Link href="/shop">Shop</Link>
+      <section className={styles.landingHero} aria-label="The Front Porch">
+        <nav className={styles.landingNav} aria-label="Landing page navigation">
+          {landingNavigation.map((item) => (
+            <Link key={item.href} href={item.href}>{item.label}</Link>
+          ))}
           <a href="https://givebutter.com/donate-to-the-front-porch-nebqxb" target="_blank" rel="noreferrer">Donate</a>
         </nav>
       </section>
@@ -35,12 +38,26 @@ export default function HomePage() {
         <div className={styles.sectionInner}>
           <p className={`${styles.eyebrow} ${styles.eyebrowDark}`}>Start here</p>
           <h1 id="start-here-title">What do you need today?</h1>
-          <div className={styles.pathways}>{pathways.map((pathway) => <article className={styles.card} key={pathway.title}><h2>{pathway.title}</h2><p>{pathway.description}</p><Link href={pathway.href}>{pathway.label} →</Link></article>)}</div>
+          <div className={styles.pathways}>
+            {pathways.map((pathway) => (
+              <article className={styles.card} key={pathway.title}>
+                <h2>{pathway.title}</h2>
+                <p>{pathway.description}</p>
+                <Link href={pathway.href}>{pathway.label} →</Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className={styles.callout} aria-labelledby="callout-title">
-        <div className={`${styles.sectionInner} ${styles.calloutInner}`}><div><p className={styles.eyebrow}>The Front Porch</p><h2 id="callout-title">No Veteran Should Ever Run Out of Places to Turn.</h2></div><Link className={`${styles.button} ${styles.buttonLight}`} href="/veteran-resources">Find a resource</Link></div>
+        <div className={`${styles.sectionInner} ${styles.calloutInner}`}>
+          <div>
+            <p className={styles.eyebrow}>The Front Porch</p>
+            <h2 id="callout-title">No Veteran Should Ever Run Out of Places to Turn.</h2>
+          </div>
+          <Link className={`${styles.button} ${styles.buttonLight}`} href="/veteran-resources">Find a resource</Link>
+        </div>
       </section>
     </main>
   );
