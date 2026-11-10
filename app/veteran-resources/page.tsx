@@ -1,12 +1,9 @@
 import Link from "next/link";
-import { gunzipSync } from "node:zlib";
-import { resourceDataPart1 } from "@/lib/veteran-resources/compressed-part1";
-import { resourceDataPart2 } from "@/lib/veteran-resources/compressed-part2";
+import directory from "@/lib/veteran-resources/directory.json";
 import type { VeteranResource, VeteranResourceCategory } from "@/lib/veteran-resources/types";
 
 function loadResources(): VeteranResourceCategory[] {
-  const compressed = Buffer.from(resourceDataPart1 + resourceDataPart2, "base64");
-  return JSON.parse(gunzipSync(compressed).toString("utf8")) as VeteranResourceCategory[];
+  return directory as VeteranResourceCategory[];
 }
 
 function phoneHref(phone: string) {
