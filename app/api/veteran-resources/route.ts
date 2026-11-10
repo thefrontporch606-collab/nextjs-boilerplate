@@ -1,5 +1,7 @@
 import directory from "@/lib/veteran-resources/directory.json";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   return Response.json(directory, {
     headers: {
