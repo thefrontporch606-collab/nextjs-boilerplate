@@ -36,3 +36,49 @@ export function groupHeroes(records: readonly Veteran[]) {
   for (const hero of records) grouped[heroGroup(hero)].push(hero);
   return grouped;
 }
+
+export const branchFilters = [
+  { id: "all", label: "All" },
+  { id: "army", label: "Army" },
+  { id: "marines", label: "Marines" },
+  { id: "navy", label: "Navy" },
+  { id: "air-force", label: "Air Force" },
+  { id: "coast-guard", label: "Coast Guard" },
+  { id: "space-force", label: "Space Force" },
+] as const;
+
+export type BranchId = Exclude<(typeof branchFilters)[number]["id"], "all">;
+
+export const emblems: Record<BranchId, { src: string; alt: string }> = {
+  army: { src: "/hometown-heroes/emblems/army.png", alt: "U.S. Army emblem" },
+  marines: { src: "/hometown-heroes/emblems/marines.png", alt: "U.S. Marine Corps emblem" },
+  navy: { src: "/hometown-heroes/emblems/navy.png", alt: "U.S. Navy emblem" },
+  "air-force": { src: "/hometown-heroes/emblems/air-force.png", alt: "U.S. Air Force emblem" },
+  "coast-guard": { src: "/hometown-heroes/emblems/coast-guard.png", alt: "U.S. Coast Guard emblem" },
+  "space-force": { src: "/hometown-heroes/emblems/space-force.png", alt: "U.S. Space Force emblem" },
+};
+
+export function branchId(branch: string): BranchId | null {
+  const value = branch.toLowerCase();
+  if (value.includes("marine")) return "marines";
+  if (value.includes("coast guard")) return "coast-guard";
+  if (value.includes("air force")) return "air-force";
+  if (value.includes("space force")) return "space-force";
+  if (value.includes("army")) return "army";
+  if (value.includes("navy")) return "navy";
+  return null;
+}
+
+/** Card detail line. Published wording is kept; Steely's location is joined from the existing campaign field. */
+export function detailLine(hero: Veteran): string {
+  if (!hero.fallen) return [hero.campaign, hero.years].filter(Boolean).join(" · ");
+  const withoutMarkers = hero.years
+    .replace(/KIA/gi, "")
+    .replace(/age\s*\d+/gi, "")
+    .replace(/[\d/•\-–—.,]/g, "")
+    .trim();
+  if (!withoutMarkers && hero.campaign) {
+    return `KIA ${hero.campaign} · ${hero.years.replace(/^KIA\s*/i, "")}`;
+  }
+  return hero.years;
+}
