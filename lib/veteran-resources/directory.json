@@ -122,6 +122,15 @@
             "website": "https://department.va.gov/board-of-veterans-appeals/",
             "address": "810 Vermont Ave., NW, Washington, DC 20420",
             "note": "The Board's official site directs general benefits questions to 1-800-827-1000. Appeals are filed through VA.gov."
+          },
+          {
+            "name": "PACT Act — Toxic Exposure & Burn Pit Benefits",
+            "desc": "The PACT Act expanded VA health care and disability benefits for veterans exposed to burn pits, Agent Orange, radiation, and other toxic hazards. Apply for benefits or ask about eligibility on VA.gov.",
+            "phone": "1-800-827-1000",
+            "email": "",
+            "website": "https://www.va.gov/resources/the-pact-act-and-your-va-benefits/",
+            "address": "",
+            "note": "The official PACT Act benefits page does not list a separate hotline; use the VA main benefits line or Ask VA."
           }
         ]
       ]
@@ -331,6 +340,78 @@
             "website": "https://vfwky.org/di/vfw/v2/postroster.asp",
             "address": "Hwy 686, Manchester, KY 40962",
             "note": "Contact details from the official VFW Department of Kentucky post roster. Meetings: 1st Sunday at 2:00 p.m. Address is listed on the official VFW Kentucky roster as Hwy 686, Manchester."
+          },
+          {
+            "name": "American Legion Post 126 (Corbie Ellington) — Morehead, KY (Rowan County)",
+            "desc": "American Legion post serving Morehead / Rowan County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 783-1812",
+            "email": "",
+            "website": "https://www.kylegion.org/files/KY_POST_NAMES_AND_LOCATIONS_2023.pdf",
+            "address": "156 Old Cranston Rd, Morehead, KY 40351",
+            "note": "Contact details from the official American Legion Department of Kentucky 2023 Names and Locations of Posts roster (mailing: PO Box 58, Morehead, KY 40351)."
+          },
+          {
+            "name": "American Legion Post 152 (Douglas Day) — Whitesburg, KY (Letcher County)",
+            "desc": "American Legion post serving Whitesburg / Letcher County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 403-1258",
+            "email": "",
+            "website": "https://www.kylegion.org/files/KY_POST_NAMES_AND_LOCATIONS_2023.pdf",
+            "address": "142 Douglas Day Dr, Whitesburg, KY 41858",
+            "note": "Contact details from the official American Legion Department of Kentucky 2023 Names and Locations of Posts roster."
+          },
+          {
+            "name": "American Legion Post 283 (John B. Reynolds) — Martin, KY (Floyd County)",
+            "desc": "American Legion post serving Martin / Floyd County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 285-3357",
+            "email": "",
+            "website": "https://www.kylegion.org/files/KY_POST_NAMES_AND_LOCATIONS_2023.pdf",
+            "address": "1089 S. Main St, Martin, KY 41649",
+            "note": "Contact details from the official American Legion Department of Kentucky 2023 Names and Locations of Posts roster (mailing: PO Box 1289, Martin, KY 41649). A Gemini list had a different street number (1289 Main St); the official roster address is used here."
+          },
+          {
+            "name": "VFW Post 5839 — Walter Karr Bowling Post, Prestonsburg, KY (Floyd County)",
+            "desc": "Veterans of Foreign Wars post serving Prestonsburg / Floyd County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 886-9428",
+            "email": "",
+            "website": "https://vfwky.org/di/vfw/v2/postroster.asp",
+            "address": "3106 S Lake Dr, Prestonsburg, KY 41653",
+            "note": "Contact details from the official VFW Department of Kentucky post roster. Meetings: 2nd Thursday at 8:00 p.m."
+          },
+          {
+            "name": "VFW Post 3769 — Pike County Memorial Post, Pikeville, KY",
+            "desc": "Veterans of Foreign Wars post serving Pikeville / Pike County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 367-2587",
+            "email": "",
+            "website": "https://vfwky.org/di/vfw/v2/postroster.asp",
+            "address": "119 2nd St, Pikeville, KY 41501",
+            "note": "Contact details from the official VFW Department of Kentucky post roster. Meetings: 2nd Saturday at 2:00 p.m."
+          },
+          {
+            "name": "VFW Post 5829 — Whitesburg Post, Whitesburg, KY (Letcher County)",
+            "desc": "Veterans of Foreign Wars post serving Whitesburg / Letcher County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 633-8877",
+            "email": "",
+            "website": "https://vfwky.org/di/vfw/v2/postroster.asp",
+            "address": "PO Box 37, Whitesburg, KY 41858",
+            "note": "Contact details from the official VFW Department of Kentucky post roster. The roster lists the meeting location as this P.O. Box address. Meetings: 1st Wednesday at 6:00 p.m."
+          },
+          {
+            "name": "VFW Post 11296 — Three Forks Post, Beattyville, KY (Lee County)",
+            "desc": "Veterans of Foreign Wars post serving Beattyville / Lee County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 464-2109",
+            "email": "",
+            "website": "https://vfwky.org/di/vfw/v2/postroster.asp",
+            "address": "53 Pleasant Flat School Rd, Beattyville, KY 41311",
+            "note": "Contact details from the official VFW Department of Kentucky post roster. Meetings: 1st Monday at 7:00 p.m."
+          },
+          {
+            "name": "VFW Post 6103 — Big Sandy Post, Louisa, KY (Lawrence County)",
+            "desc": "Veterans of Foreign Wars post serving Louisa / Lawrence County — fellowship, community programs, and local veteran support.",
+            "phone": "(606) 638-0096",
+            "email": "",
+            "website": "https://vfwky.org/di/vfw/v2/postroster.asp",
+            "address": "113 South Madison St, Louisa, KY 41230",
+            "note": "Contact details from the official VFW Department of Kentucky post roster (meeting address spelled 'Madisom' on the roster; corrected here to Madison). Meetings: 1st Tuesday at 6:00 p.m."
           }
         ]
       ],
@@ -1116,6 +1197,15 @@
             "website": "https://veterans.ky.gov/veterans-trust-fund/Pages/default.aspx",
             "address": "1111B Louisville Road, Frankfort, KY 40601",
             "note": "Submit applications to KDVA.PIO@KY.GOV. This is primarily a program/project grant fund, not an individual emergency-assistance program (see also the Kentucky Homeless Veterans Grant Program)."
+          },
+          {
+            "name": "Kentucky State Parks — Disabled Veteran Lodging & Military Discounts",
+            "desc": "Kentucky residents who are 100% disabled as a direct result of a service-connected incident may receive free lodge, cottage, or campsite lodging for up to three visits per calendar year (three nights per visit), subject to availability. The official deals page also lists a military lodging/camping discount and free camping for Kentucky POWs with a VA-issued POW card.",
+            "phone": "",
+            "email": "",
+            "website": "https://parks.ky.gov/parks/park-listings/deals",
+            "address": "",
+            "note": "Reservations for the 100% disabled-veteran free stay are made by calling the park of choice, no more than 10 days before arrival. Bring the VA disability letter and proof of Kentucky residency. Memorial Day–Labor Day and October stays must start/end Sunday–Thursday. The free accommodation applies only to the room, cottage, or campsite occupied by the veteran."
           }
         ]
       ],
@@ -1194,6 +1284,15 @@
             "website": "https://www.va.gov/lexington-health-care/locations/berea-va-clinic/",
             "address": "209 Pauline Drive, Berea, KY 40403-8889",
             "note": "Hours listed as Monday–Friday, 8:00 a.m. to 4:30 p.m. VA Health Connect: 833-940-1625. TTY: 711."
+          },
+          {
+            "name": "Prestonsburg VA Clinic (Huntington VA Health Care)",
+            "desc": "Community-based outpatient clinic in the Huntington VA Health Care System offering primary care, mental health, women's health, podiatry, laboratory services, and more for veterans in the Prestonsburg / Floyd County area.",
+            "phone": "(606) 886-1970",
+            "email": "",
+            "website": "https://www.va.gov/huntington-health-care/locations/prestonsburg-va-clinic/",
+            "address": "236 North Highland Ave, Prestonsburg, KY 41653-1214",
+            "note": "Address and main phone confirmed on the official VA Prestonsburg clinic page (JSON-LD). An older public listing at 5230 KY Route 321 is outdated; use the North Highland Avenue address."
           }
         ]
       ],
@@ -1289,6 +1388,15 @@
             "website": "https://veterans.ky.gov/Veterans-Centers/Pages/Bowling-Green.aspx",
             "address": "1111 Veterans Way, Bowling Green, KY",
             "note": "Admissions inquiries: Deb Gatto, (270) 535-2346, Deb.Gatto@ky.gov, as listed on the official KDVA page. That page still includes older 'anticipated Spring 2026' language; a KDVA ribbon-cutting announced the facility open on September 29, 2026. Confirm current admission status on the official page."
+          },
+          {
+            "name": "Robley Rex VA Medical Center (Louisville)",
+            "desc": "VA Louisville Health Care System medical center providing primary, specialty, mental health, and hospital care for veterans in Kentucky.",
+            "phone": "(502) 287-4000",
+            "email": "",
+            "website": "https://www.va.gov/louisville-health-care/locations/robley-rex-department-of-veterans-affairs-medical-center/",
+            "address": "800 Zorn Avenue, Louisville, KY 40206-1433",
+            "note": ""
           }
         ]
       ],
@@ -1366,6 +1474,24 @@
             "website": "https://www.tricare.mil/PatientResources/ContactUs/CallUs",
             "address": "",
             "note": "Hours listed on the official TRICARE Call Us page as 8:00 a.m.–6:00 p.m. ET and CT, Monday–Friday. Pharmacy: Express Scripts 1-877-363-1303. DEERS eligibility is listed separately under Veteran Identification."
+          },
+          {
+            "name": "Hershel “Woody” Williams VA Medical Center (Huntington, WV)",
+            "desc": "Regional VA medical center serving eastern Kentucky and neighboring states. The Prestonsburg VA Clinic is part of this health care system.",
+            "phone": "(304) 429-6741",
+            "email": "",
+            "website": "https://www.va.gov/huntington-health-care/locations/hershel-woody-williams-va-medical-center/",
+            "address": "1540 Spring Valley Drive, Huntington, WV 25704-9300",
+            "note": ""
+          },
+          {
+            "name": "James H. Quillen VA Medical Center (Mountain Home, TN)",
+            "desc": "VA Mountain Home Health Care System medical center in Johnson City / Mountain Home, Tennessee, serving veterans in Kentucky's southeastern border counties as well as northeast Tennessee.",
+            "phone": "(423) 926-1171",
+            "email": "",
+            "website": "https://www.va.gov/mountain-home-health-care/locations/james-h-quillen-department-of-veterans-affairs-medical-center/",
+            "address": "Corner of Lamont Street and Veterans Way, Mountain Home, TN 37684",
+            "note": ""
           }
         ]
       ]
@@ -1430,6 +1556,15 @@
             "website": "https://www.lklp.org/",
             "address": "398 Roy Campbell Dr., Hazard, KY 41701",
             "note": ""
+          },
+          {
+            "name": "Veterans Transitional Housing Center (VTHC) — Mountain Comprehensive Care",
+            "desc": "25-unit transitional housing program in Pikeville for veterans experiencing homelessness, with supportive services for up to two years, including case management, benefits help, employment readiness, and mental health and substance use counseling.",
+            "phone": "(606) 639-3178",
+            "email": "",
+            "website": "https://www.mtcomp.org/vthc",
+            "address": "152 Douglas Parkway, Pikeville, KY 41501",
+            "note": "Official Mountain Comprehensive Care Center VTHC page. The program works with the Huntington VA Medical Center. Call before donating items."
           }
         ]
       ],
@@ -1595,6 +1730,15 @@
             "website": "https://yourlegalaid.org/programs",
             "address": "416 W. Muhammad Ali Boulevard, Suite 300, Louisville, KY",
             "note": "Southeastern Kentucky veterans should start with AppalReD Legal Aid (already listed under Local). General Legal Aid Society lines: (502) 584-1254 and 1-800-292-1862."
+          },
+          {
+            "name": "Kentucky Veterans Treatment Court (Specialty Courts)",
+            "desc": "Veterans Treatment Court dockets overseen by the Kentucky Department of Specialty Courts, offering justice-involved veterans structured treatment, supervision, and case management as an alternative path through the court system. Referrals go through the local court / public defender.",
+            "phone": "(502) 573-2350",
+            "email": "",
+            "website": "https://www.kycourts.gov/Court-Programs/Specialty-Courts/Pages/default.aspx",
+            "address": "1001 Vandalay Drive, Frankfort, KY 40601",
+            "note": "Phone and Frankfort address are published on the official Kentucky Court of Justice Specialty Courts page (Administrative Office of the Courts). Ask a local public defender or court about veterans treatment court availability in your county."
           }
         ]
       ],
@@ -1617,6 +1761,20 @@
   {
     "title": "11. Special Programs & National Nonprofit Organizations",
     "groups": [
+      [
+        "State",
+        [
+          {
+            "name": "Veterans Club Inc.",
+            "desc": "Kentucky nonprofit offering connection, healing and recovery programs, housing assistance, and vocational training for veterans and first responders, including equine-assisted and community events.",
+            "phone": "(502) 487-1464",
+            "email": "",
+            "website": "https://veteransclubinc.org/",
+            "address": "4218 Shelbyville Road, Louisville, KY 40207",
+            "note": "Address and phone confirmed on the official Veterans Club Inc. contact page."
+          }
+        ]
+      ],
       [
         "National",
         [
@@ -1869,6 +2027,92 @@
     "title": "14. Veteran Identification & Records",
     "groups": [
       [
+        "Local",
+        [
+          {
+            "name": "KYTC Driver Licensing Regional Office — London",
+            "desc": "Regional KYTC driver licensing office in London for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "845A South Main Street, Carnaby Square Shopping Center, London, KY 40741",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation. A Gemini list used 845 S Main St; the official flyer lists 845A South Main Street."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Somerset",
+            "desc": "Regional KYTC driver licensing office in Somerset for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "650 North Main Street, Suite 240, Somerset, KY 42501",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Pineville (Bell County)",
+            "desc": "Regional KYTC driver licensing office in Pineville for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "101 Courthouse Square, 2nd Floor, Pineville, KY 40977",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Manchester (Clay County)",
+            "desc": "Regional KYTC driver licensing office in Manchester for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "25 Marcum Hill Road, Manchester, KY 40962",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation. A Gemini list used 102 Richmond Rd; the official flyer lists 25 Marcum Hill Road."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Prestonsburg",
+            "desc": "Regional KYTC driver licensing office in Prestonsburg for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "3140 South Lake Drive, Suite 5, Prestonsburg, KY 41653",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation. A Gemini list used 149 S Central Ave; the official flyer lists 3140 South Lake Drive, Suite 5."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Pikeville",
+            "desc": "Regional KYTC driver licensing office in Pikeville for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "126 Trivette Drive, 2nd Floor, Pikeville, KY 41501",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation. A Gemini list used 146 Main St; the official flyer lists 126 Trivette Drive, 2nd Floor."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Morehead",
+            "desc": "Regional KYTC driver licensing office in Morehead for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "126 Bradley Avenue, Morehead, KY 40351",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation. A Gemini list used 126 E First St; the official flyer lists 126 Bradley Avenue."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Jackson (Breathitt County)",
+            "desc": "Regional KYTC driver licensing office in Jackson for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "1127 Main Street, Jackson, KY 41339",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation."
+          },
+          {
+            "name": "KYTC Driver Licensing Regional Office — Richmond (Madison County)",
+            "desc": "Regional KYTC driver licensing office in Richmond for REAL ID, standard license/ID issuance and renewal, and the official Kentucky VETERAN designation stamp.",
+            "phone": "(502) 564-1257",
+            "email": "",
+            "website": "https://drive.ky.gov/Pages/Find-an-Office.aspx",
+            "address": "830 Eastern Bypass, Suite A12, Richmond Mall, Richmond, KY 40475",
+            "note": "Address from the official Kentucky Transportation Cabinet Driver Licensing Regional Office location flyer (transportation.ky.gov). Hours on the official drive.ky.gov Find an Office page are Monday–Friday 8:00 a.m.–4:00 p.m. Schedule an appointment at drive.ky.gov; walk-ins are also served. Any Kentucky resident may use any regional office. Bring a DD-214 or VA ID to request the official VETERAN designation on a Kentucky license or ID. The phone is the Kentucky Transportation Cabinet driver-licensing number already published for veteran designation."
+          }
+        ]
+      ],
+      [
         "State",
         [
           {
@@ -1939,6 +2183,15 @@
             "website": "https://veterans.ky.gov",
             "address": "1111B Louisville Rd, Frankfort, KY 40601",
             "note": ""
+          },
+          {
+            "name": "Lady Veterans Connect — Thurman-Abbott House",
+            "desc": "Kentucky nonprofit providing transitional housing and support services for women veterans, including the Thurman-Abbott House in Winchester and an annex in Lexington.",
+            "phone": "(859) 806-4297",
+            "email": "info@ladyveteransconnect.org",
+            "website": "https://www.ladyveteransconnect.org/",
+            "address": "11400 Irvine Road, Winchester, KY 40391",
+            "note": "Contacts confirmed on the official Lady Veterans Connect contact page."
           }
         ]
       ],
@@ -2049,6 +2302,24 @@
             "website": "",
             "address": "220 East 4th Street, London, KY 40741",
             "note": "Address, phone, and soup kitchen hours (11:00 a.m.–1:00 p.m.) published in the Laurel County Health Department official food pantry guide."
+          },
+          {
+            "name": "Helping Hands Food Pantry (Corbin)",
+            "desc": "Local food pantry in the Corbin area serving residents in need, including veterans and their families.",
+            "phone": "(606) 528-9416",
+            "email": "",
+            "website": "",
+            "address": "2386 N Hwy 1223, Corbin, KY 40701",
+            "note": "Address, phone, and hours (Monday and Thursday 10:00 a.m.–12:00 p.m.) published in the Laurel County Health Department official food pantry guide."
+          },
+          {
+            "name": "Laurel County Health Department",
+            "desc": "Local health department providing public health services and maintaining a community resource guide (including food pantries) used by Laurel County residents, including veterans and their families.",
+            "phone": "(606) 864-5187",
+            "email": "laurelcountyhealthdepartment@gmail.com",
+            "website": "https://www.laurelcohealthdept.org/",
+            "address": "525 Whitley Street, London, KY 40741",
+            "note": "Official site also lists (606) 878-7754. Hours: Monday–Friday 8:00 a.m.–4:00 p.m."
           }
         ]
       ]
